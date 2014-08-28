@@ -1,0 +1,34 @@
+\documentclass[12pt]{book}
+\title{The EE351K Manual}
+\author{Hershal Bhave (hb6279)}
+\date{Updated \today}
+
+\usepackage{multicol}
+\usepackage[in]{fullpage}
+\usepackage{xcolor}
+\usepackage{rotating}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{cleveref}
+\usepackage[nosolutionfiles]{answers}
+\usepackage[acronym]{glossaries}
+
+\newcommand{\dd}[1]{\:\mathrm{d}{#1}}
+\newcommand{\ddt}[1]{\frac{\dd{}}{\dd{#1}}}
+\newcommand{\dddt}[1]{\frac{\dd{}^2}{\dd{#1}^2}}
+
+\newenvironment{Ex}{\vspace{1.5em}\hspace{-1.5em}\textbf{Problem}\\}{}
+\Newassociation{solution}{Soln}{Answers}
+\pagebreak[3]
+\newcommand{\Opentesthook}[2]{\Writetofile{#1}{\protect\section{#1: #2}}}
+\renewcommand{\Solnlabel}[1]{\textbf{Solution}\quad}
+
+\makeglossaries
+\begin{document}
+\maketitle
+\tableofcontents
+\chapter{Introduction}
+
+\printglossaries
+\end{document}
+
