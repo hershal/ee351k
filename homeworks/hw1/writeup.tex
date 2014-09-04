@@ -179,10 +179,38 @@
     \begin{enumerate}
     \item $P(A \cap B) \ge P(A)+P(B) - 1$.
     \item $P(A \cup B \cup C) = P(A) + P(B) + P(C) - P(A \cap B) - P(A
-      \cap C)−P(B \cap C) + P(A \cap B \cap C)$
+      \cap C) - P(B \cap C) + P(A \cap B \cap C)$
     \end{enumerate}
     \begin{solution} \hfill
-      {\huge TODO}
+      \begin{enumerate}
+      \item 
+        \begin{equation*}
+          \begin{aligned}
+            P(A \cap B) &\ge P(A) + P(B) - 1 \\
+            1 &\ge P(A) + P(B) - P(A \cap B) \\
+            1 &\ge P(A) \cap P(B) \\
+            1 &\ge P(A \cap B)
+          \end{aligned}
+        \end{equation*}
+        This is true because the union of $A$ and $B$ can contain only
+        contain a set less than or equal to the sample space, so the
+        probability of $A$ or $B$ ocurring is less than or equal to
+        the probability of hitting the entire sample space (1).
+      \item
+        \begin{equation*}
+          \begin{aligned}
+            P(A \cup B \cup C) &= P((A \cup B) \cup C) \\
+            &= P((P(A) + P(B) - P(A \cap B)) \cup C) \\
+            &= P(A) + P(C) - P(A \cap C) \\
+            &\quad + P(B) + P(C) - P(B \cap C) \\
+            &\quad - P(A \cap B) + P(C) - (P(A \cap B) \cap P(C)) \\
+            &= P(A) + P(B) + P(C) - P(A \cap B) - P(A \cap C) - P(B
+            \cap C) \\
+            &\quad + P(A \cap B \cap C)
+          \end{aligned}
+        \end{equation*}
+
+      \end{enumerate}
     \end{solution}
   \end{Ex}
 \item 
