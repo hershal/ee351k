@@ -13,7 +13,7 @@
 \usepackage[nosolutionfiles]{answers}
 \usepackage[acronym]{glossaries}
 
-\newenvironment{Ex}{\vspace{1.5em}\textbf{Problem}\\}{}
+\newenvironment{Ex}{\textbf{Problem}\vspace{.75em}\\}{}
 \Newassociation{solution}{Soln}{Answers}
 \pagebreak[3]
 \newcommand{\Opentesthook}[2]{\Writetofile{#1}{\protect\section{#1: #2}}}
@@ -63,10 +63,10 @@
     \begin{solution} \hfill
       \begin{enumerate}
       \item The sample space $\Omega = [0,5]$
-      \item This assumes that the sum of both power subcells $a,b$ fall
-        within the range $(5,6)$. Reference \cref{fig:power-fig} for a
-        graphical representation. The event is simply the shaded
-        region between the two curves, calculated to be $3.5/25$, or $0.14$.
+      \item This assumes that the sum of both power subcells $a,b$
+        fall within the range $(5,6)$. Reference \cref{fig:power-fig}
+        for a graphical representation. The event is the shaded region
+        between the two curves, calculated to be $3.5/25$, or $0.14$.
         \begin{figure}[Hb]
           \centering
           \input{power-fig}
@@ -76,6 +76,137 @@
       \end{enumerate}
     \end{solution}
   \end{Ex}
+\item 
+  \begin{Ex}
+    We will often use notation like $A:=\{(x,y) : 0 \le x, y\le 1\}$
+    which means $A$ is a set of all pairs $(x,y)$ such that $0\le x\le
+    1$ and $0 \le y \le 1$. Note that the values are assumed to be
+    real valued unless otherwise specified. To develop a better
+    understanding of the notations do sketch the following subsets of
+    the x --- y plane.
+    \begin{enumerate}
+    \item $A_z := \{(x,y) : x^2+y^2 \le z^2\}$ for $z=5$.
+    \item $B_z := \{(x,y) : (x,y) \in \mathbb{Z},\; x>0,\; y>0,\; x+y\ge z\}$ for $z=5$.
+    \item $C := \{(x,y) : 0 \le y \le x \le 1\}$.
+    \item $A_5 \cap B_3$.
+    \item $D_z :=\{(x,y) : x \le z\}$ for $z=3$.
+    \item $B_z \cup D_z$ for $z=3$.
+    \end{enumerate}
+    \begin{solution} \hfill
+      {\huge TODO}
+    \end{solution}
+  \end{Ex}
+\item 
+  \begin{Ex}
+    The following group of students are in a class: 24 male students
+    of age over 18, 16 female students of age over 18, 12 male
+    students of age under 18 and 8 female students of age under
+    18. One student is choosen at random and the following events are
+    defined A = Student is male, B = Student is female , C = Student is
+    of age over 18 and D = Student is of age under 18. Evaluate the
+    following:
+    \begin{enumerate}
+    \item $P(A \cup C)$.
+    \item $P(B^c \cap D^c)$.
+    \end{enumerate}
+    \begin{solution} \hfill
+      {\huge TODO}
+    \end{solution}
+  \end{Ex}
+\item 
+  \begin{Ex}
+    Two events A and B have the following probabilities: $P(A) = 0.6$,
+    $P(B) = 0.5$ and $P(A \cap B) = 0.3$. Calculate the following:
+    \begin{enumerate}
+    \item $P(A \cup B)$.
+    \item $P(A^c \cup B^c)$.
+    \end{enumerate}
+    \begin{solution} \hfill
+      {\huge TODO}
+    \end{solution}
+  \end{Ex}
+\item 
+  \begin{Ex}
+    Consider rolling a six-sided die. Let $A$ be the set of outcomes
+    which are divisible by three. Let $B$ be the set of outcomes which
+    are prime numbers.
+    \begin{enumerate}
+    \item Show that $(A^c \cup B^c)^c \cup (A^c \cup B)^c=A$ (Hint:Use
+      DeMorgan’s Law).
+    \item Calculate and compare the sets on both sides of the previous
+      equation.
+    \end{enumerate}
+    \begin{solution} \hfill {\huge TODO}
+    \end{solution}
+  \end{Ex}
+\item
+  \begin{Ex} For any three events A ,B and C. Show that
+    \begin{enumerate}
+    \item $P(A \cap B) \ge P(A)+P(B) - 1$.
+    \item $P(A \cup B \cup C) = P(A) + P(B) + P(C) - P(A \cap B) - P(A
+      \cap C)−P(B \cap C) + P(A \cap B \cap C)$
+    \end{enumerate}
+    \begin{solution} \hfill
+      {\huge TODO}
+    \end{solution}
+  \end{Ex}
+\item 
+  \begin{Ex}
+    In class we informally defined a set as being countable if the
+    elements of the set could be enumerated, say as
+    $a_1,a_2,\ldots$. In other words, you can find an exhaustive way
+    to list them. This problem is intended to help you refine your
+    understanding of ``countable'' sets. You must provide clear
+    succinct, preferably mathematical arguments.
+    \begin{enumerate}
+    \item Show that the positive rational numbers are countable – here
+      we stick to positive rationals for simplicity. Recall that
+      rational numbers are numbers that can be represented at the
+      ratio of two integers, say $i/j$ where $i, j \in \{1, 2, 3,
+      \ldots\}$. Hint: Find a way to visualize the rationals as a
+      2-dimensional array, then think about how you can linearly
+      enumerate the elements in that array.
+    \item Suppose $A$ and $B$ are countable. Argue that the union $A
+      \cup B$ is also countable.
+    \item Consider the set $A$ containing all infinite sequences of 0s
+      and 1s, e.g., $a = 10101010101\ldots$ is an element in
+      $A$. Argue that $A$ is not countable. Hint: You can argue this
+      by contradiction. Suppose you had an enumeration of all elements
+      (sequences) in $A$, i.e., $a_1, a_2,\ldots$. Construct a
+      sequence $a^∗$ which is not in the list. For example, $a^∗$ may
+      differ from ai in the $i\text{th}$ digit for each $i = 1, 2,
+      \ldots$. This is called a diagonal argument.
+    \item Based on the claim made in the previous question, argue that
+      the real numbers in $[0, 1]$ are uncountable.
+    \end{enumerate}
+    \begin{solution} \hfill
+      {\huge TODO}
+    \end{solution}
+  \end{Ex}
+\item 
+  \begin{Ex}
+    My goal in this class is to serve as your guide in learning the
+    fundamental of probability and statistics and applications to
+    engineering, but also to bring what you will learn what you will
+    learn in my class into your daily life. To that end this last
+    problem requires that you watch the following video
+    http://www.gapminder.org/videos/the-joy-of-stats/ and answer the
+    following questions.
+    \begin{enumerate}
+    \item According to the program what is the origin of the term
+      ``statistics''?
+    \item The program discusses correlation. Describe in your own
+      words what they mean by correlation?
+    \item The program explains a new paradigm for translation from one
+      language to another. Explain in just a few sentences the
+      previous versus the new approach.
+    \item The program also explains a new paradigm that involves using
+      simulation to generate (even more) data. Explain how this kind
+      of simulated data can/is be used.
+    \end{enumerate}
+    \begin{solution} \hfill
+      {\huge TODO}
+    \end{solution}
+  \end{Ex}
 \end{enumerate}
-
 \end{document}
