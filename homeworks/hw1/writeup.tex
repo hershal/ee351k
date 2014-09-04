@@ -1,0 +1,81 @@
+\documentclass[12pt]{article}
+\title{EE360C Homework 1}
+\author{Hershal Bhave (hb6279)}
+\date{September 3, 2014}
+
+\usepackage{multicol}
+\usepackage[in]{fullpage}
+\usepackage{xcolor}
+\usepackage{rotating}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{cleveref}
+\usepackage[nosolutionfiles]{answers}
+\usepackage[acronym]{glossaries}
+
+\newenvironment{Ex}{\vspace{1.5em}\textbf{Problem}\\}{}
+\Newassociation{solution}{Soln}{Answers}
+\pagebreak[3]
+\newcommand{\Opentesthook}[2]{\Writetofile{#1}{\protect\section{#1: #2}}}
+\renewcommand{\Solnlabel}[1]{\textbf{Solution}\quad}
+
+\newcommand{\dd}[1]{\:\mathrm{d}{#1}}
+\newcommand{\ddt}[1]{\frac{\dd{}}{\dd{#1}}}
+\newcommand{\dddt}[1]{\frac{\dd{}^2}{\dd{#1}^2}}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item
+  \begin{Ex}
+    Write down the sample space $\Omega$ for the following
+    experiments\footnote{sample space: The set of all possible
+      outcomes}:
+    \begin{enumerate}
+    \item A six sided die is rolled and the outcome is observed.
+    \item The die is rolled sequentially until the first six appears.
+    \end{enumerate}
+    \begin{solution} \hfill
+      \begin{enumerate}
+      \item There are six potential outcomes, so the sample space
+        $\Omega = \{1,2,3,4,5,6\}$.
+      \item Assuming that the experiment is observing the outcome of
+        the sequential die roll until a 6 is found, the experiment has
+        only one potential outcome (6). Thus the sample space $\Omega
+        = \{6\}$.
+      \end{enumerate}
+    \end{solution}
+  \end{Ex}
+\item
+  \begin{Ex}
+    A power cell consists of two subcells, each of which can provide
+    voltage from 0 to 5 volts, regardless of what the other subcell
+    provides. The power cell is functional if and only if the sum of
+    the two voltages of the subcells is at least 6 volts. An
+    experiment consists of measuring and recording the voltages of the
+    two subcells.
+    \begin{enumerate}
+    \item Suggest a sample space $\Omega$ for the experiment.
+    \item Using your proposed sample space, what is the event that the
+      power cell is not functional but needs less than one additional
+      volt to become functional.
+    \end{enumerate}
+    \begin{solution} \hfill
+      \begin{enumerate}
+      \item The sample space $\Omega = [0,5]$
+      \item This assumes that the sum of both power subcells $a,b$ fall
+        within the range $(5,6)$. Reference \cref{fig:power-fig} for a
+        graphical representation. The event is simply the shaded
+        region between the two curves, calculated to be $3.5/25$, or $0.14$.
+        \begin{figure}[Hb]
+          \centering
+          \input{power-fig}
+          \caption{A graphical representation of the event requirements}
+          \label{fig:power-fig}
+        \end{figure}
+      \end{enumerate}
+    \end{solution}
+  \end{Ex}
+\end{enumerate}
+
+\end{document}
