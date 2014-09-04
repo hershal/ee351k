@@ -217,7 +217,7 @@
   \begin{Ex}
     In class we informally defined a set as being countable if the
     elements of the set could be enumerated, say as
-    $a_1,a_2,\ldots$ In other words, you can find an exhaustive way
+    $a_1,a_2,\ldots$. In other words, you can find an exhaustive way
     to list them. This problem is intended to help you refine your
     understanding of ``countable'' sets. You must provide clear
     succinct, preferably mathematical arguments.
@@ -237,13 +237,33 @@
       by contradiction. Suppose you had an enumeration of all elements
       (sequences) in $A$, i.e., $a_1, a_2,\ldots$. Construct a
       sequence $a^∗$ which is not in the list. For example, $a^∗$ may
-      differ from ai in the $i\text{th}$ digit for each $i = 1, 2,
+      differ from $a_i$ in the $i\text{th}$ digit for each $i = 1, 2,
       \ldots$. This is called a diagonal argument.
     \item Based on the claim made in the previous question, argue that
       the real numbers in $[0, 1]$ are uncountable.
     \end{enumerate}
     \begin{solution} \hfill
-      {\huge TODO}
+      \begin{enumerate}
+      \item We can assume that the collection of positive integers is
+        countable. If this is true then we can enumerate a
+        two-dimensional array of positive integer values. We can
+        assemble a list of positive rational numbers by picking two
+        numbers from the matrix and writing them as a ratio, i.e. a
+        rational number. Thus the collection of rational numbers are
+        countable.
+      \item Since both $A$ and $B$ are individually countable, the
+        collection which describes the logical OR of $A$ and $B$ must
+        be countable as well.
+      \item Suppose not. Suppose that there exists an enumeration of
+        all elements of $A$. Since $A$ is countable, there must exist
+        every possible enumeration of an infinite sequence. If each
+        sequence in $A$ is infinite, we can always generate a new
+        sequence which differs by at least one digit in the
+        sequence. Thus it is impossible for $A$ to be countable.
+      \item Real numbers $[0,1]$ are uncountable becuase there is an
+        infinitely small distance between two numbers, which makes it
+        impossible to enumerate each individual value.
+      \end{enumerate}
     \end{solution}
   \end{Ex}
 \item 
