@@ -10,6 +10,9 @@
 \usepackage{mathtools}
 \usepackage{amssymb}
 \usepackage{cleveref}
+\usepackage{graphics}
+\usepackage{caption}
+\usepackage{subcaption}
 \usepackage[nosolutionfiles]{answers}
 \usepackage[acronym]{glossaries}
 
@@ -67,7 +70,7 @@
         fall within the range $(5,6)$. Reference \cref{fig:power-fig}
         for a graphical representation. The event is the shaded region
         between the two curves, calculated to be $3.5/25$, or $0.14$.
-        \begin{figure}[Hb]
+        \begin{figure}[hbt]
           \centering
           \input{power-fig}
           \caption{A graphical representation of the event requirements}
@@ -92,8 +95,31 @@
     \item $D_z :=\{(x,y) : x \le z\}$ for $z=3$.
     \item $B_z \cup D_z$ for $z=3$.
     \end{enumerate}
-    \begin{solution} \hfill
-      {\huge TODO}
+    \begin{solution} \hfill\\\vspace{1.5em}
+      Reference \cref{fig:2-plots}.
+      \begin{figure}[hbt]
+        \centering
+        \begin{subfigure}[b]{0.45\textwidth}
+          \resizebox{\textwidth}{!}{\input{3-1}}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.45\textwidth}
+          \resizebox{\textwidth}{!}{\input{3-2}}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.45\textwidth}
+          \resizebox{\textwidth}{!}{\input{3-3}}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.45\textwidth}
+          \resizebox{\textwidth}{!}{\input{3-4}}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.45\textwidth}
+          \resizebox{\textwidth}{!}{\input{3-5}}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.45\textwidth}
+          \resizebox{\textwidth}{!}{\input{3-6}}
+        \end{subfigure}
+        \caption{Plots for Problem 2}
+        \label{fig:2-plots}
+      \end{figure}
     \end{solution}
   \end{Ex}
 \item 
@@ -209,7 +235,6 @@
             &\quad + P(A \cap B \cap C)
           \end{aligned}
         \end{equation*}
-
       \end{enumerate}
     \end{solution}
   \end{Ex}
@@ -266,6 +291,7 @@
       \end{enumerate}
     \end{solution}
   \end{Ex}
+\vspace{1.5em}
 \item 
   \begin{Ex}
     My goal in this class is to serve as your guide in learning the
