@@ -1,3 +1,4 @@
+#!/usr/bin/env gnuplot
 set terminal epslatex
 set output "3-1.tex"
 
