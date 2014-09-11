@@ -239,8 +239,62 @@
     drawer search and B is the event that the glasses were not found
     after the second drawer search, then we have $P(A \cap B | C) =
     P(A|C)P(B|C)$ , if $P(C) > 0$.
-    \begin{solution} \hfill \\
-      {\huge TODO}
+    \begin{solution} \hfill
+      \begin{enumerate}
+      \item Let's declare the following:
+        \begin{equation}
+          \label{eq:5-var-declaration}
+          \begin{aligned}
+            D &= \text{ The glasses are in the drawer} \\
+            T &= \text{ The glasses are on the table} \\
+            B &= \text{ The glasses are in the briefcase} \\
+            O &= \text{ The glasses are in her office} \\
+            X &= \text{ Professor Plum did not find her glasses in
+              the} \\
+            &\quad\quad\text{drawer after searching once} \\
+            Y &= \text{ Professor Plum did not find her glasses in
+              the} \\
+            &\quad\quad\text{drawer or the table after searching once
+              in each} \\
+            Z &= \text{ The glasses were not found after searching in
+              the} \\
+            &\quad\quad\text{drawer twice, the table twice, and the briefcase once}
+          \end{aligned}
+        \end{equation}
+        We are tasked to find $P(T | X)$. Using the Total Probability Theorem
+        \begin{equation}
+          \label{eq:5a-sol}
+          \begin{aligned}
+            P(T | X) &= \frac{P(T \cap X)}{P(X)} \\
+            &= \frac{P(X|T)P(T)}{P(X|D)P(D) + P(X|D^c)P(D^c)} \\
+            &= 0.315789
+          \end{aligned}
+        \end{equation}
+      \item Using the same declarations in
+        \cref{eq:5-var-declaration}, we are tasked to find
+        $P(B|Y)$. Again, using the Total Probability Theorem
+        \begin{equation}
+          \label{eq:5b-sol}
+          \begin{aligned}
+            P(B|Y) &= \frac{B \cap Y}{Y} \\
+            &= \frac{P(Y|B)P(B)}{P(Y|D)P(D) + P(Y|T)P(T) + P(Y|B)P(B)
+              + P(Y|O)P(O)} \\
+            &= 0.220588
+          \end{aligned}
+        \end{equation}
+      \item Using the same declarations in
+        \cref{eq:5-var-declaration}, we are tasked to find
+        $P(O|Z)$. Again, using the Total Probability Theorem
+        \begin{equation}
+          \label{eq:5c-sol}
+          \begin{aligned}
+            P(O|Z) &= \frac{P(O \cap Z)}{P(Z)} \\
+            &= \frac{P(Z|O)P(O)}{P(Z|D)P(D) + P(Z|T)P(T) + P(Z|B)P(B)
+              + P(Z|O)P(O)} \\
+            &= 0.442477
+          \end{aligned}
+        \end{equation}
+      \end{enumerate}
     \end{solution}
   \end{Ex}
   \item
