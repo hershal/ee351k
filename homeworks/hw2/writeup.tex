@@ -208,7 +208,7 @@
         the population who actually have the disease has increased.
       \item Yes. The results of one test do not influence the results
         of the other, and vice versa. No new information about the
-        results of the seconcd test can be derived from the results of
+        results of the second test can be derived from the results of
         the first.
       \end{enumerate}
     \end{solution}
@@ -242,6 +242,7 @@
     drawer search and B is the event that the glasses were not found
     after the second drawer search, then we have $P(A \cap B | C) =
     P(A|C)P(B|C)$ , if $P(C) > 0$.
+    \pagebreak[4]
     \begin{solution} \hfill
       \begin{enumerate}
       \item Let's declare the following:
@@ -361,8 +362,47 @@
       \item If $A$ and $B$ are independent, show that $A^c$ and $B$
         are also independent.
       \end{enumerate}
-      \begin{solution} \hfill \\
-        {\huge TODO}
+      \pagebreak[4]
+      \begin{solution} \hfill
+        \begin{enumerate}
+        \item Two events $A$ and $B$ are independent if and only if
+          \begin{equation}
+            \label{eq:7a-declaration}
+            P(A \cap B) = P(A) P(B)
+          \end{equation}
+          So that means that an event $E$ is independend of itself if
+          and only if
+          \begin{equation}
+            \label{eq:7a-plug-in}
+            P(E \cap E) = P(E) \cdot P(E) = P(E)
+          \end{equation}
+          Since the event $E$ or its complement almost surely occurs,
+          then $P(E) = 0 \text{ or } 1$.
+        \item If $A$ and $B$ are independent, then
+          \begin{equation}
+            \label{eq:7b-independent}
+            \begin{aligned}
+              P(A \cup B) &= P(A) + P(B) - P(A)P(B) \\
+              &= 0.4 + 0.3 - (0.4)(0.3) \\
+              &= 0.58
+            \end{aligned}
+          \end{equation}
+          If $A$ and $B$ are mutually exclusive, then
+          \begin{equation}
+            \label{eq:7b-exclusive}
+            \begin{aligned}
+              P(A \cup B) &= P(A) + P(B) - P(A)P(B) \\
+              &= 0.4 + 0.3 - 0 \\
+              &= 0.7
+            \end{aligned}
+          \end{equation}
+        \item Events $A$ and $B$ can be independent because if they
+          were, then $P(A \cap B) < 1$. $A$ and $B$ cannot be mutually
+          exclusive because if they were, then $P(A \cap B) > 1$
+        \item If $A$ and $B$ are independent, then $A^c$ should also
+          be independent from $B$ because $A$ and $A^c$ are mutually
+          exclusive.
+        \end{enumerate}
       \end{solution}
     \end{Ex}
   \item
@@ -381,7 +421,7 @@
         \item The probability that Bob will open the door on his $k$th
           try is $\frac{1}{n-(k-1)}$.
         \item If Bob does not throw away the previously tried keys,
-          then the probability that he will open the door is $n!$.
+          then the probability that he will open the door is $\frac{1}{n}$.
         \end{enumerate}
       \end{solution}
     \end{Ex}
@@ -396,8 +436,57 @@
       (Hint: There are many ways of solving second network problem,
       one of them is to condition on Relay 3 and then use Total
       Probability Theorem.)
-      \begin{solution} \hfill \\
-        {\huge TODO}
+      \begin{solution} \hfill
+        \begin{enumerate}
+        \item 
+          \begin{itemize}
+          \item The top section consisting of nodes 1, 2, and 3:
+            $$ 1-(1-p^2)p $$
+          \item The middle section consisting of node 4:
+            $$ p $$
+          \item The bottom section consisting of nodes 5 and 6:
+            $$ p^2 $$
+          \end{itemize}
+          Combining these in parallel results in
+          \begin{equation}
+            \label{eq:9a-sol}
+            \begin{aligned}
+              % &\quad\quad 1-((1-(1-p)^2)p)(1-p)(1-p^2) \\
+              % &= p^6-3 p^5+p^4+3 p^3-2 p^2+1
+              &\quad\quad 1-(1-((1-(1-p)^2)p))(1-(1-(1-p)(1-p^2))) \\
+              &= -p^6+3 p^5-p^4-4 p^3+3 p^2+p
+            \end{aligned}
+          \end{equation}
+      \item Let's declare the following:
+        \begin{equation}
+          \label{eq:5-var-declaration}
+          \begin{aligned}
+            F &= \text{Current flows from }L\text{ to }R \\
+            N_i &= \text{Link } N_i \text{ is working}
+          \end{aligned}
+        \end{equation}
+        With node 3 turned off, the system turns into a parallel
+        system of two nodes in series
+          \begin{equation}
+            \label{eq:9b-off}
+            P(F | N_3^c) = 1-(1-p^2)^2
+          \end{equation}
+          With node 3 turned on, the system turns into a series system
+          of two nodes in parallel
+          \begin{equation}
+            \label{eq:9b-on}
+            P(F | N_3) = (1-(1-p)^2)^2
+          \end{equation}
+          We can describe $P(F)$ using the Total Probability Theorem
+          \begin{equation}
+            \label{eq:9b-sol}
+            \begin{aligned}
+              P(F) &= P(F | N_3)P(N_3) + P(F | N_3^c)P(N_3^c) \\
+              &= 1-(1-p^2)^2)p + ((1-(1-p)^2)^2)(1-p) \\
+              &= -2 p^5+5 p^4-6 p^3+4 p^2-p+1
+            \end{aligned}
+          \end{equation}
+        \end{enumerate}
       \end{solution}
     \end{Ex}
 \end{enumerate}
