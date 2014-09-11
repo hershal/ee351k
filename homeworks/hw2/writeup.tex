@@ -52,7 +52,7 @@
       \end{equation}
       Now obtaining $P(A | B)$ is trivial:
       \begin{equation}
-        \label{eq:1-cond-prob}
+        \label{eq:1-answer}
         \begin{aligned}
           P(A | B) &= \frac{P(A \cap B)}{P(B)} \\
           &= \frac{1}{2}
@@ -65,20 +65,53 @@
     Alice and Bob play a game in which a hat is placed on their
     head. The hats can be one of two possible colors, say black or
     white at random. Each player can only see the color of the other
-    player’s hat, but not his own. The aim of the game is to guess the
-    color of your own hat. To win the game they both have to guess
+    player's hat, but not their own. The aim of the game is to guess
+    the color of your own hat. To win the game they both have to guess
     their own hat color correctly.
     \begin{enumerate}
     \item Suppose both players guess the color of their hat
-      independently . What is the probability that they win.
+      independently. What is the probability that they win?
     \item Although the players cannot communicate during the game,
       they can agree on a strategy at the start of the game. Suppose
       the two players agree on guessing based on the assumption that
       they have the same color hat. What is the probability that they
-      win.
+      win?
     \end{enumerate}
-    \begin{solution} \hfill \\
-      {\huge TODO}
+    \begin{solution} \hfill
+      \begin{enumerate}
+      \item Let's declare the following:
+        \begin{equation}
+          \label{eq:2-var-declaration}
+          \begin{aligned}
+            A &= \text{ Alice guesses her color correctly} \\
+            B &= \text{ Bob guesses his color correctly}
+          \end{aligned}
+        \end{equation}
+        The probabilities then turn out to:
+        \begin{equation}
+          \label{eq:1-prob-declaration}
+          P(A) = \frac{1}{2} \text{, } \quad
+          P(B) = \frac{1}{2} \text{, } \quad
+        \end{equation}
+        The probability that they win turns out to be 
+        \begin{equation}
+          \label{eq:2a-answer}
+          \begin{aligned}
+            P(A \cap B) &= \frac{1}{2} \cdot \frac{1}{2} \\
+            &= \frac{1}{4}
+          \end{aligned}
+        \end{equation}
+      \item Assuming that Alice and Bob can see each others' hat color
+        but cannot not communicate with each other. Alice and Bob
+        cannot be correct if their hat colors differ in any way. Since
+        they can see each others' hat colors, they can only be correct
+        if both hats are the same color. Thus, the probability that
+        they guess correctly is
+        \begin{equation}
+          \label{eq:2b-answer}
+          P(A \cap B) = \frac{1}{2}
+        \end{equation}
+      \end{enumerate}
     \end{solution}
   \end{Ex}
 \item
