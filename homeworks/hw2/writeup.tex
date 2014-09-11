@@ -33,8 +33,7 @@
   \begin{Ex}
     What is the probability that at least one of a pair of fair six
     sided dice lands on 6, given that the sum of the dice is 9.
-    \begin{solution}
-      \hfill \vspace{0.75em} \\
+    \begin{solution} \hfill \vspace{0.75em} \\
       Let's declare the following:
       \begin{equation}
         \label{eq:1-var-declaration}
@@ -116,11 +115,41 @@
   \end{Ex}
 \item
   \begin{Ex}
-    We have two coins; one is fair and the second two headed. We pick
-    one of the coins at random , we toss it twice and head shows both
+    We have two coins; one is fair and the second is two-headed. We
+    pick one of the coins at random and toss it twice. Head shows both
     times. Find the probability that the coin picked is fair.
-    \begin{solution} \hfill \\
-      {\huge TODO}
+    \begin{solution} \hfill \vspace{0.75em} \\
+      Let's declare the following:
+      \begin{equation}
+        \label{eq:3-var-declaration}
+        \begin{aligned}
+          F &= \text{ the fair dice is chosen} \\
+          D &= \text{ the double-headed dice is chosen} \\
+          H &= \text{ heads has been chosen twice}
+        \end{aligned}
+      \end{equation}
+      We are tasked with finding $P(F|H)$. This can be broken down to
+      the following
+      \begin{equation}
+        \label{eq:3-enumeration}
+        P(F|H) = \frac{P(F \cap H)}{P(H)}.
+      \end{equation}
+      $P(F \cap H)$ is rather trivial. The probability that the fair
+      coin is chosen and two heads appears is $\frac{1}{4}$. Using the
+      Total Probability Theorem
+      \begin{equation}
+        \label{eq:3-total-probability}
+        \begin{aligned}
+          P(H) &= P(H|F) + P(H|D) \\
+          &= 1 + \frac{1}{4} \\
+          P(H) &= \frac{5}{8}
+        \end{aligned}
+      \end{equation}
+      Thus
+      \begin{equation}
+        \label{eq:3-solution}
+        P(F|H) = \frac{2}{5}
+      \end{equation}
     \end{solution}
   \end{Ex}
 \item
