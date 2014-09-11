@@ -132,7 +132,10 @@
       the following
       \begin{equation}
         \label{eq:3-enumeration}
-        P(F|H) = \frac{P(F \cap H)}{P(H)}.
+        \begin{aligned}
+          P(F|H) &= \frac{P(F \cap H)}{P(H)} \\
+          &= \frac{P(H|F)P(F)}{P(H)}
+        \end{aligned}
       \end{equation}
       $P(F \cap H)$ is rather trivial. The probability that the fair
       coin is chosen and two heads appears is $\frac{1}{4}$. Using the
@@ -141,14 +144,14 @@
         \label{eq:3-total-probability}
         \begin{aligned}
           P(H) &= P(H|F) + P(H|D) \\
-          &= 1 + \frac{1}{4} \\
+          &= \frac{1}{4} + 1 \\
           P(H) &= \frac{5}{8}
         \end{aligned}
       \end{equation}
       Thus
       \begin{equation}
         \label{eq:3-solution}
-        P(F|H) = \frac{2}{5}
+        P(F|H) = \frac{\frac{1}{4}\cdot\frac{1}{2}}{\frac{5}{8}} = \frac{1}{5}
       \end{equation}
     \end{solution}
   \end{Ex}
