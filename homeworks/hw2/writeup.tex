@@ -1,0 +1,216 @@
+\documentclass[12pt]{article}
+\title{EE351K Homework 2}
+\author{Hershal Bhave (hb6279)}
+\date{Due September 11, 2014}
+
+\usepackage{multicol}
+\usepackage[in]{fullpage}
+\usepackage{xcolor}
+\usepackage{rotating}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{cleveref}
+\usepackage{graphics}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[nosolutionfiles]{answers}
+\usepackage[acronym]{glossaries}
+
+\newenvironment{Ex}{\textbf{Problem}\vspace{.75em}\\}{}
+\Newassociation{solution}{Soln}{Answers}
+\pagebreak[3]
+\newcommand{\Opentesthook}[2]{\Writetofile{#1}{\protect\section{#1: #2}}}
+\renewcommand{\Solnlabel}[1]{\textbf{Solution}\quad}
+
+\newcommand{\dd}[1]{\:\mathrm{d}{#1}}
+\newcommand{\ddt}[1]{\frac{\dd{}}{\dd{#1}}}
+\newcommand{\dddt}[1]{\frac{\dd{}^2}{\dd{#1}^2}}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item
+  \begin{Ex}
+    What is the probability that at least one of a pair of fair six
+    sided dice lands on 6, given that the sum of the dice is 9.
+    \begin{solution}
+      \hfill \vspace{0.75em} \\
+      Let's declare the following:
+      \begin{equation}
+        \label{eq:1-var-declaration}
+        \begin{aligned}
+          A &= \text{ at least one die rolls lands on a }6 \\
+          B &= \text{ the sum of the dice roll is }9
+        \end{aligned}
+      \end{equation}
+      Meaning that
+      \begin{equation}
+        \label{eq:1-prob-declaration}
+        P(A) = \frac{1}{6} \text{, } \quad
+        P(B) = \frac{1}{9} \text{, } \quad
+        P(A \cap B) = \frac{1}{18}
+      \end{equation}
+      Now obtaining $P(A | B)$ is trivial:
+      \begin{equation}
+        \label{eq:1-cond-prob}
+        \begin{aligned}
+          P(A | B) &= \frac{P(A \cap B)}{P(B)} \\
+          &= \frac{1}{2}
+        \end{aligned}
+      \end{equation}
+    \end{solution}
+  \end{Ex}
+\item
+  \begin{Ex}
+    Alice and Bob play a game in which a hat is placed on their
+    head. The hats can be one of two possible colors, say black or
+    white at random. Each player can only see the color of the other
+    player’s hat, but not his own. The aim of the game is to guess the
+    color of your own hat. To win the game they both have to guess
+    their own hat color correctly.
+    \begin{enumerate}
+    \item Suppose both players guess the color of their hat
+      independently . What is the probability that they win.
+    \item Although the players cannot communicate during the game,
+      they can agree on a strategy at the start of the game. Suppose
+      the two players agree on guessing based on the assumption that
+      they have the same color hat. What is the probability that they
+      win.
+    \end{enumerate}
+    \begin{solution} \hfill \\
+      {\huge TODO}
+    \end{solution}
+  \end{Ex}
+\item
+  \begin{Ex}
+    We have two coins; one is fair and the second two headed. We pick
+    one of the coins at random , we toss it twice and head shows both
+    times. Find the probability that the coin picked is fair.
+    \begin{solution} \hfill \\
+      {\huge TODO}
+    \end{solution}
+  \end{Ex}
+\item
+  \begin{Ex}
+    Suppose $\alpha$ percent of a certain population suffer from a
+    serious disease. A person suspected of the disease is given two
+    conditionally independent tests. Each test makes a correct
+    diagnosis 90 percent of the time. i.e., if person has the disease
+    the test is positive with probability $0.9$ and if the person does
+    not have the disease the test results are negative with
+    probability $0.9$.
+    \begin{enumerate}
+    \item For $\alpha = 0.1$, , find the probability that the person
+      has the disease given that both tests are positive.
+    \item Explain why the porbability is less even though the tests
+      make a correct diagnosis 90 percent of the time.
+    \item Suppose $\alpha = 10$, what do you think will happen to the
+      probability that the person has the disease given that both
+      tests are positive.
+    \item Are the two tests independent? Explain.
+    \end{enumerate}
+    \begin{solution} \hfill \\
+      {\huge TODO}
+    \end{solution}
+  \end{Ex}
+\item
+  \begin{Ex}
+    At the end of each day Professor Plum puts her glasses in her
+    drawer with probability $.90$, leaves them on the table with
+    probability $.06$, leaves them in her briefcase with probability
+    $0.03$, and she actually leaves them at the office with
+    probability $0.01$. The next morning she has no recollection of
+    where she left the glasses. She looks for them, but each time she
+    looks in a place the glasses are actually located, she misses
+    finding them with probability $0.1$, whether or not she already
+    looked in the same place. (After all, she doesnt have her glasses
+    on and she is in a hurry.)
+    \begin{enumerate}
+    \item Given that Professor Plum didnt find the glasses in her
+      drawer after looking one time, what is the conditional
+      probability the glasses are on the table?
+    \item Given that she didnt find the glasses after looking for them
+      in the drawer and on the table once each, what is the
+      conditional probability they are in the briefcase?
+    \item Given that she failed to find the glasses after looking in
+      the drawer twice, on the table twice, and in the briefcase once,
+      what is the conditional probability she left the glasses at the
+      office?
+    \end{enumerate}
+    Note: Assume conditional independence of each search i.e., if $A$
+    is the event that the glasses were not found after the first
+    drawer search and B is the event that the glasses were not found
+    after the second drawer search, then we have $P(A \cap B | C) =
+    P(A|C)P(B|C)$ , if $P(C) > 0$.
+    \begin{solution} \hfill \\
+      {\huge TODO}
+    \end{solution}
+  \end{Ex}
+  \item
+    \begin{Ex}
+      A committee consisting of three electrical engineers and three
+      mechanical engi neers is to be formed at random from a group of
+      seven electrical engineers and five mechanical engineers. Find
+      the probability of the following events:
+      \begin{enumerate}
+      \item One particular electrical engineer must be on the committee.
+      \item Two particular mechanical engineers cannot be together on
+        the committee.
+      \end{enumerate}
+      \begin{solution} \hfill \\
+        {\huge TODO}
+      \end{solution}
+    \end{Ex}
+  \item
+    \begin{Ex}
+      This problem is aimed to help you refine your basic
+      understanding of independence.
+      \begin{enumerate}
+      \item Suppose that an event $E$ is independent of itself. Show
+        that either $P(E) = 0$ or $P(E) = 1$.
+      \item Events $A$ and $B$ have probabilities $P(A)=0.3$ and
+        $P(B)=0.4$. What is $P(A \cup B)$ if $A$ and $B$ are
+        independent? What is $P(A \cup B)$ if $A$ and $B$ are
+        mutually exclusive?
+      \item Now suppose that $P(A) = 0.6$ and $P(B) = 0.8$. In this
+        case, could the events $A$ and $B$ be independent? Could they
+        be mutually exclusive?
+      \item If $A$ and $B$ are independent, show that $A^c$ and $B$
+        are also independent.
+      \end{enumerate}
+      \begin{solution} \hfill \\
+        {\huge TODO}
+      \end{solution}
+    \end{Ex}
+  \item
+    \begin{Ex}
+      Suppose Bob has $n$ keys, of which one will open his office
+      door.
+      \begin{enumerate}
+      \item Suppose Bob tries the keys at random, discarding those
+        that do not work, what is the probability that he will open
+        the door on his $k\text{th}$ try?
+      \item What is the probability that he will open the door if he
+        does not discard previously tried keys?
+      \end{enumerate}
+      \begin{solution} \hfill \\
+        {\huge TODO}
+      \end{solution}
+    \end{Ex}
+  \item
+    \begin{Ex}
+      In the two networks shown in figure below, assume that the
+      probability of each relay being closed is $p$ and that each
+      relay is open or closed independently of any other relay. In
+      each case find the probability that the current flows from $L$
+      to $R$.
+
+      (Hint : There are many ways of solving second network problem,
+      one of them is to condition on Relay 3 and then use Total
+      Probability Theorem.)
+      \begin{solution} \hfill \\
+        {\huge TODO}
+      \end{solution}
+    \end{Ex}
+\end{enumerate}
+\end{document}
