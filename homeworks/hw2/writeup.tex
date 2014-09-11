@@ -220,13 +220,13 @@
     where she left the glasses. She looks for them, but each time she
     looks in a place the glasses are actually located, she misses
     finding them with probability $0.1$, whether or not she already
-    looked in the same place. (After all, she doesnt have her glasses
-    on and she is in a hurry.)
+    looked in the same place (after all, she doesn't have her glasses
+    on and she is in a hurry).
     \begin{enumerate}
-    \item Given that Professor Plum didnt find the glasses in her
+    \item Given that Professor Plum didn't find the glasses in her
       drawer after looking one time, what is the conditional
       probability the glasses are on the table?
-    \item Given that she didnt find the glasses after looking for them
+    \item Given that she didn't find the glasses after looking for them
       in the drawer and on the table once each, what is the
       conditional probability they are in the briefcase?
     \item Given that she failed to find the glasses after looking in
@@ -246,7 +246,7 @@
   \item
     \begin{Ex}
       A committee consisting of three electrical engineers and three
-      mechanical engi neers is to be formed at random from a group of
+      mechanical engineers is to be formed at random from a group of
       seven electrical engineers and five mechanical engineers. Find
       the probability of the following events:
       \begin{enumerate}
@@ -254,8 +254,35 @@
       \item Two particular mechanical engineers cannot be together on
         the committee.
       \end{enumerate}
-      \begin{solution} \hfill \\
-        {\huge TODO}
+      \begin{solution} \hfill
+        \begin{enumerate}
+        \item The total number of possible combinations for all
+          electrical engineers in the group can be written as
+          \begin{equation}
+            \label{eq:6a-mat}
+            \begin{pmatrix}
+              7 \\ 3
+            \end{pmatrix} &= \frac{7!}{3!4!}
+            &= 35
+          \end{equation}
+          There are $15$ combinations involving a particular
+          electrical engineer, so the probablility that one particular
+          electrical engineer must be on the committee is
+          $\frac{3}{7}$.
+        \item The total number of possible combinations for all
+          mechanical engineers in the group can be written as
+          \begin{equation}
+            \label{eq:6b-mat}
+            \begin{pmatrix}
+              5 \\ 3
+            \end{pmatrix} &= \frac{5!}{3!4!}
+            &= 10
+          \end{equation}
+          There are 3 combinations involving two particular mechanical
+          engineers on the committee, so the probability that Two
+          particular mechanical engineers cannot be together on the
+          committee is $\frac{3}{10}$.
+        \end{enumerate}
       \end{solution}
     \end{Ex}
   \item
