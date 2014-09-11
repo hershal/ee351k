@@ -313,12 +313,17 @@
       \begin{enumerate}
       \item Suppose Bob tries the keys at random, discarding those
         that do not work, what is the probability that he will open
-        the door on his $k\text{th}$ try?
+        the door on his $k$th try?
       \item What is the probability that he will open the door if he
         does not discard previously tried keys?
       \end{enumerate}
-      \begin{solution} \hfill \\
-        {\huge TODO}
+      \begin{solution} \hfill
+        \begin{enumerate}
+        \item The probability that Bob will open the door on his $k$th
+          try is $\frac{1}{n-(k-1)}$.
+        \item If Bob does not throw away the previously tried keys,
+          then the probability that he will open the door is $n!$.
+        \end{enumerate}
       \end{solution}
     \end{Ex}
   \item
@@ -329,7 +334,7 @@
       each case find the probability that the current flows from $L$
       to $R$.
 
-      (Hint : There are many ways of solving second network problem,
+      (Hint: There are many ways of solving second network problem,
       one of them is to condition on Relay 3 and then use Total
       Probability Theorem.)
       \begin{solution} \hfill \\
