@@ -157,22 +157,57 @@
     Suppose $\alpha$ percent of a certain population suffer from a
     serious disease. A person suspected of the disease is given two
     conditionally independent tests. Each test makes a correct
-    diagnosis 90 percent of the time. i.e., if person has the disease
+    diagnosis 90 percent of the time i.e., if person has the disease
     the test is positive with probability $0.9$ and if the person does
     not have the disease the test results are negative with
     probability $0.9$.
     \begin{enumerate}
-    \item For $\alpha = 0.1$, , find the probability that the person
+    \item For $\alpha = 0.1$, find the probability that the person
       has the disease given that both tests are positive.
-    \item Explain why the porbability is less even though the tests
+    \item Explain why the probability is less even though the tests
       make a correct diagnosis 90 percent of the time.
     \item Suppose $\alpha = 10$, what do you think will happen to the
       probability that the person has the disease given that both
       tests are positive.
     \item Are the two tests independent? Explain.
     \end{enumerate}
-    \begin{solution} \hfill \\
-      {\huge TODO}
+    \begin{solution} \hfill
+      \begin{enumerate}
+      \item Let's declare the following:
+        \begin{equation}
+          \label{eq:3-var-declaration}
+          \begin{aligned}
+            X &= \text{ the first test results are positive} \\
+            Y &= \text{ the second test results are positive} \\
+            D &= \text{ person has disease} \\
+          \end{aligned}
+        \end{equation}
+        We are tasked to find $P(D | (X \cap Y))$. We can do this
+        using Bayes' Rule:
+        \begin{equation}
+          \label{eq:4-enumeration}
+          \begin{aligned}
+            P(D|(X \cap Y)) &= \frac{P(D)P((X \cap Y) | D)}
+            {P(D)P((X \cap Y)|D) + P(D^c)P((X \cap Y)|D^c)} \\
+            &= \frac{P(D)P((X \cap Y) | D)}
+            {P(D)P(X|D)P(Y|D) + P(D^c)P(X|D^c)P(Y|D^c)} \\
+            &= \frac{0.001 \cdot 0.9 \cdot 0.9}
+            {0.001 \cdot 0.9 \cdot 0.9 + 0.999 \cdot 0.1 \cdot 0.1} \\
+            &= 0.075
+          \end{aligned}
+        \end{equation}
+      \item This is due to the Base Rate Fallacy. The specific
+        information ($P(X|D)$) is incorrectly focused on when a more
+        correct assessment should look at both the specific
+        information and the general information ($\alpha = 0.1$).
+      \item The probability that a person has the disease given that
+        both tests are positive should increase because the percent of
+        the population who actually have the disease has increased.
+      \item Yes. The results of one test do not influence the results
+        of the other, and vice versa. No new information about the
+        results of the seconcd test can be derived from the results of
+        the first.
+      \end{enumerate}
     \end{solution}
   \end{Ex}
 \item
