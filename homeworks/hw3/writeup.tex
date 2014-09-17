@@ -31,8 +31,208 @@
 \begin{enumerate}
 \item
   \begin{Ex}
-    \begin{solution} \hfill \\
-    \end{solution}
-  \end{Ex}
-\end{enumerate}
+    The discrete random variable K has the following PMF:
+    \begin{equation*}
+      p_K(k) = \left\{
+        \begin{aligned}
+          b && k=0 \\
+          2b && k=1 \\
+          3b && k=2 \\
+          0 && \text{otherwise} \\
+        \end{aligned}
+      \end{equation*}
+      \begin{enumerate}
+      \item Find $b$.
+      \item Determine the values of $P(K<2), p(K \le 2), \text{ and }
+        P(0<K<2)$
+      \item Compute $E[K]$ and $\text{Var}(K)$.
+      \item Let $Y = \frac{1}{1+K}$, find the PMF of $Y$.
+      \item Compute $E[Y]$ and $E[Y^2E]$.
+      \end{enumerate}
+      \begin{solution} \hfill \\
+        {\huge TODO}
+      \end{solution}
+    \end{Ex}
+  \item 
+    \begin{Ex}
+      The number of $N$ calls arriving at a switchboard during a
+      period of one hour has the PMF
+      \begin{equation*}
+        \begin{aligned}
+          p_N(n) = \frac{10^ne^{-10}}{n!} \quad && n = 0, 1, \ldots
+        \end{aligned}
+      \end{equation*}
+      \begin{enumerate}
+      \item What is the probability that at least two calls arrive
+        within one hour?
+      \item What is the probability that at most three calls arrive
+        within one hour?
+      \item What is the probability that the number of calls that
+        arrive within one hour is greater than three but less than or
+        equal to six?
+      \end{enumerate}
+      \begin{solution} \hfill \\
+        {\huge TODO}
+      \end{solution}
+    \end{Ex}
+  \item 
+    \begin{Ex}
+      A man claims to have extrasensory perception. As a test, a fair
+      coin is flipped 10 times, and the man is asked to predict the
+      outcome in advance. He gets 7 out of the 10 correct. What is the
+      probability that he would have done at least this well if he had
+      no ESP?
+      \begin{solution} \hfill \\
+        {\huge TODO}
+      \end{solution}
+    \end{Ex}
+  \item 
+    \begin{Ex}
+      You toss independently a fair coin and you count the number of
+      tosses until the first tail appears. If this number is n, you
+      receive 2n dollars. What is the expected amount that you will
+      receive? How much would you be willing to pay to play this game?
+      \begin{solution} \hfill \\
+        {\huge TODO}
+      \end{solution}
+    \end{Ex}
+  \item 
+    \begin{Ex}
+      An Internet service provider has $m$ modems with which it serves
+      n customers. Customers are not always active, so $m$ need not be
+      greater than or equal to $n$. In fact, customers are only active
+      with probability $p = 0.05$, and their activity is mutually
+      independent. Let $X$ be a random variable denoting the total
+      load on the system at a typical time, i.e., the total number of
+      active customers in the system. Let $q$ denote the probability
+      that the system is able to meet the current load, i.e., $q$ is a
+      measure of the quality of service. If it is high users are more
+      likely to be blocked. If it is low most users are likely to be
+      able to access a modem. In this problem you will consider three
+      types of problems associated with this types of scenario:
+      \begin{enumerate}
+      \item Suppose the Internet service provider has $n = 10$
+        customers and $m = 4$ modems. what is the quality of service
+        $q$ it can deliver to its customers?
+      \item Suppose the Internet service provider has $n = 20$
+        customers, how many modems $m$ does it need to ensure that the
+        quality of service is at least $q = 0.9$?
+      \item Suppose the Internet service provider has $m = 2$ modems,
+        what is the maximum number of customers $n$ that it can support
+        while ensuring a quality of service of at least $q = 0.2$?
+      \end{enumerate}
+      \begin{solution} \hfill \\
+        {\huge TODO}
+      \end{solution}
+    \end{Ex}
+  \item 
+    \begin{Ex}
+      Read the brief article on Zipf's Law which is posted in the
+      course materials section in the Discrete RVs folder. Zipf's Law
+      can be ``intuitively'' stated as follows: Suppose we have a
+      countable collection of items and we label them $x = 1,2,
+      \ldots$ based on their rank in terms of their popularity, i.e.,
+      item $x$ is the $x$th most popular item. Under Zipf's Law with
+      parameter $\alpha > 1$ the probability that the $i$th item is
+      chosen/appears/is requested is inversely proportional to its
+      rank to the power $\alpha$. In other words if $X$ denotes the
+      rank of a random item following Zipf's law with parameter
+      $\alpha$, then
+      $$ p_X(x) \propto \frac{1}{x^\alpha} \text{ for } x = 1, 2, 3
+      \ldots $$ 
+      This can be used to model the popularity of web sites, movies,
+      songs on iTunes, uses of letters in the alphabet etc.
+      \begin{enumerate}
+      \item Find an expression in terms of $\alpha$ for the
+        proportionality constant making $p_X$ a PMF when $\alpha =
+        2$. Note: In general can show that for $\alpha \in [0, 1]$ the
+        proportionality constant does not exist and thus there is no
+        PMF.
+      \item What is the expected value of $X$ when $\alpha = 2$?
+      \item Suppose there are a finite number of items, so $x =
+        1,2,\ldots, n$ and now let $\alpha = 1$. Find an expression,
+        in terms of $n$ for the proportionality constant for the PMF.
+      \item How many times more likely is the most popular item versus
+        the $x$th most popular item. For some large but finite $n$
+        compare this to the case where the popularity profile is given
+        by a geometric distribution. Which distribution concentrates
+        more probability on the higher ranked, i.e., lower $x$,
+        values?
+      \end{enumerate}
+      \begin{solution} \hfill \\
+        {\huge TODO}
+      \end{solution}
+    \end{Ex}
+  \item 
+    \begin{Ex}
+      I will show in class that, for a function $g : R \rightarrow R$,
+      in general $E[g(X)] \not= g(E[X])$ for a random variable $X$. We
+      did note that if $g$ was a linear function, however, this is
+      indeed true. In this problem we consider this further in the
+      case of convex functions. A function is convex if for all $x, y
+      \in R$ and for any $\lambda \in [0, 1]$ we have that
+      $$ g(\lambda x + (1-\lambda)y) \le \lambda g(x) +
+      (1-\lambda)g(y)$$
+      If $-g$ is convex, then we say that $g$ is concave.
+      \begin{enumerate}
+      \item Use the above definition to draw a representative convex
+        and concave functions.
+      \item Suppose $X$ is a discrete random variable that takes two
+        values only and $g$ is convex. Show that $E[g(X)] \ge
+        g(E[X])$. It follows that if $g$ is concave then $E[g(X)] \le
+        g(E[X])$.
+      \item This result is true in general, i.e., for any kind of
+        random variable. To convince yourself, can you extend this
+        result to the case $X$ a discrete random variables that takes
+        three values? Hint: you could perhaps condition...
+      \end{enumerate}
+      \begin{solution} \hfill \\
+        {\huge TODO}
+      \end{solution}
+    \end{Ex}
+  \item 
+    \begin{Ex}
+      A utility function $u$ of some some quantity say $x$ is sometimes
+      used to model how happy a person is with getting $x$. In the case
+      where the allocation to is a random variable can interpret
+      $E[u(X)]$ as the average utility the person will see for an
+      allocation which is modeled by $X$. Given two random variables $X$
+      and $Y$ if $E [u(X)] \ge E [u(Y)]$ we say that the person prefers
+      the uncertainty associated with $X$ to $Y$ . If a persons utility
+      function is concave we say the person is risk averse. Indeed
+      recall that if $u$ is a concave function then
+      $$ E[u(X)] \le u(E[X]) $$
+      i.e., the person prefers to receive the average value vs the
+      expected value of the utility. If it is convex then we call the
+      person risk seeking, i.e.
+      $$ E[u(X)] \gt u(E[X]) $$
+      they prefer a scenario with uncertainty versus receiving the expected value.
+      \begin{enumerate}
+      \item Suppose you are given a choice between two `bets':
+        \begin{itemize}
+        \item You win \$100 with probability $0.9$ or \$0 with
+          probability $0.1$.
+        \item You win \$90 for sure.
+        \end{itemize}
+        Which one do you prefer? Are you risk
+        seeking or risk averse? 
+      \item Suppose you are given a choice
+        between two `bets':
+        \begin{itemize}
+        \item You lose \$100 with probability $0.9$ or \$0 with
+          probability $0.1$.
+        \item You lose \$90 for sure.
+        \end{itemize}
+        Now which one do you prefer? Are you risk seeking or risk averse?
+      \item Most people will give different answers to Parts 1 and 2
+        above. Which means that they ``view'' uncertainty in earnings
+        differently than in losses. Think about some time in your life
+        where you had to make such decisions, this could be associated
+        with insurance, buying lottery tickets, etc..
+      \end{enumerate}
+      \begin{solution} \hfill \\
+        {\huge TODO}
+      \end{solution}
+    \end{Ex}
+  \end{enumerate}
 \end{document}
