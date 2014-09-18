@@ -343,8 +343,10 @@
       rank to the power $\alpha$. In other words if $X$ denotes the
       rank of a random item following Zipf's law with parameter
       $\alpha$, then
-      $$ p_X(x) \propto \frac{1}{x^\alpha} \text{ for } x = 1, 2, 3
-      \ldots $$
+      \begin{equation}
+        \label{eq:zipfs-prob}
+        p_X(x) \propto \frac{1}{x^\alpha} \text{ for } x = 1, 2, 3 \ldots
+    \end{equation}
       This can be used to model the popularity of web sites, movies,
       songs on iTunes, uses of letters in the alphabet etc.
       \begin{enumerate}
@@ -456,29 +458,72 @@
     \end{Ex}
   \item
     \begin{Ex}
-      I will show in class that, for a function $g : R \rightarrow R$,
-      in general $E[g(X)] \not= g(E[X])$ for a random variable $X$. We
-      did note that if $g$ was a linear function, however, this is
-      indeed true. In this problem we consider this further in the
-      case of convex functions. A function is convex if for all $x, y
-      \in R$ and for any $\lambda \in [0, 1]$ we have that
-      $$ g(\lambda x + (1-\lambda)y) \le \lambda g(x) +
-      (1-\lambda)g(y)$$
+      I will show in class that, for a function $g : \mathbb{R}
+      \rightarrow \mathbb{R}$, in general $E[g(X)] \not= g(E[X])$ for
+      a random variable $X$. We did note that if $g$ was a linear
+      function, however, this is indeed true. In this problem we
+      consider this further in the case of convex functions. A
+      function is convex if for all $x, y \in \mathbb{R}$ and for any
+      $\lambda \in [0, 1]$ we have that
+      \begin{equation}
+        \label{eq:convex-prob}
+        g(\lambda x + (1-\lambda)y) \le \lambda g(x) + (1-\lambda)g(y)
+      \end{equation}
       If $-g$ is convex, then we say that $g$ is concave.
       \begin{enumerate}
       \item Use the above definition to draw a representative convex
-        and concave functions.
+        and concave function.
       \item Suppose $X$ is a discrete random variable that takes two
-        values only and $g$ is convex. Show that $E[g(X)] \ge
-        g(E[X])$. It follows that if $g$ is concave then $E[g(X)] \le
-        g(E[X])$.
+        values and $g$ is convex. Show that $E[g(X)] \ge g(E[X])$. It
+        follows that if $g$ is concave then $E[g(X)] \le g(E[X])$.
       \item This result is true in general, i.e., for any kind of
         random variable. To convince yourself, can you extend this
         result to the case $X$ a discrete random variables that takes
         three values? Hint: you could perhaps condition...
       \end{enumerate}
-      \begin{solution} \hfill \\
-        {\huge TODO}
+      \begin{solution} \hfill
+        \begin{enumerate}
+        \item A representative convex function would be $g(x) = x^2$
+          and a representative concave function would be $g(x) = -x^2$.
+        \item For a convex $g(x)$,
+          \begin{equation}
+            \label{eq:7b-pre-sol}
+            \begin{aligned}
+              && E[g(X)] &&\ge&&& g(E[X]) \\
+              \implies && \sum_x g(x) \cdot p_X(x) &&\ge&&&
+              g\cdot\sum_x x \cdot p_X(x) \\
+              \implies && g(x_1) \cdot p + g(x_2) \cdot (1-p) &&\ge&&&
+              g(x_1 \cdot p + x_2 \cdot (1-p))
+            \end{aligned}
+          \end{equation}
+          Which is essentially what was written in
+          \cref{eq:convex-prob}. If $g(x)$ is concave, the $\ge$ is
+          switched to a $\le$ in \cref{eq:7b-pre-sol}.
+        \item
+          \begin{equation}
+            \label{eq:7c-pre-sol}
+            \begin{aligned}
+              && E[g(X)] &&\ge&&& g(E[X]) \\
+              \implies && \sum_x g(x) \cdot p_X(x) &&\ge&&&
+              g\cdot\sum_x x \cdot p_X(x) \\
+              \implies && g(x_1) \cdot p_1 + g(x_2) \cdot p_2 + g(x_3)
+              \cdot p_3 &&\ge&&& g(x_1 \cdot p_1 + x_2 \cdot p_2 + x_3
+              \cdot p_3) \\
+            \end{aligned}
+          \end{equation}
+          Which leads to
+          \begin{equation}
+            \label{eq:7c-sol}
+            \begin{aligned}
+              & g(p_1 + p_2)\cdot\left(\frac{p_1}{p_1 + p_2}x_1 +
+                \frac{p_2}{p_1 + p_2}x_2 + p_3 \cdot x_3\right) \\
+              \ge \quad & (p_1 + p_2)\cdot g\left(\frac{p_1}{p_1 +
+                  p_2}x_1 + \frac{p_2}{p_1 + p_2}x_2\right) + p_3
+              \cdot g(x_3) \\
+            \end{aligned}
+          \end{equation}
+          And corresponds to \cref{eq:convex-prob}.
+        \end{enumerate}
       \end{solution}
     \end{Ex}
   \item
