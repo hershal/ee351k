@@ -213,8 +213,23 @@
       outcome in advance. He gets 7 out of the 10 correct. What is the
       probability that he would have done at least this well if he had
       no ESP?
-      \begin{solution} \hfill \\
-        {\huge TODO}
+      \begin{solution} \hfill
+        \begin{enumerate}
+        \item The question is simply asking ``What is the probability
+          of getting 7 out of 10 coin guesses correct''. For this we
+          will generate a Binomial Random Variable corresponding to
+          the situation where the man guesses at least 7 out of 10
+          tosses correctly, $X$ ~ Binomial(10, 0.5):
+          \begin{equation}
+            \label{eq:3-sol}
+            \begin{aligned}
+              P(X\ge7) &= p_X(7) + p_X(8) + p_X(9) + p_X(10) \\
+              &= {10 \choose 7}(0.5)^{10} + {10 \choose 8}(0.5)^{10} 
+              + {10 \choose 9}(0.5)^{10} + (0.5)^{10} \\
+              &= 0.171875000000 \\
+            \end{aligned}
+          \end{equation}
+        \end{enumerate}
       \end{solution}
     \end{Ex}
   \item 
