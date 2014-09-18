@@ -51,7 +51,7 @@
       \end{enumerate}
       \begin{solution} \hfill
         \begin{enumerate}
-        \item 
+        \item
           \begin{equation}
             \label{eq:1a-sol}
             \begin{aligned}
@@ -72,7 +72,7 @@
               &= \frac{1}{3} \\
             \end{aligned}
           \end{equation}
-        \item 
+        \item
           \begin{equation}
             \label{eq:1c-expected-sol}
             \begin{aligned}
@@ -127,7 +127,7 @@
                 0 && \text{otherwise} \\
               \end{aligned} \right
           \end{equation}
-        \item 
+        \item
           \begin{equation}
             \label{eq:1e-e-y}
             \begin{aligned}
@@ -141,7 +141,7 @@
         \end{enumerate}
       \end{solution}
     \end{Ex}
-  \item 
+  \item
     \begin{Ex}
       The number of $N$ calls arriving at a switchboard during a
       period of one hour has the PMF
@@ -165,7 +165,7 @@
           one hour can be found by the following
           \begin{equation}
             \label{eq:2a-desc}
-              P(N \ge 2) = \sum_{n \ge 2}\frac{10^ne^{-10}}{n!}
+            P(N \ge 2) = \sum_{n \ge 2}\frac{10^ne^{-10}}{n!}
           \end{equation}
           By property of PMFs, the probabilies will sum to $1$, so we
           can find $P(N \ge 2)$ by finding $1 - (P(0) + P(1))$.
@@ -192,8 +192,8 @@
             \end{aligned}
           \end{equation}
         \item The probability that the number of calls that
-        arrive within one hour is greater than three but less than or
-        equal to six can be found by the following
+          arrive within one hour is greater than three but less than or
+          equal to six can be found by the following
           \begin{equation}
             \label{eq:2c-sol}
             \begin{aligned}
@@ -206,7 +206,7 @@
         \end{enumerate}
       \end{solution}
     \end{Ex}
-  \item 
+  \item
     \begin{Ex}
       A man claims to have extrasensory perception. As a test, a fair
       coin is flipped 10 times, and the man is asked to predict the
@@ -214,35 +214,68 @@
       probability that he would have done at least this well if he had
       no ESP?
       \begin{solution} \hfill
-        \begin{enumerate}
-        \item The question is simply asking ``What is the probability
-          of getting 7 out of 10 coin guesses correct''. For this we
-          will generate a Binomial Random Variable corresponding to
-          the situation where the man guesses at least 7 out of 10
-          tosses correctly, $X$ ~ Binomial(10, 0.5):
-          \begin{equation}
-            \label{eq:3-sol}
-            \begin{aligned}
-              P(X\ge7) &= p_X(7) + p_X(8) + p_X(9) + p_X(10) \\
-              &= {10 \choose 7}(0.5)^{10} + {10 \choose 8}(0.5)^{10} 
-              + {10 \choose 9}(0.5)^{10} + (0.5)^{10} \\
-              &= 0.171875000000 \\
-            \end{aligned}
-          \end{equation}
-        \end{enumerate}
+      \item  The question is simply asking ``What is the probability of
+        getting 7 out of 10 coin guesses correct''. For this we will
+        generate a Binomial Random Variable corresponding to the
+        situation where the man guesses at least 7 out of 10 tosses
+        correctly, $X$ $\sim$ Binomial(10, 0.5):
+        \begin{equation}
+          \label{eq:3-sol}
+          \begin{aligned}
+            P(X\ge7) &= p_X(7) + p_X(8) + p_X(9) + p_X(10) \\
+            &= {10 \choose 7}(0.5)^{10} + {10 \choose 8}(0.5)^{10}
+            + {10 \choose 9}(0.5)^{10} + (0.5)^{10} \\
+            &= 0.171875000000 \\
+          \end{aligned}
+        \end{equation}
       \end{solution}
     \end{Ex}
-  \item 
+  \item
     \begin{Ex}
       You toss independently a fair coin and you count the number of
-      tosses until the first tail appears. If this number is n, you
-      receive 2n dollars. What is the expected amount that you will
+      tosses until the first tail appears. If this number is $n$, you
+      receive $2^n$ dollars. What is the expected amount that you will
       receive? How much would you be willing to pay to play this game?
-      \begin{solution} \hfill \\
-        {\huge TODO}
+      \pagebreak[2]
+      \begin{solution} \hfill 
+      \item Let $g(X)$ be the amount of money received after $x$ coin
+        tosses:
+        \begin{equation}
+          \label{eq:4-money}
+          g(X) = 2^x
+        \end{equation}
+        The amount of tosses until the first tail appears can be
+        modeled by a Geometric Random Variable, $X$ $\sim$
+        Geometric($0.5$), such that its PMF can be modeled as
+        \begin{equation}
+          \label{eq:4-geometric}
+          \begin{aligned}
+            p_X(k) &= (0.5)^{k-1}(1-0.5) \\
+            &= (0.5)^{k} \\
+            &= 2^{-k} \\
+          \end{aligned}
+        \end{equation}
+        The expected amount that you will receive can be modeled by
+        the Expected Value Rule for Functions of Random Variables
+        \begin{equation}
+          \label{eq:4-expected-value}
+          \begin{aligned}
+            E[g(X)] &= \sum_x g(x)p_X(x) \\
+            &= \sum_x 2^{-k} \cdot 2^k \\
+          \end{aligned}
+        \end{equation}
+        Which turns out that
+        \begin{equation}
+          \label{eq:4-sol}
+          E[g(X)] &= \sum 1 \\
+          &= \infty \\
+        \end{equation}
+        The expected amount you would receive for guessing the correct
+        coin toss number in infinite! Given unlimited resources, any
+        amount of payment for this game would suffice.
       \end{solution}
     \end{Ex}
-  \item 
+  \item
     \begin{Ex}
       An Internet service provider has $m$ modems with which it serves
       n customers. Customers are not always active, so $m$ need not be
@@ -271,7 +304,7 @@
         {\huge TODO}
       \end{solution}
     \end{Ex}
-  \item 
+  \item
     \begin{Ex}
       Read the brief article on Zipf's Law which is posted in the
       course materials section in the Discrete RVs folder. Zipf's Law
@@ -285,7 +318,7 @@
       rank of a random item following Zipf's law with parameter
       $\alpha$, then
       $$ p_X(x) \propto \frac{1}{x^\alpha} \text{ for } x = 1, 2, 3
-      \ldots $$ 
+      \ldots $$
       This can be used to model the popularity of web sites, movies,
       songs on iTunes, uses of letters in the alphabet etc.
       \begin{enumerate}
@@ -309,7 +342,7 @@
         {\huge TODO}
       \end{solution}
     \end{Ex}
-  \item 
+  \item
     \begin{Ex}
       I will show in class that, for a function $g : R \rightarrow R$,
       in general $E[g(X)] \not= g(E[X])$ for a random variable $X$. We
@@ -336,7 +369,7 @@
         {\huge TODO}
       \end{solution}
     \end{Ex}
-  \item 
+  \item
     \begin{Ex}
       A utility function $u$ of some some quantity say $x$ is sometimes
       used to model how happy a person is with getting $x$. In the case
@@ -361,7 +394,7 @@
         \item You win \$90 for sure.
         \end{itemize}
         Which one do you prefer? Are you risk
-        seeking or risk averse? 
+        seeking or risk averse?
       \item Suppose you are given a choice
         between two `bets':
         \begin{itemize}
