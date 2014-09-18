@@ -278,17 +278,18 @@
   \item
     \begin{Ex}
       An Internet service provider has $m$ modems with which it serves
-      n customers. Customers are not always active, so $m$ need not be
-      greater than or equal to $n$. In fact, customers are only active
-      with probability $p = 0.05$, and their activity is mutually
-      independent. Let $X$ be a random variable denoting the total
-      load on the system at a typical time, i.e., the total number of
-      active customers in the system. Let $q$ denote the probability
-      that the system is able to meet the current load, i.e., $q$ is a
-      measure of the quality of service. If it is high users are more
-      likely to be blocked. If it is low most users are likely to be
-      able to access a modem. In this problem you will consider three
-      types of problems associated with this types of scenario:
+      $n$ customers. Customers are not always active, so $m$ need not
+      be greater than or equal to $n$. In fact, customers are only
+      active with probability $p = 0.05$, and their activity is
+      mutually independent. Let $X$ be a random variable denoting the
+      total load on the system at a typical time, i.e., the total
+      number of active customers in the system. Let $q$ denote the
+      probability that the system is able to meet the current load,
+      i.e., $q$ is a measure of the quality of service. If it is high
+      users are more likely to be blocked. If it is low most users are
+      likely to be able to access a modem. In this problem you will
+      consider three types of problems associated with this types of
+      scenario:
       \begin{enumerate}
       \item Suppose the Internet service provider has $n = 10$
         customers and $m = 4$ modems. what is the quality of service
@@ -300,8 +301,33 @@
         what is the maximum number of customers $n$ that it can support
         while ensuring a quality of service of at least $q = 0.2$?
       \end{enumerate}
-      \begin{solution} \hfill \\
-        {\huge TODO}
+      \begin{solution} \hfill
+        \begin{enumerate}
+        \item Assuming that the quality of service is a the
+          probability of overload (not the probability of meeting the
+          current load).
+
+          In this case, the quality of service $q$ is the probability
+          that the number of active customers $X$ will rise above
+          $m=4$, i.e. $P(X>4)$, and signal an overload. Since each
+          customer's activity is mutually independent, we can use a
+          Binomial Random Variable, $X$ $\sim$ Binomial, to model the
+          activity.
+          \begin{equation}
+            \label{eq:5-p-desc}
+            P(X) = {x \choose 10} (0.05)^x(0.95)^{10-x}
+          \end{equation}
+          Thus, the probability that $X>4$ (overload condition) can be
+          modeled by
+          \begin{equation}
+            \label{eq:5-p-sol}
+            \begin{aligned}
+              P(X>4) &= \sum_{i=5}^{10} {i \choose 10}
+              (0.05)^i(0.95)^{10-i} \\
+              &= 0.000063689831 \\
+            \end{aligned}
+          \end{equation}
+        \end{enumerate}
       \end{solution}
     \end{Ex}
   \item
