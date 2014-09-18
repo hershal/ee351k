@@ -132,7 +132,8 @@
             \label{eq:1e-e-y}
             \begin{aligned}
               E[Y] &= \sum_y y \cdot p_Y(y) \\
-              &= \left(1\right)\left(\frac{1}{6}\right) + \left(\frac{1}{2}\right)\left(\frac{1}{3}\right) +
+              &= \left(1\right)\left(\frac{1}{6}\right) +
+              \left(\frac{1}{2}\right)\left(\frac{1}{3}\right) +
               \left(\frac{1}{3}\right)\left(\frac{1}{2}\right) \\
               &= \frac{1}{2} \\
             \end{aligned}
@@ -158,8 +159,51 @@
         arrive within one hour is greater than three but less than or
         equal to six?
       \end{enumerate}
-      \begin{solution} \hfill \\
-        {\huge TODO}
+      \begin{solution} \hfill
+        \begin{enumerate}
+        \item The probability that at least two calls arrive within
+          one hour can be found by the following
+          \begin{equation}
+            \label{eq:2a-desc}
+              P(N \ge 2) = \sum_{n \ge 2}\frac{10^ne^{-10}}{n!}
+          \end{equation}
+          By property of PMFs, the probabilies will sum to $1$, so we
+          can find $P(N \ge 2)$ by finding $1 - (P(0) + P(1))$.
+          \begin{equation}
+            \label{eq:2a-sol}
+            \begin{aligned}
+              P(N \ge 2) &= 1 - (P(0) + P(1)) \\
+              &= 1 - \frac{10^0e^{-10}}{0!} - \frac{10^1e^{-10}}{1!} \\
+              &= 1 - e^{-10} - 10e^{-10} \\
+              &= 0.9995006008 \\
+            \end{aligned}
+          \end{equation}
+        \item The probability that at most three calls arrive within
+          one hour can be found by the following
+          \begin{equation}
+            \label{eq:1b-sol}
+            \begin{aligned}
+              P(N \le 3) &= P(0) + P(1) + P(2) + P(3) \\
+              &= \frac{10^0e^{-10}}{0!} + \frac{10^1e^{-10}}{1!} +
+              \frac{10^2e^{-10}}{2!} + \frac{10^3e^{-10}}{3!} \\
+              &= e^{-10} + 10e^{-10} + \frac{10^2e^{-10}}{2} +
+              \frac{10^3e^{-10}}{6} \\
+              &= 0.01033605068 \\
+            \end{aligned}
+          \end{equation}
+        \item The probability that the number of calls that
+        arrive within one hour is greater than three but less than or
+        equal to six can be found by the following
+          \begin{equation}
+            \label{eq:2c-sol}
+            \begin{aligned}
+              P(3 < N \le 6) &=  P(4) + P(5) + P(6) \\
+              &= \frac{10^4e^{-10}}{4!} + \frac{10^5e^{-10}}{5!} +
+              \frac{10^6e^{-10}}{6!} \\
+              &= 0.119805370206 \\
+            \end{aligned}
+          \end{equation}
+        \end{enumerate}
       \end{solution}
     \end{Ex}
   \item 
