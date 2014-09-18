@@ -237,7 +237,7 @@
       receive $2^n$ dollars. What is the expected amount that you will
       receive? How much would you be willing to pay to play this game?
       \pagebreak[2]
-      \begin{solution} \hfill 
+      \begin{solution} \hfill
       \item Let $g(X)$ be the amount of money received after $x$ coin
         tosses:
         \begin{equation}
@@ -350,22 +350,108 @@
       \begin{enumerate}
       \item Find an expression in terms of $\alpha$ for the
         proportionality constant making $p_X$ a PMF when $\alpha =
-        2$. Note: In general can show that for $\alpha \in [0, 1]$ the
-        proportionality constant does not exist and thus there is no
-        PMF.
+        2$. Note: In general, one can show that for $\alpha \in [0,
+        1]$ the proportionality constant does not exist and thus there
+        is no PMF.
       \item What is the expected value of $X$ when $\alpha = 2$?
       \item Suppose there are a finite number of items, so $x =
         1,2,\ldots, n$ and now let $\alpha = 1$. Find an expression,
         in terms of $n$ for the proportionality constant for the PMF.
       \item How many times more likely is the most popular item versus
-        the $x$th most popular item. For some large but finite $n$
+        the $x$th most popular item? For some large but finite $n$,
         compare this to the case where the popularity profile is given
         by a geometric distribution. Which distribution concentrates
         more probability on the higher ranked, i.e., lower $x$,
         values?
       \end{enumerate}
-      \begin{solution} \hfill \\
-        {\huge TODO}
+      \begin{solution} \hfill
+        \begin{enumerate}
+        \item Assuming that we are tasked to find a $k$ such that
+          $p_X(x) = \frac{k}{x^\alpha}$, and satisfies
+          $\sum_{x=1}^\infty p_X(x) = 1$ where $\alpha = 2$.
+          This gives us
+          \begin{equation}
+            \label{eq:6a-reimann}
+            \begin{aligned}
+              1 &= \sum_{x=1}^\infty p_X(x) \\
+              &= \sum_{x=1}^\infty \frac{k}{x^\alpha} \\
+              &= k \sum_{x=1}^\infty x^{-\alpha}
+            \end{aligned}
+          \end{equation}
+          The Reimann Zeta function is defined as
+          \begin{equation}
+            \label{eq:6a-reimann-def}
+            \zeta(s) &= \sum_{n=1}^\infty n^{-s}
+          \end{equation}
+          which we will use to show that
+          \begin{equation}
+            \label{eq:6a-zeta}
+            \begin{aligned}
+              \zeta(2) &= \sum_{n=1}^\infty n^{-2} \\
+              &= \frac{\pi^2}{6} \\
+            \end{aligned}
+          \end{equation}
+          Continuing from \cref{eq:6a-reimann},
+          \begin{equation}
+            \label{eq:6a-sol}
+            \begin{aligned}
+              1 &= k \sum_{x=1}^\infty x^{-\alpha} \\
+              &= k \cdot \frac{\pi^2}{6} \\
+              \implies k &= \frac{6}{\pi^2} \\
+            \end{aligned}
+          \end{equation}
+          The PMF does not exist for $\alpha \in [0,1]$ because the
+          Reimann Zeta Function (reference \cref{eq:6a-reimann}) does
+          not converge for values of $\alpha$ whose real component is
+          less than or equal to $1$.
+        \item The Expected Value of X is given by
+          \begin{equation}
+            \label{eq:6b-sol}
+            \begin{aligned}
+              E[X] &= \sum_x x \cdot p_X(x) \\
+              &= \sum_{n=1}^\infty x \cdot x^{-2} \\
+              &= \sum_{n=1}^\infty x^{-1} \\
+              &= \infty
+            \end{aligned}
+          \end{equation}
+        \item Assuming that there is a finite number of items, then we
+          can ignore the fact that $\zeta(1)$ does not converge and
+          continue from \cref{eq:6a-reimann}.
+          \begin{equation}
+            \label{eq:6c-sol}
+            \begin{aligned}
+              1 &= k \sum_{x=1}^n x^{-\alpha} \\
+              \implies k &= \sum_{x=1}^n x \\
+            \end{aligned}
+          \end{equation}
+        \item The most popular item is chosen with the probability given
+          by $p_X(1) = \frac{k}{1^{\alpha}}$, and the $x$th most
+          popular item's probability is given by
+          $p_X(x) = \frac{k}{x^{\alpha}}$. We would like to find
+          $\frac{p_X(1)}{p_X(x)}$, which is given by
+          \begin{equation}
+            \label{eq:6d-sol-reg}
+            \begin{aligned}
+              \frac{p_X(1)}{p_X(x)} &=
+              \frac{\frac{k}{1^{\alpha}}}{\frac{k}{x^{\alpha}}} \\
+              &= \frac{k}{1^{\alpha}} \frac{x^{\alpha}}{k} \\
+              &= x^{\alpha}
+            \end{aligned}
+          \end{equation}
+          If the profile was given by a geometric distribution, then
+          the most popular item will be chosen with probability
+          $p_X(1) = p$ and the $x$th most popular item will be chosen
+          with probability $p_X(x) = (1-p)^{x-1}(p)$. We would like to
+          find $\frac{p_X(1)}{p_X(x)}$, which is given by
+          \begin{equation}
+            \label{eq:6d-sol-geo}
+            \begin{aligned}
+              \frac{p_X(1)}{p_X(x)} &= \frac{p}{(1-p)^{x-1}(p)} \\
+              &= \frac{1}{(1-p)^{x-1}} \\
+              &= (1-p)^{1-x} \\
+            \end{aligned}
+          \end{equation}
+        \end{enumerate}
       \end{solution}
     \end{Ex}
   \item
