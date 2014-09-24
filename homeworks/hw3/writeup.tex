@@ -315,16 +315,36 @@
           activity.
           \begin{equation}
             \label{eq:5-p-desc}
-            P(X) = {x \choose 10} (0.05)^x(0.95)^{10-x}
+            P(X) = {10 \choose x} (0.05)^x(0.95)^{10-x}
           \end{equation}
           Thus, the probability that $X>4$ (overload condition) can be
           modeled by
           \begin{equation}
             \label{eq:5-p-sol}
             \begin{aligned}
-              P(X>4) &= \sum_{i=5}^{10} {i \choose 10}
+              P(X>4) &= \sum_{i=5}^{10} {10 \choose i}
               (0.05)^i(0.95)^{10-i} \\
               &= 0.000063689831 \\
+            \end{aligned}
+          \end{equation}
+        \item Solving for $m$
+          \begin{equation}
+            \label{eq:5-p-sol}
+            \begin{aligned}
+              P(X>m) &= \sum_{i=m+1}^{20} {20 \choose i}
+              (0.05)^i(0.95)^{20-i} \\
+              0.9 &\ge \sum_{i=m+1}^{20} {20 \choose i}
+              (0.05)^i(0.95)^{20-i} \\
+            \end{aligned}
+          \end{equation}
+        \item Solving for $n$
+          \begin{equation}
+            \label{eq:5-p-sol}
+            \begin{aligned}
+              P(X>2) &= \sum_{i=2+1}^{n} {n \choose i}
+              (0.05)^i(0.95)^{n-i} \\
+              0.2 &\ge \sum_{i=3}^{n} {n \choose i}
+              (0.05)^i(0.95)^{n-i} \\
             \end{aligned}
           \end{equation}
         \end{enumerate}
