@@ -1,0 +1,180 @@
+\documentclass[12pt]{article}
+\title{EE351K Homework 4}
+\author{Hershal Bhave (hb6279)}
+\date{Due September 25, 2014}
+
+\usepackage{multicol}
+\usepackage[in]{fullpage}
+\usepackage{xcolor}
+\usepackage{rotating}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{cleveref}
+\usepackage{graphics}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[nosolutionfiles]{answers}
+\usepackage[acronym]{glossaries}
+
+\newenvironment{Ex}{\textbf{Problem}\vspace{.75em}\\}{}
+\Newassociation{solution}{Soln}{Answers}
+\pagebreak[3]
+\newcommand{\Opentesthook}[2]{\Writetofile{#1}{\protect\section{#1: #2}}}
+\renewcommand{\Solnlabel}[1]{\textbf{Solution}\quad}
+
+\newcommand{\dd}[1]{\:\mathrm{d}{#1}}
+\newcommand{\ddt}[1]{\frac{\dd{}}{\dd{#1}}}
+\newcommand{\dddt}[1]{\frac{\dd{}^2}{\dd{#1}^2}}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item
+  \begin{Ex}
+    In a Galton Box, balls are released at the top of a triangle of
+    pegs, say with $n$ layers. The pegs are aligned such that roughly
+    with probability $p$ the ball goes to the right, otherwise it
+    moves left, where typically $p = \frac{1}{2}$. The ball eventually
+    lands in one of the bins at the bottom.
+    \begin{enumerate}
+    \item Under the above idealized model, what is the PMF for the
+      random variable $X$ denoting the number of bin a typical ball
+      would end up in?
+    \item Watch the any simulated demonstation or youtube video of the
+      physical system to see a Galton box where a bunch of balls are
+      released. As the balls accumulate you start to see that the
+      fraction in each bin, i.e., the empirical distribution
+      associated with the experiment is quite close (but not always)
+      to the true distribution computed earlier. How does the number
+      of balls in the experiment affect the proximity of the empirical
+      distribution to our model?
+    \end{enumerate}
+    \begin{solution}
+      {\huge TODO}
+    \end{solution}
+  \end{Ex}
+\item
+  \begin{Ex}
+    The joint PMF of two random variables $X$ and $Y$ is given by
+    \begin{equation*}
+      \label{eq:2-question}
+      P_{X,Y}(x,y) = \left\{
+        \begin{aligned}
+          & c \cdot (x^2 + y^2), && x=\{1,2,4\};\quad y=\{1,3\} \\
+          & 0, && \text{otherwise}
+        \end{aligned} \right
+      \end{equation*}
+      \begin{enumerate}
+      \item Determine the constant $c$.
+      \item What is $P(Y<X)$?
+      \item What is $P(Y=X)$?
+      \item Find the marginal PMFs of $X$ and $Y$. Are $X$ ,$Y$
+        independent?
+      \item Find the expectations $E[X]$, $E[Y]$, and $E[XY]$.
+      \item Find the variances $\text{var}(X)$ and $\text{var}(X +Y)$.
+      \item Let $A$ denote the event $X \ge Y$. Find $E[X|A]$ and
+        $\text{var}(X|A)$.
+      \end{enumerate}
+      \begin{solution}
+        {\huge TODO}
+      \end{solution}
+    \end{Ex}
+  \item
+    \begin{Ex}
+      The joint PMF of two random variables $R$ and $S$ is given by
+      \begin{equation*}
+        \label{eq:3-question}
+        P_{RS}(r,s) = \left\{
+          \begin{aligned}
+            \frac{4}{45} && r=1, s=1 \\
+            \frac{6}{45} && r=1, s=2 \\
+            \frac{6}{45} && r=1, s=3 \\
+            \frac{6}{45} && r=2, s=1 \\
+            \frac{9}{45} && r=2, s=2 \\
+            \frac{9}{45} && r=2, s=3 \\
+            \frac{2}{45} && r=3, s=1 \\
+            \frac{3}{45} && r=3, s=2 \\
+            0 && r=3, s=3 \\
+          \end{aligned} \right
+        Let A = \{S \not= 3\}, X = R+S, Y=R-S
+      \end{equation*}
+      \begin{enumerate}
+      \item Find $p_S(s)$ and $p_{S|A}(s)$.
+      \item Find $p_{R,Y}(r,y)$.
+      \item Find $p_{X|A}(x)$.
+      \end{enumerate}
+      \begin{solution}
+        {\huge TODO}
+      \end{solution}
+    \end{Ex}
+  \item 
+    \begin{Ex}
+      The joint probability mass function of the random variables
+      $X$, $Y$, $Z$ is
+      \begin{equation*}
+        \label{eq:4-question}
+        \begin{aligned}
+          p_{X,Y,Z}(0,0,0) = \frac{1}{9}, && p_{X,Y,Z}(0,0,1) =
+          \frac{1}{9}, && p_{X,Y,Z}(0,1,0) = \frac{1}{18}, &&
+          p_{X,Y,Z}(0,1,1) = \frac{2}{9} \\
+          p_{X,Y,Z}(1,0,0) = \frac{1}{9}, && p_{X,Y,Z}(1,0,1) =
+          \frac{1}{18}, && p_{X,Y,Z}(1,1,0) = \frac{1}{9}, &&
+          p_{X,Y,Z}(1,1,1) = \frac{1}{9} \\
+        \end{aligned}
+      \end{equation*}
+      \begin{enumerate}
+      \item Find $E[XY\sqrt{Z}]$.
+      \item Argue that $E[XY +XZ2 +YZ] = E[XY]+E[XZ2]+E[YZ]$ and then
+        compute its value.
+      \item Are $X$, $Y$ independent given $Z=1$? Compute $E[XY|Z = 1]$.
+      \end{enumerate}
+      \begin{solution}
+        {\huge TODO}
+      \end{solution}
+    \end{Ex}
+  \item
+    \begin{Ex}
+      Choose a number $X$ at random from the set of numbers $\{1, 2,
+      3, 4\}$. Now choose a number at random from the subset no larger
+      than $X$, that is, from $\{1,2,\ldots X\}$. Call this second
+      number $Y$
+      \begin{enumerate}
+      \item Find the joint mass function of $X$ and $Y$.
+      \item Find the conditional mass function of $X$ given that $Y =
+        i$. Do it for $i = 1,2,\ldots ,4$. Also, find $E[Y]$.
+      \item Are $X$ and $Y$ independent? Why?
+      \end{enumerate}
+      \begin{solution}
+        {\huge TODO}
+      \end{solution}
+    \end{Ex}
+  \item 
+    \begin{Ex}
+      The PMF for the result of any one roll of a three sided die with
+      faces numbered $1$,$2$ and $3$ is
+      \begin{equation*}
+        p_X(x) = \left\{
+          \begin{aligned}
+            \frac{1}{2}, && x=1 \\
+            \frac{1}{4}, && x=2 \\
+            \frac{1}{4}, && x=3 \\
+            0, && \text{otherwise} \\
+          \end{aligned} \right
+      \end{equation*}
+      Consider a sequence of six independent rolls of this die, and
+      let $X_i$ be the random variable corresponding to the $i$th
+      roll.
+      \begin{enumerate}
+      \item What is the probability that exactly three of the rolls
+        have result equal to 3?
+      \item What is the probability that the first roll is 1, given
+        that exactly two of the six rolls have result of 1?
+      \item We are told that exactly three of the rolls resulted in 1
+        and exactly three resulted in 2. Given this information, what
+        is the probability that the sequence of rolls is 121212?
+      \item Conditioned on the event that at least one roll resulted
+        in 3, find the conditional PMF of the number of 3s.
+      \end{enumerate}
+    \end{Ex}
+\end{enumerate}
+\end{document}
