@@ -69,7 +69,7 @@
       \label{eq:2-question}
       P_{X,Y}(x,y) = \left\{
         \begin{aligned}
-          & c \cdot (x^2 + y^2), && x=\{1,2,4\};\quad y=\{1,3\} \\
+          & c \cdot (x^2 + y^2), && x=\{1,2,4\};\; y=\{1,3\} \\
           & 0, && \text{otherwise}
         \end{aligned} \right
       \end{equation*}
@@ -77,7 +77,7 @@
       \item Determine the constant $c$.
       \item What is $P(Y<X)$?
       \item What is $P(Y=X)$?
-      \item Find the marginal PMFs of $X$ and $Y$. Are $X$ ,$Y$
+      \item Find the marginal PMFs of $X$ and $Y$. Are $X$, $Y$
         independent?
       \item Find the expectations $E[X]$, $E[Y]$, and $E[XY]$.
       \item Find the variances $\text{var}(X)$ and $\text{var}(X +Y)$.
@@ -85,7 +85,126 @@
         $\text{var}(X|A)$.
       \end{enumerate}
       \begin{solution} \hfill
-        {\huge TODO}
+        \begin{enumerate}
+        \item As a property of all PMFs, the sum of all possible
+          values in the PMF must equal 1. That is, 
+          \begin{equation}
+            \label{eq:2a-pmf-sum}
+            \sum_{x,y} P_{X,Y}(x,y) = 1.
+          \end{equation}
+          So that implies
+          \begin{equation}
+            \label{eq:2a-pmf-sum-actual}
+            \begin{aligned}
+              \sum_{x,y} P_{X,Y}(x,y) &= c\cdot((1^2+1^2) + (2^2+1^2) +
+              (4^2+1^2) + (1^2+3^2) + (2^2+3^2) + (4^2+3^2)) \\
+              1 &= 72c \\
+              \implies c&=\frac{1}{72} \\
+            \end{aligned}
+          \end{equation}
+        \item The pairs of values of $(x,y)$ such that $y < x$
+          is $\{(4,3),(4,1),(2,1)\}$. In that case, $P(Y < X)$ is
+          simply
+          \begin{equation}
+            \label{eq:2b-sol}
+            \begin{aligned}
+              P(Y<X) &= c\cdot((4^2+3^2) + (4^2+1^2) + (2^2+1^2) \\
+              &= c\cdot(47) \\
+              &= \frac{47}{72} \\
+              \implies P(Y<X) &= 0.6527777778 \\
+            \end{aligned}
+          \end{equation}
+        \item The only pair of values of $(x,y)$ such that $y=x$ is
+          $(1,1)$. In that case, $P(X=Y)$ is simply
+          \begin{equation}
+            \label{eq:2c-sol}
+            \begin{aligned}
+              P(X=Y) &= c\cdot(1^2 + 1^2) \\
+               &= \frac{2}{72} \\
+               \implies P(X=Y) &= 0.02777777778
+            \end{aligned}
+          \end{equation}
+        \item The marginal PMF $p_X(x)$ is given as follows
+          \begin{equation}
+            \label{eq:2d-marginal-x}
+            \begin{aligned}
+              p_X(1) &= c\cdot((1^2+1^2) + (1^2+3^2)) \\
+              p_X(2) &= c\cdot((2^2+1^2) + (2^2+3^2)) \\
+              p_X(4) &= c\cdot((4^2+1^2) + (4^2+3^2)) \\
+            \end{aligned}
+          \end{equation}
+          Which then turn out to be
+          \begin{equation}
+            \label{eq:2d-marginal-x-values}
+            \begin{aligned}
+              p_X(1) &= \frac{12}{72} \\
+              p_X(2) &= \frac{18}{72} \\
+              p_X(4) &= \frac{42}{72} \\
+            \end{aligned}
+          \end{equation}
+          The marginal PMF $p_Y(y)$ is given as follows
+          \begin{equation}
+            \label{eq:2d-marginal-y}
+            \begin{aligned}
+              p_Y(1) &= c\cdot((1^2+1^2) + (2^2+1^2) + (4^2+1^2))\\
+              p_Y(3) &= c\cdot((1^2+3^2) + (2^2+3^2) + (4^2+3^2)) \\
+            \end{aligned}
+          \end{equation}
+          Which then turn out to be
+          \begin{equation}
+            \label{eq:2d-marginal-y-values}
+            \begin{aligned}
+              p_Y(1) &= \frac{24}{72} \\
+              p_Y(3) &= \frac{48}{72} \\
+            \end{aligned}
+          \end{equation}
+          The two random variables are independent if 
+          \begin{equation}
+            \label{eq:2d-independent}
+            p_{X,Y}(x,y) = p_X(x)p_Y(y) \quad \forall (x,y)
+          \end{equation}
+          $X$ and $Y$ are not independent by counterexample
+          \begin{equation}
+            \label{eq:2d-counterexample}
+            \begin{aligned}
+              P(X=1, Y=1) &= p_X(1) \cdot p_Y(1) \\
+              c\cdot(1^2 + 1^2)&=
+              \left(\frac{12}{72}\right)\cdot\left(\frac{24}{72}\right)
+              \\ 
+              \frac{2}{72} &\not= \frac{1}{18}
+            \end{aligned}
+          \end{equation}
+          Thus $X$ and $Y$ are not independent.
+        \item $E[X]$, $E[Y]$, and $E[XY]$ are as follows
+          \begin{equation}
+            \label{eq:2e-expectation-x-y-xy}
+            \begin{aligned}
+              E[X] &= 1\cdot\frac{12}{72} + 2\cdot\frac{18}{72} +
+              4\cdot\frac{42}{72} \\
+              \implies E[X] &= 3 \\
+              E[Y] &= 1\cdot\frac{24}{72} + 3\cdot\frac{48}{72} \\
+              \implies E[Y] &= 2.3333333333 \\
+              E[XY] &= E[g(X,Y)] \\
+              E[g(X,Y)] &= \sum_{x,y} g(x,y)p_{X,Y}(x,y) \\
+              &= \frac{488}{72} \\
+              \implies E[XY] &= 6.7777777778 \\
+            \end{aligned}
+          \end{equation}
+        \item $\text{var}(X)$ and $\text{var}(X+Y)$ are as follows
+          \begin{equation}
+            \label{eq:2f-variances}
+            \begin{aligned}
+              \text{var}(X) &= E[X^2] - (E[X])^2 \\
+              &=
+              \left(1\cdot\frac{12}{72}+4\cdot\frac{18}{72}+16\cdot\frac{42}{72}\right)
+              - 9 \\
+              &= \frac{756}{72}-9 \\
+              \implies \text{var}(X) &= 1.5 \\
+              \text{var}(X+Y) &= E[(X+Y)^2] - (E[X+Y])^2 \\
+            \end{aligned}
+          \end{equation}
+
+        \end{enumerate}
       \end{solution}
     \end{Ex}
   \item
