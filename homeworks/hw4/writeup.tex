@@ -203,6 +203,51 @@
               \text{var}(X+Y) &= E[(X+Y)^2] - (E[X+Y])^2 \\
             \end{aligned}
           \end{equation}
+        \item Given $P(A) = P(X \ge Y)$, 
+          \begin{equation}
+            \label{eq:2g-decl}
+              P(A) = \frac{2}{3}
+          \end{equation}
+          and we know that 
+          \begin{equation}
+            \label{eq:2g-conditioning}
+            p_{X|A}(x|A) = \left\{
+              \begin{aligned}
+                &\frac{p_{X}(x)}{P(A)}, && \quad\text{where } (x,y) \in
+                A \cap S_{X} \\
+                &0, && \quad\text{otherwise}
+              \end{aligned}\right
+          \end{equation}
+          Now we can compute $E[X|A]$.
+          \begin{equation}
+            \label{eq:2g-e-x-given-a}
+            \begin{aligned}
+              E[X|A] &= \sum_x x \cdot p_{X|A}(x) \\
+              &= \frac{p_X(1,1)}{P(A)} +
+              2\cdot\frac{p_X(2,1)}{P(A)} +
+              4\cdot\frac{p_X(4,1)}{P(A)} +
+              4\cdot\frac{p_X(4,3)}{P(A)} \\
+              &= \left(\frac{3}{2}\right)\left(\frac{2}{72}\right) +
+              (3)\left(\frac{5}{72}\right) +
+              (6)\left(\frac{17}{72}\right) + 
+              (6)\left(\frac{25}{72}\right) \\
+              \implies E[X|A] &= 3.75
+            \end{aligned}
+          \end{equation}
+          And now we can also compute $\text{var}(X|A)$.
+          \begin{equation}
+            \label{eq:2g-var-x-given-a}
+            \begin{aligned}
+              \text{var}(X|A) &= E[X^2|A] - (E[X|A])^2 \\
+              &= (3.75)^2 -
+              \left(\frac{3}{2}\right)^2\left(\frac{2}{72}\right) +
+              (3)^2\left(\frac{5}{72}\right) +
+              (6)^2\left(\frac{17}{72}\right) +
+              (6)^2\left(\frac{25}{72}\right) \\
+              &= 21.6875 - 14.0625 \\
+              \implies \text{var}(X|A) &= 7.625 \\
+            \end{aligned}
+          \end{equation}
 
         \end{enumerate}
       \end{solution}
