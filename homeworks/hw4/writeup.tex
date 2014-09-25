@@ -40,17 +40,26 @@
     \item Under the above idealized model, what is the PMF for the
       random variable $X$ denoting the number of bin a typical ball
       would end up in?
-    \item Watch the any simulated demonstation or youtube video of the
-      physical system to see a Galton box where a bunch of balls are
-      released. As the balls accumulate you start to see that the
-      fraction in each bin, i.e., the empirical distribution
-      associated with the experiment is quite close (but not always)
-      to the true distribution computed earlier. How does the number
-      of balls in the experiment affect the proximity of the empirical
-      distribution to our model?
+    \item Watch a simulated demonstation of the physical system to
+      see a Galton box where a bunch of balls are released. As the
+      balls accumulate you start to see that the fraction in each bin,
+      i.e., the empirical distribution associated with the experiment
+      is quite close (but not always) to the true distribution
+      computed earlier. How does the number of balls in the experiment
+      affect the proximity of the empirical distribution to our model?
     \end{enumerate}
-    \begin{solution}
-      {\huge TODO}
+    \begin{solution} \hfill
+      \begin{enumerate}
+      \item The probability that the ball ends up in the $x$th bin
+        from the left can be modeled by a binomial distribution:
+        \begin{equation}
+          \label{eq:1a-binomial-dist}
+          P_X(x) = {n \choose x} p^k(1-p)^k
+        \end{equation}
+      \item The Law of Large Numbers dictates that as the sample size
+        increases, the proximity of the measured system starts to
+        approach that of the empirical system.
+      \end{enumerate}
     \end{solution}
   \end{Ex}
 \item
