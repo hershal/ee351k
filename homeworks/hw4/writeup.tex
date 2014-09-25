@@ -72,282 +72,330 @@
           & c \cdot (x^2 + y^2), && x=\{1,2,4\};\; y=\{1,3\} \\
           & 0, && \text{otherwise}
         \end{aligned} \right
-      \end{equation*}
+    \end{equation*}
+    \begin{enumerate}
+    \item Determine the constant $c$.
+    \item What is $P(Y<X)$?
+    \item What is $P(Y=X)$?
+    \item Find the marginal PMFs of $X$ and $Y$. Are $X$, $Y$
+      independent?
+    \item Find the expectations $E[X]$, $E[Y]$, and $E[XY]$.
+    \item Find the variances $\text{var}(X)$ and $\text{var}(X +Y)$.
+    \item Let $A$ denote the event $X \ge Y$. Find $E[X|A]$ and
+      $\text{var}(X|A)$.
+    \end{enumerate}
+    \begin{solution} \hfill
       \begin{enumerate}
-      \item Determine the constant $c$.
-      \item What is $P(Y<X)$?
-      \item What is $P(Y=X)$?
-      \item Find the marginal PMFs of $X$ and $Y$. Are $X$, $Y$
-        independent?
-      \item Find the expectations $E[X]$, $E[Y]$, and $E[XY]$.
-      \item Find the variances $\text{var}(X)$ and $\text{var}(X +Y)$.
-      \item Let $A$ denote the event $X \ge Y$. Find $E[X|A]$ and
-        $\text{var}(X|A)$.
-      \end{enumerate}
-      \begin{solution} \hfill
-        \begin{enumerate}
-        \item As a property of all PMFs, the sum of all possible
-          values in the PMF must equal 1. That is, 
-          \begin{equation}
-            \label{eq:2a-pmf-sum}
-            \sum_{x,y} P_{X,Y}(x,y) = 1.
-          \end{equation}
-          So that implies
-          \begin{equation}
-            \label{eq:2a-pmf-sum-actual}
+      \item As a property of all PMFs, the sum of all possible
+        values in the PMF must equal 1. That is,
+        \begin{equation}
+          \label{eq:2a-pmf-sum}
+          \sum_{x,y} P_{X,Y}(x,y) = 1.
+        \end{equation}
+        So that implies
+        \begin{equation}
+          \label{eq:2a-pmf-sum-actual}
+          \begin{aligned}
+            \sum_{x,y} P_{X,Y}(x,y) &= c\cdot((1^2+1^2) + (2^2+1^2) +
+            (4^2+1^2) + (1^2+3^2) + (2^2+3^2) + (4^2+3^2)) \\
+            1 &= 72c \\
+            \implies c&=\frac{1}{72} \\
+          \end{aligned}
+        \end{equation}
+      \item The pairs of values of $(x,y)$ such that $y < x$
+        is $\{(4,3),(4,1),(2,1)\}$. In that case, $P(Y < X)$ is
+        simply
+        \begin{equation}
+          \label{eq:2b-sol}
+          \begin{aligned}
+            P(Y<X) &= c\cdot((4^2+3^2) + (4^2+1^2) + (2^2+1^2) \\
+            &= c\cdot(47) \\
+            &= \frac{47}{72} \\
+            \implies P(Y<X) &= 0.6527777778 \\
+          \end{aligned}
+        \end{equation}
+      \item The only pair of values of $(x,y)$ such that $y=x$ is
+        $(1,1)$. In that case, $P(X=Y)$ is simply
+        \begin{equation}
+          \label{eq:2c-sol}
+          \begin{aligned}
+            P(X=Y) &= c\cdot(1^2 + 1^2) \\
+            &= \frac{2}{72} \\
+            \implies P(X=Y) &= 0.02777777778
+          \end{aligned}
+        \end{equation}
+      \item The marginal PMF $p_X(x)$ is given as follows
+        \begin{equation}
+          \label{eq:2d-marginal-x}
+          \begin{aligned}
+            p_X(1) &= c\cdot((1^2+1^2) + (1^2+3^2)) \\
+            p_X(2) &= c\cdot((2^2+1^2) + (2^2+3^2)) \\
+            p_X(4) &= c\cdot((4^2+1^2) + (4^2+3^2)) \\
+          \end{aligned}
+        \end{equation}
+        Which then turn out to be
+        \begin{equation}
+          \label{eq:2d-marginal-x-values}
+          \begin{aligned}
+            p_X(1) &= \frac{12}{72} \\
+            p_X(2) &= \frac{18}{72} \\
+            p_X(4) &= \frac{42}{72} \\
+          \end{aligned}
+        \end{equation}
+        The marginal PMF $p_Y(y)$ is given as follows
+        \begin{equation}
+          \label{eq:2d-marginal-y}
+          \begin{aligned}
+            p_Y(1) &= c\cdot((1^2+1^2) + (2^2+1^2) + (4^2+1^2))\\
+            p_Y(3) &= c\cdot((1^2+3^2) + (2^2+3^2) + (4^2+3^2)) \\
+          \end{aligned}
+        \end{equation}
+        Which then turn out to be
+        \begin{equation}
+          \label{eq:2d-marginal-y-values}
+          \begin{aligned}
+            p_Y(1) &= \frac{24}{72} \\
+            p_Y(3) &= \frac{48}{72} \\
+          \end{aligned}
+        \end{equation}
+        The two random variables are independent if
+        \begin{equation}
+          \label{eq:2d-independent}
+          p_{X,Y}(x,y) = p_X(x)p_Y(y) \quad \forall (x,y)
+        \end{equation}
+        $X$ and $Y$ are not independent by counterexample
+        \begin{equation}
+          \label{eq:2d-counterexample}
+          \begin{aligned}
+            P(X=1, Y=1) &= p_X(1) \cdot p_Y(1) \\
+            c\cdot(1^2 + 1^2)&=
+            \left(\frac{12}{72}\right)\cdot\left(\frac{24}{72}\right)
+            \\
+            \frac{2}{72} &\not= \frac{1}{18}
+          \end{aligned}
+        \end{equation}
+        Thus $X$ and $Y$ are not independent.
+      \item $E[X]$, $E[Y]$, and $E[XY]$ are as follows
+        \begin{equation}
+          \label{eq:2e-expectation-x-y-xy}
+          \begin{aligned}
+            E[X] &= 1\cdot\frac{12}{72} + 2\cdot\frac{18}{72} +
+            4\cdot\frac{42}{72} \\
+            \implies E[X] &= 3 \\
+            E[Y] &= 1\cdot\frac{24}{72} + 3\cdot\frac{48}{72} \\
+            \implies E[Y] &= 2.3333333333 \\
+            E[XY] &= E[g(X,Y)] \\
+            E[g(X,Y)] &= \sum_{x,y} g(x,y)p_{X,Y}(x,y) \\
+            &= \frac{488}{72} \\
+            \implies E[XY] &= 6.7777777778 \\
+          \end{aligned}
+        \end{equation}
+      \item $\text{var}(X)$ and $\text{var}(X+Y)$ are as follows
+        \begin{equation}
+          \label{eq:2f-variances}
+          \begin{aligned}
+            \text{var}(X) &= E[X^2] - (E[X])^2 \\
+            &=
+            \left(1\cdot\frac{12}{72}+4\cdot\frac{18}{72}+16\cdot\frac{42}{72}\right)
+            - 9 \\
+            &= \frac{756}{72}-9 \\
+            \implies \text{var}(X) &= 1.5 \\
+            \text{var}(X+Y) &= E[(X+Y)^2] - (E[X+Y])^2 \\
+          \end{aligned}
+        \end{equation}
+      \item Given $P(A) = P(X \ge Y)$,
+        \begin{equation}
+          \label{eq:2g-decl}
+          P(A) = \frac{2}{3}
+        \end{equation}
+        and we know that
+        \begin{equation}
+          \label{eq:2g-conditioning}
+          p_{X|A}(x|A) = \left\{
             \begin{aligned}
-              \sum_{x,y} P_{X,Y}(x,y) &= c\cdot((1^2+1^2) + (2^2+1^2) +
-              (4^2+1^2) + (1^2+3^2) + (2^2+3^2) + (4^2+3^2)) \\
-              1 &= 72c \\
-              \implies c&=\frac{1}{72} \\
-            \end{aligned}
-          \end{equation}
-        \item The pairs of values of $(x,y)$ such that $y < x$
-          is $\{(4,3),(4,1),(2,1)\}$. In that case, $P(Y < X)$ is
-          simply
-          \begin{equation}
-            \label{eq:2b-sol}
-            \begin{aligned}
-              P(Y<X) &= c\cdot((4^2+3^2) + (4^2+1^2) + (2^2+1^2) \\
-              &= c\cdot(47) \\
-              &= \frac{47}{72} \\
-              \implies P(Y<X) &= 0.6527777778 \\
-            \end{aligned}
-          \end{equation}
-        \item The only pair of values of $(x,y)$ such that $y=x$ is
-          $(1,1)$. In that case, $P(X=Y)$ is simply
-          \begin{equation}
-            \label{eq:2c-sol}
-            \begin{aligned}
-              P(X=Y) &= c\cdot(1^2 + 1^2) \\
-               &= \frac{2}{72} \\
-               \implies P(X=Y) &= 0.02777777778
-            \end{aligned}
-          \end{equation}
-        \item The marginal PMF $p_X(x)$ is given as follows
-          \begin{equation}
-            \label{eq:2d-marginal-x}
-            \begin{aligned}
-              p_X(1) &= c\cdot((1^2+1^2) + (1^2+3^2)) \\
-              p_X(2) &= c\cdot((2^2+1^2) + (2^2+3^2)) \\
-              p_X(4) &= c\cdot((4^2+1^2) + (4^2+3^2)) \\
-            \end{aligned}
-          \end{equation}
-          Which then turn out to be
-          \begin{equation}
-            \label{eq:2d-marginal-x-values}
-            \begin{aligned}
-              p_X(1) &= \frac{12}{72} \\
-              p_X(2) &= \frac{18}{72} \\
-              p_X(4) &= \frac{42}{72} \\
-            \end{aligned}
-          \end{equation}
-          The marginal PMF $p_Y(y)$ is given as follows
-          \begin{equation}
-            \label{eq:2d-marginal-y}
-            \begin{aligned}
-              p_Y(1) &= c\cdot((1^2+1^2) + (2^2+1^2) + (4^2+1^2))\\
-              p_Y(3) &= c\cdot((1^2+3^2) + (2^2+3^2) + (4^2+3^2)) \\
-            \end{aligned}
-          \end{equation}
-          Which then turn out to be
-          \begin{equation}
-            \label{eq:2d-marginal-y-values}
-            \begin{aligned}
-              p_Y(1) &= \frac{24}{72} \\
-              p_Y(3) &= \frac{48}{72} \\
-            \end{aligned}
-          \end{equation}
-          The two random variables are independent if 
-          \begin{equation}
-            \label{eq:2d-independent}
-            p_{X,Y}(x,y) = p_X(x)p_Y(y) \quad \forall (x,y)
-          \end{equation}
-          $X$ and $Y$ are not independent by counterexample
-          \begin{equation}
-            \label{eq:2d-counterexample}
-            \begin{aligned}
-              P(X=1, Y=1) &= p_X(1) \cdot p_Y(1) \\
-              c\cdot(1^2 + 1^2)&=
-              \left(\frac{12}{72}\right)\cdot\left(\frac{24}{72}\right)
-              \\ 
-              \frac{2}{72} &\not= \frac{1}{18}
-            \end{aligned}
-          \end{equation}
-          Thus $X$ and $Y$ are not independent.
-        \item $E[X]$, $E[Y]$, and $E[XY]$ are as follows
-          \begin{equation}
-            \label{eq:2e-expectation-x-y-xy}
-            \begin{aligned}
-              E[X] &= 1\cdot\frac{12}{72} + 2\cdot\frac{18}{72} +
-              4\cdot\frac{42}{72} \\
-              \implies E[X] &= 3 \\
-              E[Y] &= 1\cdot\frac{24}{72} + 3\cdot\frac{48}{72} \\
-              \implies E[Y] &= 2.3333333333 \\
-              E[XY] &= E[g(X,Y)] \\
-              E[g(X,Y)] &= \sum_{x,y} g(x,y)p_{X,Y}(x,y) \\
-              &= \frac{488}{72} \\
-              \implies E[XY] &= 6.7777777778 \\
-            \end{aligned}
-          \end{equation}
-        \item $\text{var}(X)$ and $\text{var}(X+Y)$ are as follows
-          \begin{equation}
-            \label{eq:2f-variances}
-            \begin{aligned}
-              \text{var}(X) &= E[X^2] - (E[X])^2 \\
-              &=
-              \left(1\cdot\frac{12}{72}+4\cdot\frac{18}{72}+16\cdot\frac{42}{72}\right)
-              - 9 \\
-              &= \frac{756}{72}-9 \\
-              \implies \text{var}(X) &= 1.5 \\
-              \text{var}(X+Y) &= E[(X+Y)^2] - (E[X+Y])^2 \\
-            \end{aligned}
-          \end{equation}
-        \item Given $P(A) = P(X \ge Y)$, 
-          \begin{equation}
-            \label{eq:2g-decl}
-              P(A) = \frac{2}{3}
-          \end{equation}
-          and we know that 
-          \begin{equation}
-            \label{eq:2g-conditioning}
-            p_{X|A}(x|A) = \left\{
-              \begin{aligned}
-                &\frac{p_{X}(x)}{P(A)}, && \quad\text{where } (x,y) \in
-                A \cap S_{X} \\
-                &0, && \quad\text{otherwise}
-              \end{aligned}\right
-          \end{equation}
-          Now we can compute $E[X|A]$.
-          \begin{equation}
-            \label{eq:2g-e-x-given-a}
-            \begin{aligned}
-              E[X|A] &= \sum_x x \cdot p_{X|A}(x) \\
-              &= \frac{p_X(1,1)}{P(A)} +
-              2\cdot\frac{p_X(2,1)}{P(A)} +
-              4\cdot\frac{p_X(4,1)}{P(A)} +
-              4\cdot\frac{p_X(4,3)}{P(A)} \\
-              &= \left(\frac{3}{2}\right)\left(\frac{2}{72}\right) +
-              (3)\left(\frac{5}{72}\right) +
-              (6)\left(\frac{17}{72}\right) + 
-              (6)\left(\frac{25}{72}\right) \\
-              \implies E[X|A] &= 3.75
-            \end{aligned}
-          \end{equation}
-          And now we can also compute $\text{var}(X|A)$.
-          \begin{equation}
-            \label{eq:2g-var-x-given-a}
-            \begin{aligned}
-              \text{var}(X|A) &= E[X^2|A] - (E[X|A])^2 \\
-              &= (3.75)^2 -
-              \left(\frac{3}{2}\right)^2\left(\frac{2}{72}\right) +
-              (3)^2\left(\frac{5}{72}\right) +
-              (6)^2\left(\frac{17}{72}\right) +
-              (6)^2\left(\frac{25}{72}\right) \\
-              &= 21.6875 - 14.0625 \\
-              \implies \text{var}(X|A) &= 7.625 \\
-            \end{aligned}
-          \end{equation}
+              &\frac{p_{X}(x)}{P(A)}, && \quad\text{where } (x,y) \in
+              A \cap S_{X} \\
+              &0, && \quad\text{otherwise}
+            \end{aligned}\right
+        \end{equation}
+        Now we can compute $E[X|A]$.
+        \begin{equation}
+          \label{eq:2g-e-x-given-a}
+          \begin{aligned}
+            E[X|A] &= \sum_x x \cdot p_{X|A}(x) \\
+            &= \frac{p_X(1,1)}{P(A)} +
+            2\cdot\frac{p_X(2,1)}{P(A)} +
+            4\cdot\frac{p_X(4,1)}{P(A)} +
+            4\cdot\frac{p_X(4,3)}{P(A)} \\
+            &= \left(\frac{3}{2}\right)\left(\frac{2}{72}\right) +
+            (3)\left(\frac{5}{72}\right) +
+            (6)\left(\frac{17}{72}\right) +
+            (6)\left(\frac{25}{72}\right) \\
+            \implies E[X|A] &= 3.75
+          \end{aligned}
+        \end{equation}
+        And now we can also compute $\text{var}(X|A)$.
+        \begin{equation}
+          \label{eq:2g-var-x-given-a}
+          \begin{aligned}
+            \text{var}(X|A) &= E[X^2|A] - (E[X|A])^2 \\
+            &= (3.75)^2 -
+            \left(\frac{3}{2}\right)^2\left(\frac{2}{72}\right) +
+            (3)^2\left(\frac{5}{72}\right) +
+            (6)^2\left(\frac{17}{72}\right) +
+            (6)^2\left(\frac{25}{72}\right) \\
+            &= 21.6875 - 14.0625 \\
+            \implies \text{var}(X|A) &= 7.625 \\
+          \end{aligned}
+        \end{equation}
 
-        \end{enumerate}
-      \end{solution}
-    \end{Ex}
-  \item
-    \begin{Ex}
-      The joint PMF of two random variables $R$ and $S$ is given by
-      \begin{equation*}
-        \label{eq:3-question}
-        P_{RS}(r,s) = \left\{
-          \begin{aligned}
-            \frac{4}{45} && r=1, s=1 \\
-            \frac{6}{45} && r=1, s=2 \\
-            \frac{6}{45} && r=1, s=3 \\
-            \frac{6}{45} && r=2, s=1 \\
-            \frac{9}{45} && r=2, s=2 \\
-            \frac{9}{45} && r=2, s=3 \\
-            \frac{2}{45} && r=3, s=1 \\
-            \frac{3}{45} && r=3, s=2 \\
-            0 && r=3, s=3 \\
-          \end{aligned} \right
-      \end{equation*}
-      Let $A = \{S \not= 3\}$, $X = R+S$, $Y=R-S$
-      \begin{enumerate}
-      \item Find $p_S(s)$ and $p_{S|A}(s)$.
-      \item Find $p_{R,Y}(r,y)$.
-      \item Find $p_{X|A}(x)$.
       \end{enumerate}
-      \begin{solution} \hfill
-        {\huge TODO}
-      \end{solution}
-    \end{Ex}
-  \item 
-    \begin{Ex}
-      The joint probability mass function of the random variables
-      $X$, $Y$, $Z$ is
-      \begin{equation*}
-        \label{eq:4-question}
+    \end{solution}
+  \end{Ex}
+\item
+  \begin{Ex}
+    The joint PMF of two random variables $R$ and $S$ is given by
+    \begin{equation*}
+      \label{eq:3-question}
+      P_{R,S}(r,s) = \left\{
         \begin{aligned}
-          p_{X,Y,Z}(0,0,0) = \frac{1}{9}, && p_{X,Y,Z}(0,0,1) =
-          \frac{1}{9}, && p_{X,Y,Z}(0,1,0) = \frac{1}{18}, &&
-          p_{X,Y,Z}(0,1,1) = \frac{2}{9} \\
-          p_{X,Y,Z}(1,0,0) = \frac{1}{9}, && p_{X,Y,Z}(1,0,1) =
-          \frac{1}{18}, && p_{X,Y,Z}(1,1,0) = \frac{1}{9}, &&
-          p_{X,Y,Z}(1,1,1) = \frac{1}{9} \\
-        \end{aligned}
-      \end{equation*}
+          \frac{4}{45} && r=1, s=1 \\
+          \frac{6}{45} && r=1, s=2 \\
+          \frac{6}{45} && r=1, s=3 \\
+          \frac{6}{45} && r=2, s=1 \\
+          \frac{9}{45} && r=2, s=2 \\
+          \frac{9}{45} && r=2, s=3 \\
+          \frac{2}{45} && r=3, s=1 \\
+          \frac{3}{45} && r=3, s=2 \\
+          0 && r=3, s=3 \\
+        \end{aligned} \right
+    \end{equation*}
+    Let $A = \{S \not= 3\}$, $X = R+S$, $Y=R-S$
+    \begin{enumerate}
+    \item Find $p_S(s)$ and $p_{S|A}(s)$.
+    \item Find $p_{R,Y}(r,y)$.
+    \item Find $p_{X|A}(x)$.
+    \end{enumerate}
+    \begin{solution} \hfill
       \begin{enumerate}
-      \item Find $E[XY\sqrt{Z}]$.
-      \item Argue that $E[XY +XZ2 +YZ] = E[XY]+E[XZ2]+E[YZ]$ and then
-        compute its value.
-      \item Are $X$, $Y$ independent given $Z=1$? Compute $E[XY|Z = 1]$.
+      \item $p_S(s)$ is given by
+        \begin{equation}
+          \label{eq:3a-pmf-s}
+          p_S(s) = \left\{
+            \begin{aligned}
+              \frac{12}{45}, && s=1 \\
+              \frac{18}{45}, && s=2 \\
+              \frac{15}{45}, && s=3 \\
+            \end{aligned} \right
+        \end{equation}
+        And $p_{S|A}(s)$ is given by
+        \begin{equation}
+          \label{eq:3a-pmf-s-given-a}
+          p_{S|A}(s) = \left\{
+            \begin{aligned}
+              \frac{18}{45}, && s=1 \\
+              \frac{27}{45}, && s=2 \\
+            \end{aligned} \right
+        \end{equation}
+      \item
+        $p_{R,Y}(r,y)$ is given by
+        \begin{equation}
+          \label{eq:3b-pmf}
+          P_{R,Y}(r,y) = \left\{
+            \begin{aligned}
+              \frac{4}{45} && r=1, y=0 \\
+              \frac{6}{45} && r=1, y=-1 \\
+              \frac{6}{45} && r=1, y=-2 \\
+              \frac{6}{45} && r=2, y=1 \\
+              \frac{9}{45} && r=2, y=0 \\
+              \frac{9}{45} && r=2, y=-1 \\
+              \frac{2}{45} && r=3, y=2 \\
+              \frac{3}{45} && r=3, y=1 \\
+              0 && r=3, y=0 \\
+            \end{aligned} \right
+        \end{equation}
+      \item $p_{X|A}(x)$ is given by
+        \begin{equation}
+          \label{eq:3c-sol}
+          p_{X|A}(x) = \left\{
+            \begin{aligned}
+              \frac{4}{30} && x=2 \\
+              \frac{12}{30} && x=3 \\
+              \frac{11}{30} && x=4 \\
+              \frac{3}{30} && x=5 \\
+            \end{aligned}
+        \end{equation}
       \end{enumerate}
-      \begin{solution} \hfill
-        {\huge TODO}
-      \end{solution}
-    \end{Ex}
-  \item
-    \begin{Ex}
-      Choose a number $X$ at random from the set of numbers $\{1, 2,
-      3, 4\}$. Now choose a number at random from the subset no larger
-      than $X$, that is, from $\{1,2,\ldots X\}$. Call this second
-      number $Y$
-      \begin{enumerate}
-      \item Find the joint mass function of $X$ and $Y$.
-      \item Find the conditional mass function of $X$ given that $Y =
-        i$. Do it for $i = 1,2,\ldots ,4$. Also, find $E[Y]$.
-      \item Are $X$ and $Y$ independent? Why?
-      \end{enumerate}
-      \begin{solution} \hfill
-        {\huge TODO}
-      \end{solution}
-    \end{Ex}
-  \item 
-    \begin{Ex}
-      The PMF for the result of any one roll of a three sided die with
-      faces numbered $1$,$2$ and $3$ is
-      \begin{equation*}
-        p_X(x) = \left\{
-          \begin{aligned}
-            \frac{1}{2}, && x=1 \\
-            \frac{1}{4}, && x=2 \\
-            \frac{1}{4}, && x=3 \\
-            0, && \text{otherwise} \\
-          \end{aligned} \right
-      \end{equation*}
-      Consider a sequence of six independent rolls of this die, and
-      let $X_i$ be the random variable corresponding to the $i$th
-      roll.
-      \begin{enumerate}
-      \item What is the probability that exactly three of the rolls
-        have result equal to 3?
-      \item What is the probability that the first roll is 1, given
-        that exactly two of the six rolls have result of 1?
-      \item We are told that exactly three of the rolls resulted in 1
-        and exactly three resulted in 2. Given this information, what
-        is the probability that the sequence of rolls is 121212?
-      \item Conditioned on the event that at least one roll resulted
-        in 3, find the conditional PMF of the number of 3s.
-      \end{enumerate}
-    \end{Ex}
+    \end{solution}
+  \end{Ex}
+\item
+  \begin{Ex}
+    The joint probability mass function of the random variables
+    $X$, $Y$, $Z$ is
+    \begin{equation*}
+      \label{eq:4-question}
+      \begin{aligned}
+        p_{X,Y,Z}(0,0,0) = \frac{1}{9}, && p_{X,Y,Z}(0,0,1) =
+        \frac{1}{9}, && p_{X,Y,Z}(0,1,0) = \frac{1}{18}, &&
+        p_{X,Y,Z}(0,1,1) = \frac{2}{9} \\
+        p_{X,Y,Z}(1,0,0) = \frac{1}{9}, && p_{X,Y,Z}(1,0,1) =
+        \frac{1}{18}, && p_{X,Y,Z}(1,1,0) = \frac{1}{9}, &&
+        p_{X,Y,Z}(1,1,1) = \frac{1}{9} \\
+      \end{aligned}
+    \end{equation*}
+    \begin{enumerate}
+    \item Find $E[XY\sqrt{Z}]$.
+    \item Argue that $E[XY +XZ2 +YZ] = E[XY]+E[XZ2]+E[YZ]$ and then
+      compute its value.
+    \item Are $X$, $Y$ independent given $Z=1$? Compute $E[XY|Z = 1]$.
+    \end{enumerate}
+    \begin{solution} \hfill
+      {\huge TODO}
+    \end{solution}
+  \end{Ex}
+\item
+  \begin{Ex}
+    Choose a number $X$ at random from the set of numbers $\{1, 2,
+    3, 4\}$. Now choose a number at random from the subset no larger
+    than $X$, that is, from $\{1,2,\ldots X\}$. Call this second
+    number $Y$
+    \begin{enumerate}
+    \item Find the joint mass function of $X$ and $Y$.
+    \item Find the conditional mass function of $X$ given that $Y =
+      i$. Do it for $i = 1,2,\ldots ,4$. Also, find $E[Y]$.
+    \item Are $X$ and $Y$ independent? Why?
+    \end{enumerate}
+    \begin{solution} \hfill
+      {\huge TODO}
+    \end{solution}
+  \end{Ex}
+\item
+  \begin{Ex}
+    The PMF for the result of any one roll of a three sided die with
+    faces numbered $1$,$2$ and $3$ is
+    \begin{equation*}
+      p_X(x) = \left\{
+        \begin{aligned}
+          \frac{1}{2}, && x=1 \\
+          \frac{1}{4}, && x=2 \\
+          \frac{1}{4}, && x=3 \\
+          0, && \text{otherwise} \\
+        \end{aligned} \right
+    \end{equation*}
+    Consider a sequence of six independent rolls of this die, and
+    let $X_i$ be the random variable corresponding to the $i$th
+    roll.
+    \begin{enumerate}
+    \item What is the probability that exactly three of the rolls
+      have result equal to 3?
+    \item What is the probability that the first roll is 1, given
+      that exactly two of the six rolls have result of 1?
+    \item We are told that exactly three of the rolls resulted in 1
+      and exactly three resulted in 2. Given this information, what
+      is the probability that the sequence of rolls is 121212?
+    \item Conditioned on the event that at least one roll resulted
+      in 3, find the conditional PMF of the number of 3s.
+    \end{enumerate}
+  \end{Ex}
 \end{enumerate}
 \end{document}
