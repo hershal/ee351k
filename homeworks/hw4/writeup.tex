@@ -67,7 +67,7 @@
     The joint PMF of two random variables $X$ and $Y$ is given by
     \begin{equation*}
       \label{eq:2-question}
-      P_{X,Y}(x,y) = \left\{
+      p_{X,Y}(x,y) = \left\{
         \begin{aligned}
           & c \cdot (x^2 + y^2), && x=\{1,2,4\};\; y=\{1,3\} \\
           & 0, && \text{otherwise}
@@ -91,13 +91,13 @@
         values in the PMF must equal 1. That is,
         \begin{equation}
           \label{eq:2a-pmf-sum}
-          \sum_{x,y} P_{X,Y}(x,y) = 1.
+          \sum_{x,y} p_{X,Y}(x,y) = 1.
         \end{equation}
         So that implies
         \begin{equation}
           \label{eq:2a-pmf-sum-actual}
           \begin{aligned}
-            \sum_{x,y} P_{X,Y}(x,y) &= c\cdot((1^2+1^2) + (2^2+1^2) +
+            \sum_{x,y} p_{X,Y}(x,y) &= c\cdot((1^2+1^2) + (2^2+1^2) +
             (4^2+1^2) + (1^2+3^2) + (2^2+3^2) + (4^2+3^2)) \\
             1 &= 72c \\
             \implies c&=\frac{1}{72} \\
@@ -259,7 +259,7 @@
     The joint PMF of two random variables $R$ and $S$ is given by
     \begin{equation*}
       \label{eq:3-question}
-      P_{R,S}(r,s) = \left\{
+      p_{R,S}(r,s) = \left\{
         \begin{aligned}
           \frac{4}{45} && r=1, s=1 \\
           \frac{6}{45} && r=1, s=2 \\
@@ -303,7 +303,7 @@
         $p_{R,Y}(r,y)$ is given by
         \begin{equation}
           \label{eq:3b-pmf}
-          P_{R,Y}(r,y) = \left\{
+          p_{R,Y}(r,y) = \left\{
             \begin{aligned}
               \frac{4}{45} && r=1, y=0 \\
               \frac{6}{45} && r=1, y=-1 \\
@@ -417,39 +417,39 @@
     \begin{solution} \hfill
       \begin{enumerate}
       \item Since the value of $Y$ is conditional depending on the
-        value of $X$, we must use $P_{Y|X}(x|y)$. Using Bayes' Rule,
+        value of $X$, we must use $p_{Y|X}(x|y)$. Using Bayes' Rule,
         \begin{equation}
           \label{eq:5a-presol}
           \begin{aligned}
-            P_{Y|X}(x|y) &= \frac{P_{X,Y}(x,y)}{P_X(x)} \\
-            \implies P_{X,Y}(x,y) &= P_{Y|X}(x|y) \cdot P_X(x) \\
+            p_{Y|X}(x|y) &= \frac{p_{X,Y}(x,y)}{p_X(x)} \\
+            \implies p_{X,Y}(x,y) &= p_{Y|X}(x|y) \cdot p_X(x) \\
           \end{aligned}
         \end{equation}
-        $P_X(x)$ is chosen first between 1 and 4, so
-        $P_X(x)=\frac{1}{4}$. We must choose a value for $Y$ that is
-        not more than $X$, so $P_{Y|X}(x,y) = \frac{1}{y_0}$, where $y_0$
+        $p_X(x)$ is chosen first between 1 and 4, so
+        $p_X(x)=\frac{1}{4}$. We must choose a value for $Y$ that is
+        not more than $X$, so $p_{Y|X}(x,y) = \frac{1}{y_0}$, where $y_0$
         is between the chosen $x$ value and 4. Thus
         \begin{equation}
           \label{eq:5a-sol}
-          P_{Y|X}(x|y) = \frac{1}{4y_0}
+          p_{Y|X}(x|y) = \frac{1}{4y_0}
         \end{equation}
       \item Now we have to do the opposite. The conditional mass
         function of $X$ given that $Y=i$ for $i=1,\ldots,4$ can be
         modeled by
         \begin{equation}
           \label{eq:5b-presol}
-          P_{X|Y}(y,x) = \frac{P_{X,Y}(x,y)}{P_Y(y)}
+          p_{X|Y}(y,x) = \frac{p_{X,Y}(x,y)}{p_Y(y)}
         \end{equation}
-        We have $P_{X,Y}(x,y)$ from \cref{eq:5a-sol}, so we must now
-        compute $P_Y(y)$ for $y=1,\ldots,4.$. This turns out to be
+        We have $p_{X,Y}(x,y)$ from \cref{eq:5a-sol}, so we must now
+        compute $p_Y(y)$ for $y=1,\ldots,4.$. This turns out to be
         \begin{equation}
           \label{eq:5b-p-y}
-          P_Y(y) = \sum_{k=1}^4 \frac{k}{4}
+          p_Y(y) = \sum_{k=1}^4 \frac{k}{4}
         \end{equation}
         Which makes our solution
         \begin{equation}
           \label{eq:5b-sol}
-          P_{X|Y}(x,y) = \frac{\frac{1}{4x}}{\sum_{k=y}^4 \frac{k}{4}}
+          p_{X|Y}(x,y) = \frac{\frac{1}{4x}}{\sum_{k=y}^4 \frac{k}{4}}
         \end{equation}
       \item No because the value of $Y$ depends on the value of $X$;
         i.e. the value of $X$ gives information about what values $Y$
