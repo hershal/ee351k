@@ -54,7 +54,7 @@
         from the left can be modeled by a binomial distribution:
         \begin{equation}
           \label{eq:1a-binomial-dist}
-          P_X(x) = {n \choose x} p^k(1-p)^k
+          p_X(x) = {n \choose x} p^k(1-p)^k
         \end{equation}
       \item The Law of Large Numbers dictates that as the sample size
         increases, the proximity of the measured system starts to
@@ -71,7 +71,8 @@
         \begin{aligned}
           & c \cdot (x^2 + y^2), && x=\{1,2,4\};\; y=\{1,3\} \\
           & 0, && \text{otherwise}
-        \end{aligned} \right
+        \end{aligned}
+      \right.
     \end{equation*}
     \begin{enumerate}
     \item Determine the constant $c$.
@@ -203,6 +204,7 @@
             \text{var}(X+Y) &= E[(X+Y)^2] - (E[X+Y])^2 \\
           \end{aligned}
         \end{equation}
+        {\huge TODO var(X+Y)}
       \item Given $P(A) = P(X \ge Y)$,
         \begin{equation}
           \label{eq:2g-decl}
@@ -216,7 +218,7 @@
               &\frac{p_{X}(x)}{P(A)}, && \quad\text{where } (x,y) \in
               A \cap S_{X} \\
               &0, && \quad\text{otherwise}
-            \end{aligned}\right
+            \end{aligned}\right.
         \end{equation}
         Now we can compute $E[X|A]$.
         \begin{equation}
@@ -268,7 +270,7 @@
           \frac{2}{45} && r=3, s=1 \\
           \frac{3}{45} && r=3, s=2 \\
           0 && r=3, s=3 \\
-        \end{aligned} \right
+        \end{aligned} \right.
     \end{equation*}
     Let $A = \{S \not= 3\}$, $X = R+S$, $Y=R-S$
     \begin{enumerate}
@@ -286,7 +288,7 @@
               \frac{12}{45}, && s=1 \\
               \frac{18}{45}, && s=2 \\
               \frac{15}{45}, && s=3 \\
-            \end{aligned} \right
+            \end{aligned} \right.
         \end{equation}
         And $p_{S|A}(s)$ is given by
         \begin{equation}
@@ -295,7 +297,7 @@
             \begin{aligned}
               \frac{18}{45}, && s=1 \\
               \frac{27}{45}, && s=2 \\
-            \end{aligned} \right
+            \end{aligned} \right.
         \end{equation}
       \item
         $p_{R,Y}(r,y)$ is given by
@@ -312,7 +314,7 @@
               \frac{2}{45} && r=3, y=2 \\
               \frac{3}{45} && r=3, y=1 \\
               0 && r=3, y=0 \\
-            \end{aligned} \right
+            \end{aligned} \right.
         \end{equation}
       \item $p_{X|A}(x)$ is given by
         \begin{equation}
@@ -323,7 +325,7 @@
               \frac{12}{30} && x=3 \\
               \frac{11}{30} && x=4 \\
               \frac{3}{30} && x=5 \\
-            \end{aligned}
+            \end{aligned} \right.
         \end{equation}
       \end{enumerate}
     \end{solution}
@@ -454,7 +456,7 @@
           \frac{1}{4}, && x=2 \\
           \frac{1}{4}, && x=3 \\
           0, && \text{otherwise} \\
-        \end{aligned} \right
+        \end{aligned} \right.
     \end{equation*}
     Consider a sequence of six independent rolls of this die, and
     let $X_i$ be the random variable corresponding to the $i$th
