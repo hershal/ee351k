@@ -225,15 +225,15 @@
           \label{eq:2g-e-x-given-a}
           \begin{aligned}
             E[X|A] &= \sum_x x \cdot p_{X|A}(x) \\
-            &= \frac{p_X(1,1)}{P(A)} +
+            &= (1)\frac{p_X(1,1)}{P(A)} +
             2\cdot\frac{p_X(2,1)}{P(A)} +
             4\cdot\frac{p_X(4,1)}{P(A)} +
             4\cdot\frac{p_X(4,3)}{P(A)} \\
-            &= \left(\frac{3}{2}\right)\left(\frac{2}{72}\right) +
-            (3)\left(\frac{5}{72}\right) +
-            (6)\left(\frac{17}{72}\right) +
-            (6)\left(\frac{25}{72}\right) \\
-            \implies E[X|A] &= 3.75
+            &= (1)\left(\frac{2}{49}\right) +
+            (2)\left(\frac{5}{49}\right) +
+            (4)\left(\frac{17}{49}\right) +
+            (4)\left(\frac{25}{49}\right) \\
+            \implies E[X|A] &= \frac{180}{49}
           \end{aligned}
         \end{equation}
         And now we can also compute $\text{var}(X|A)$.
@@ -241,13 +241,13 @@
           \label{eq:2g-var-x-given-a}
           \begin{aligned}
             \text{var}(X|A) &= E[X^2|A] - (E[X|A])^2 \\
-            &= (3.75)^2 -
-            \left(\frac{3}{2}\right)^2\left(\frac{2}{72}\right) +
-            (3)^2\left(\frac{5}{72}\right) +
-            (6)^2\left(\frac{17}{72}\right) +
-            (6)^2\left(\frac{25}{72}\right) \\
-            &= 21.6875 - 14.0625 \\
-            \implies \text{var}(X|A) &= 7.625 \\
+            &= \left((1)^2\left(\frac{2}{49}\right) +
+            (2)^2\left(\frac{5}{49}\right) +
+            (4)^2\left(\frac{17}{49}\right) +
+            (4)^2\left(\frac{25}{49}\right)\right) -
+            \left(\frac{180}{49}\right)^2 \\
+            &= 14.163265306 - 13.494377343 \\
+            \implies \text{var}(X|A) &=  0.668887963 \\
           \end{aligned}
         \end{equation}
 
