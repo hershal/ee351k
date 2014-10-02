@@ -337,17 +337,19 @@
     \begin{equation*}
       \label{eq:4-question}
       \begin{aligned}
-        p_{X,Y,Z}(0,0,0) = \frac{1}{9}, && p_{X,Y,Z}(0,0,1) =
-        \frac{1}{9}, && p_{X,Y,Z}(0,1,0) = \frac{1}{18}, &&
-        p_{X,Y,Z}(0,1,1) = \frac{2}{9} \\
-        p_{X,Y,Z}(1,0,0) = \frac{1}{9}, && p_{X,Y,Z}(1,0,1) =
-        \frac{1}{18}, && p_{X,Y,Z}(1,1,0) = \frac{1}{9}, &&
-        p_{X,Y,Z}(1,1,1) = \frac{1}{9} \\
+        &&p_{X,Y,Z}(0,0,0) &= \frac{1}{9},\;
+        &&p_{X,Y,Z}(0,0,1) &= \frac{1}{9},\;
+        &&p_{X,Y,Z}(0,1,0) &= \frac{1}{18},\;
+        &&p_{X,Y,Z}(0,1,1) &= \frac{2}{9} \\
+        &&p_{X,Y,Z}(1,0,0) &= \frac{1}{9},\;
+        &&p_{X,Y,Z}(1,0,1) &= \frac{1}{18},\;
+        &&p_{X,Y,Z}(1,1,0) &= \frac{1}{9},\;
+        &&p_{X,Y,Z}(1,1,1) &= \frac{1}{9} \\
       \end{aligned}
     \end{equation*}
     \begin{enumerate}
     \item Find $E[XY\sqrt{Z}]$.
-    \item Argue that $E[XY +XZ2 +YZ] = E[XY]+E[XZ2]+E[YZ]$ and then
+    \item Argue that $E[XY +XZ^2 +YZ] = E[XY]+E[XZ^2]+E[YZ]$ and then
       compute its value.
     \item Are $X$, $Y$ independent given $Z=1$? Compute $E[XY|Z = 1]$.
     \end{enumerate}
@@ -361,10 +363,10 @@
             &= \sum_{x,y,z} g(x,y,z)p_{X,Y,Z}(x,y,z) \\
             &= \sum_{x,y,z} x \cdot y \cdot \sqrt{z} \cdot
             p_{X,Y,Z}(x,y,z) \\
-            \implies E[XY\sqrt{Z}] &= \frac{8}{9} \\
+            \implies E[XY\sqrt{Z}] &= \frac{1}{9} \\
           \end{aligned}
         \end{equation}
-      \item $E[XY +XZ2 +YZ] = E[XY]+E[XZ2]+E[YZ]$ because $X$, $Y$,
+      \item $E[XY +XZ2 +YZ] = E[XY]+E[XZ^2]+E[YZ]$ because $X$, $Y$,
         and $Z$ are all independent variables. We know this because we
         are given discrete values for the entire support space,
         i.e. there is no relation $X$, $Y$, or $Z$ from which the
@@ -374,17 +376,27 @@
         \begin{equation}
           \label{eq:4b-sol}
           \begin{aligned}
-            E[XY +XZ2 +YZ] &= E[XY]+E[XZ2]+E[YZ] \\
+            E[XY +XZ^2 +YZ] &= E[XY]+E[XZ^2]+E[YZ] \\
             &= \frac{4}{18} + \frac{3}{18} + \frac{6}{18} \\
             &= \frac{13}{18}
           \end{aligned}
         \end{equation}
-      \item Yes. Knowing the value of $Z$ still does not provide
-        information about the values of $X$ or $Y$.
+      \item No. We can prove this by contradiction. By definition of
+        independence, we should be able to write
+        \begin{equation}
+          \label{eq:4c-proof-by-contradiction}
+          p_{X=1|Y=1} = p_{X=1}
+        \end{equation}
+        So that
+        \begin{equation}
+          \label{eq:4c-proof}
+          \frac{4}{9} \not= \frac{6}{9}
+        \end{equation}
+        Thus, $X$ and $Y$ are not independent given $Z=1$.
         \begin{equation}
           \label{eq:4c-sol}
           \begin{aligned}
-            E[XY|Z=1] &= \frac{4}{9} \\
+            E[XY|Z=1] &= \frac{1}{9} \\
           \end{aligned}
         \end{equation}
       \end{enumerate}
