@@ -1,0 +1,146 @@
+\documentclass[12pt]{article}
+\title{EE351K Homework 5}
+\author{Hershal Bhave (hb6279)}
+\date{Due October 9, 2014}
+
+\usepackage{multicol}
+\usepackage[in]{fullpage}
+\usepackage{xcolor}
+\usepackage{rotating}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{cleveref}
+\usepackage{graphics}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[nosolutionfiles]{answers}
+\usepackage[acronym]{glossaries}
+
+\newenvironment{Ex}{\textbf{Problem}\vspace{.75em}\\}{}
+\Newassociation{solution}{Soln}{Answers}
+\pagebreak[3]
+\newcommand{\Opentesthook}[2]{\Writetofile{#1}{\protect\section{#1: #2}}}
+\renewcommand{\Solnlabel}[1]{\textbf{Solution}\quad}
+
+\newcommand{\dd}[1]{\:\mathrm{d}{#1}}
+\newcommand{\ddt}[1]{\frac{\dd{}}{\dd{#1}}}
+\newcommand{\dddt}[1]{\frac{\dd{}^2}{\dd{#1}^2}}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item
+  \begin{Ex}
+    Let $Z$ be a continuous random variable with probability density
+    function
+    \begin{equation}
+      \label{eq:1-question}
+      f_Z(z) = \left\{
+        \begin{aligned}
+          & c(1+z^2), && \text{if }-2<z<1 \\
+          & 0 && \text{otherwise}
+        \end{aligned} \right.
+    \end{equation}
+    \begin{enumerate}
+    \item For what value of c is this possible?
+    \item Find the cumulative distribution function of Z.
+    \end{enumerate}
+    \begin{solution} \hfill
+      {\huge TODO}
+    \end{solution}
+  \end{Ex}
+\item
+  \begin{Ex}
+    Let X and Y be Gaussian random variables, with $X \sim N(0,1)$ and
+    $Y \sim N(1,4)$.
+    \begin{enumerate}
+    \item Find $P(X \le 1.5)$ and $P(X \le −1)$.
+    \item What is the distribution of $\frac{Y −1}{2}$
+    \item Find $P(−2 \le Y \le 1)$.
+    \item Find $P(|Y|^2 < 1.5)$.
+    \end{enumerate}
+    \begin{solution} \hfill
+      {\huge TODO}
+    \end{solution}
+  \end{Ex}
+\item
+  \begin{Ex}
+    Suppose that the cumulative distribution function of $X$ is given
+    by
+    \begin{equation}
+      \label{eq:2-question}
+      F_X(b) = \left\{
+        \begin{aligned}
+          & 0 && b<0 \\
+          & \frac{b}{4} && 0 \le b < 1 \\
+          & \frac{1}{2} + \frac{b-1}{4}  && 1 \le b < 2 \\
+          & \frac{11}{12} && 2 \le b < 3 \\
+          & 1 && 2 \le b
+        \end{aligned} \right.
+    \end{equation}
+    \begin{enumerate}
+    \item Find $F(X=i)$, for $i=1,2,3$.
+    \item Find $P\left(\frac{1}{2} < X < \frac{2}{3}\right)$
+    \end{enumerate}
+    \begin{solution} \hfill
+      {\huge TODO}
+    \end{solution}
+  \end{Ex}
+\item 
+  \begin{Ex}
+    A machine produces bolts the length of which obeys a normal
+    distribution with mean 5 and standard deviation 0.2. A bolt is
+    called defective if its length is not within a standard deviation
+    of its mean.
+    \begin{enumerate}
+    \item What is the probability that a bolt produced by this machine
+      is defective?
+    \item What is the probability that among ten bolts none will be
+      defective?
+    \end{enumerate}
+    \begin{solution} \hfill
+      {\huge TODO}
+    \end{solution}
+  \end{Ex}
+  \begin{Ex}
+    A random variable $X$ is uniformly distributed between 0 and
+    10. Find the probability that $X$ lies between a standard deviation
+   $\sigma X$ from its mean $\mu X$.
+    \begin{solution} \hfill
+      {\huge TODO}
+    \end{solution}
+  \end{Ex}
+\item 
+  \begin{Ex}
+    Two random variables $X$ and $Y$ have the joint PDF given by
+    \begin{equation}
+      \label{eq:6-question}
+      f_{XY}(x,y) = \left\{
+        \begin{aligned}
+          & ke^{-(2x+3y)}, && x \ge 0,\; y \ge 0 \\
+          & 0, && \text{otherwise}
+        \end{aligned} \right.
+      \end{equation}
+      \begin{enumerate}
+      \item Find the value of the constant $k$ that makes $f_{XY}(x,
+        y)$ a true joint PDF.
+      \item Find the marginal PDFs of $X$ and $Y$.
+      \item Find $P(X<Y<2)$
+      \item Without actually performing the integration, obtain the
+        integral that expresses the $P(X \le Y2)$ (That is, just give
+        the exact limits of the integration.)
+      \item Find $E[X +Y]$.
+      \end{enumerate}
+      \begin{solution} \hfill
+        {\huge TODO}
+    \end{solution}
+  \end{Ex}
+  \begin{Ex}
+    Show that for a positive continuous Random Variable $X$, $E[X] =
+    \int P(X > x) \dd{x}$
+    \begin{solution} \hfill
+      {\huge TODO}
+    \end{solution}
+  \end{Ex}
+\end{enumerate}
+\end{document}
