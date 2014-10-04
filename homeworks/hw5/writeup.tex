@@ -46,7 +46,29 @@
     \item Find the cumulative distribution function of Z.
     \end{enumerate}
     \begin{solution} \hfill
-      {\huge TODO}
+      \begin{enumerate}
+      \item In this case, $c$ must be so that the area represented by
+        the integral of \cref{eq:1-question} equals $1$.
+        \begin{equation}
+          \label{eq:1a-sol}
+          \begin{aligned}
+            1 &= \int_{-2}^{1} c(1+z) \dd{z} \\
+            &= c\left[\frac{z^2}{2} + z\right]_{-2}^{1} \\
+            &= c\left[\left(\frac{1}{2}+1\right) - \left(\frac{4}{2}+(-2)\right)\right] \\
+            &= c\left(\frac{3}{2}\right) \\
+            \implies c &= \frac{2}{3} \\
+          \end{aligned}
+        \end{equation}
+      \item The CDF of $Z$ is is simply
+        \begin{equation}
+          \label{eq:1b-sol}
+          \begin{aligned}
+            \text{CDF}(Z) &= F_Z(z) \\
+            F_Z(z) &= P(Z\le z) \quad \forall z \in \mathbb{R} \\
+            &= \int_{-2}^{z} \left(\frac{2+2y}{3}\right) \dd{y} \\
+          \end{aligned}
+        \end{equation}
+      \end{enumerate}
     \end{solution}
   \end{Ex}
 \item
@@ -75,7 +97,7 @@
           & \frac{b}{4} && 0 \le b < 1 \\
           & \frac{1}{2} + \frac{b-1}{4}  && 1 \le b < 2 \\
           & \frac{11}{12} && 2 \le b < 3 \\
-          & 1 && 2 \le b
+          & 1 && 2 \le b \\
         \end{aligned} \right.
     \end{equation}
     \begin{enumerate}
