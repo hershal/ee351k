@@ -76,13 +76,80 @@
     Let X and Y be Gaussian random variables, with $X \sim N(0,1)$ and
     $Y \sim N(1,4)$.
     \begin{enumerate}
-    \item Find $P(X \le 1.5)$ and $P(X \le −1)$.
-    \item What is the distribution of $\frac{Y −1}{2}$
-    \item Find $P(−2 \le Y \le 1)$.
+    \item Find $P(X \le 1.5)$ and $P(X \le -1)$.
+    \item What is the distribution of $\frac{Y-1}{2}$
+    \item Find $P(-2 \le Y \le 1)$.
     \item Find $P(|Y|^2 < 1.5)$.
     \end{enumerate}
     \begin{solution} \hfill
-      {\huge TODO}
+      \begin{enumerate}
+      \item A Gaussian (Normal) Random Variable is represented as
+        \begin{equation}
+          \label{eq:2-gaussian}
+          f_X(x) = \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}
+        \end{equation}
+        The PDF of a Continuous Random Variable is simply the integral
+        from $-\infty$.
+        \begin{multicols}{2}
+          \begin{equation}
+            \label{eq:2ai-sol}
+            \begin{aligned}
+              P(X\le 1.5) &= \int_{-\infty}^{1.5} f_X(y) \dd{y} \\
+              &= \int_{-\infty}^{1.5} \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}
+              \dd{y} \\
+              \implies P(X \le 1.5 )&= 0.9332.
+            \end{aligned}
+          \end{equation} &
+          \begin{equation}
+            \label{eq:2aii-sol}
+            \begin{aligned}
+              P(X\le -1) &= \int_{-\infty}^{-1} f_X(y) \dd{y} \\
+              &= \int_{-\infty}^{-1} \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}
+              \dd{y} \\
+              \implies P(X \le -1 )&= 0.1587.
+            \end{aligned}
+          \end{equation}
+        \end{multicols}
+      \item Since $Y \sim N(1,4)$, we can declare that $\mu_Y = 1$ and
+        $\sigma^2_Y = 4$. Assuming $Z = \frac{Y-1}{2}$
+        \begin{equation}
+          \label{eq:2b-z}
+          \begin{aligned}
+            Z &= \frac{Y-1}{2} \\
+            \implies Z &= \left(\frac{1}{2}\right)Y + \left(-\frac{1}{2}\right) \\
+          \end{aligned}
+        \end{equation}
+        From this we can define $a = \frac{1}{2}$ and $b = -\frac{1}{2}$.
+        \begin{multicols}{2}
+          \begin{equation}
+            \label{eq:2b-e-sol}
+            \begin{aligned}
+              E[Z] &= a\mu + b \\
+              &= \left(\frac{1}{2}\right)(1) + \left(-\frac{1}{2}\right) \\
+              \implies E[Z] &= 0\\
+            \end{aligned}
+          \end{equation} &
+          \begin{equation}
+            \label{eq:2b-var-sol}
+            \begin{aligned}
+              Var(Z)&=a^2\sigma^2 \\
+              &=\left(\frac{1}{2}\right)^2(4) \\
+              \implies Var(Z)&=1 \\
+            \end{aligned}
+          \end{equation}
+        \end{multicols}
+        The distribution turns out to be standard normal.
+      \item $P(2 \le Y \le 1)$ is just an integral
+        \begin{equation}
+          \label{eq:2c-sol}
+          \begin{aligned}
+            P(-2 \le Y \le 1) &=
+            \int_{-2}^{1}\frac{1}{2\sqrt{2\pi}}e^{-\frac{(y-1)^2}{8}}\dd{y} \\
+            \implies P(-2 \le Y \le 1) &= 0.4332 \\
+          \end{aligned}
+        \end{equation}
+      \item $P(|Y|^2 < 1.5)$ is {\huge TODO}.
+      \end{enumerate}
     \end{solution}
   \end{Ex}
 \item
