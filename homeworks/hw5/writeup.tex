@@ -190,6 +190,7 @@
       \end{enumerate}
     \end{solution}
   \end{Ex}
+  \pagebreak[4]
 \item
   \begin{Ex}
     A machine produces bolts the length of which obeys a normal
@@ -203,7 +204,33 @@
       defective?
     \end{enumerate}
     \begin{solution} \hfill
-      {\huge TODO}
+      \begin{enumerate}
+      \item To find the probability that the bolt is defective, we
+        must find $P(X \ge 5.2) + P(X \le 4.8)$.
+        \begin{equation}
+          \label{eq:4a-sol}
+          \begin{aligned}
+            P(X \ge 5.2) + P(X \le 4.8) &= 1-(P(X \le 4.8) - P(X \ge
+            5.2)) \\
+            &= 1-P(X \le 4.8) + P(X \ge 5.2) \\
+            &= 1-P(X \le 4.8) + (1-P(X \le 4.8)) \\
+            &= 2-2P(X \le 4.8) \\
+            \implies P(X \ge 5.2) + P(X \le 4.8) &= 0.3714.
+          \end{aligned}
+        \end{equation}
+      \item The probability that a bolt is not defective is the
+        complement of our result in \cref{eq:4a-sol} ($0.6286$). The
+        probability that all ten bolts will not be defective is
+        \begin{equation}
+          \label{eq:4b-sol}
+          \begin{aligned}
+            P(\text{none defective}) &= {10 \choose
+              10}(0.6826)^{10}(1-0.6826)^0 \\
+            &= 0.6826^{10} \\
+            \implies P(\text{none defective}) &= 0.0219 \\
+          \end{aligned}
+        \end{equation}
+      \end{enumerate}
     \end{solution}
   \end{Ex}
   \begin{Ex}
