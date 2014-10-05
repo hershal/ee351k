@@ -168,14 +168,29 @@
         \end{aligned} \right.
     \end{equation}
     \begin{enumerate}
-    \item Find $F(X=i)$, for $i=1,2,3$.
+    \item Find $P(X=i)$, for $i=1,2,3$.
     \item Find $P\left(\frac{1}{2} < X < \frac{2}{3}\right)$
     \end{enumerate}
     \begin{solution} \hfill
-      {\huge TODO}
+      \begin{enumerate}
+      \item CDFs do not have values at any particular point; instead
+        they are calculated as areas from $-\infty$ or a given
+        value. Thus, the value at any specific $X=i$ is infinitesimal.
+      \item Since we already have the CDF, we can simply use
+        subtraction to find the the requested probability.
+        \begin{equation}
+          \label{eq:3b-sol}
+          \begin{aligned}
+            P\left(\frac{1}{2} < X < \frac{2}{3}\right) &=
+            \frac{\frac{2}{3}}{4} - \frac{\frac{1}{2}}{4} \\
+            \implies P\left(\frac{1}{2} < X < \frac{2}{3}\right) &=
+            0.0417.
+          \end{aligned}
+        \end{equation}
+      \end{enumerate}
     \end{solution}
   \end{Ex}
-\item 
+\item
   \begin{Ex}
     A machine produces bolts the length of which obeys a normal
     distribution with mean 5 and standard deviation 0.2. A bolt is
@@ -199,7 +214,7 @@
       {\huge TODO}
     \end{solution}
   \end{Ex}
-\item 
+\item
   \begin{Ex}
     Two random variables $X$ and $Y$ have the joint PDF given by
     \begin{equation}
