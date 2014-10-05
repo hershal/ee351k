@@ -236,9 +236,31 @@
   \begin{Ex}
     A random variable $X$ is uniformly distributed between 0 and
     10. Find the probability that $X$ lies between a standard deviation
-   $\sigma X$ from its mean $\mu X$.
-    \begin{solution} \hfill
-      {\huge TODO}
+   $\sigma_X$ from its mean $\mu_X$.
+    \begin{solution} \hfill \vspace{.75em}\\
+      The standard deviation and mean of a Uniform distribution is as
+      follows
+      \begin{multicols}{2}
+        \begin{equation}
+          \label{eq:5-dev}
+          \begin{aligned}
+           \mu_X &= \frac{\theta_2 + \theta_1}{2} \\
+           &= \frac{10}{2} \\
+           \implies \mu_X &= 5 \\
+          \end{aligned}
+        \end{equation} &
+        \begin{equation}
+          \label{eq:5-mean}
+          \begin{aligned}
+           \sigma_X^2 &= \frac{(\theta_2 - \theta_1)^2}{12} \\
+           &= \frac{100}{12} \\
+           \implies \sigma_X^2 &= 8.3333 \\
+           \implies \sigma_X &= 2.8868 \\
+          \end{aligned}
+        \end{equation}
+      \end{multicols}
+      The probability that $X$ lies in between the standard deviation
+      from the mean is $0.5774$.
     \end{solution}
   \end{Ex}
 \item
