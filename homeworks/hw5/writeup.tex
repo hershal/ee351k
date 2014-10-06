@@ -280,12 +280,54 @@
       \item Find the marginal PDFs of $X$ and $Y$.
       \item Find $P(X<Y<2)$
       \item Without actually performing the integration, obtain the
-        integral that expresses the $P(X \le Y2)$ (That is, just give
+        integral that expresses the $P(X \le Y^2)$ (That is, just give
         the exact limits of the integration.)
       \item Find $E[X +Y]$.
       \end{enumerate}
       \begin{solution} \hfill
-        {\huge TODO}
+        \begin{enumerate}
+        \item A true PDF, in general, has the property that the
+          integral or sum over its entire support is $1$. We must
+          check that propery here.
+          \begin{equation}
+            \label{eq:6a-sol}
+            \begin{aligned}
+              1 &= \int_0^\infty \int_0^\infty f_{X,Y}(x,y) \dd{y}
+              \dd{x} \\
+              &= k \int_0^\infty \int_0^\infty e^{2x+3y} \dd{y}
+              \dd{x} \\
+              &= k \int_0^\infty
+              \left[-\frac{1}{2}e^{-2x-3y}\right]_0^\infty
+              \dd{x} \\
+              &= k \int_0^\infty \frac{1}{2}e^{-3y} \dd{x} \\
+              &= k \left[-\frac{1}{6}e^{-3y}\right]_0^\infty \dd{x} \\
+              1 &= \frac{k}{6} \\
+              \implies k &= 6.
+            \end{aligned}
+          \end{equation}
+        \item The marginals are just the integrals of each individual
+          random variable.
+          \begin{multicols}{2}
+            \begin{equation}
+              \label{eq:5b-marginal-x}
+              \begin{aligned}
+                f_X(x) &= \int_0^\infty e^{-(2x+3y)} \dd{y} \\
+                &= \left[-\frac{1}{3}e^{-(2x+3y)}\right]_0^\infty \\
+                \implies f_X(x) &= \frac{1}{3}e^{-2x} \\
+              \end{aligned}
+            \end{equation} &
+            \begin{equation}
+              \label{eq:5b-marginal-y}
+              \begin{aligned}
+                f_Y(y) &= \int_0^\infty e^{-(2x+3y)} \dd{x} \\
+                &= \left[-\frac{1}{2}e^{-(2x+3y)}\right]_0^\infty \\
+                \implies f_Y(y) &= \frac{1}{2}e^{-3y} \\
+              \end{aligned}
+            \end{equation}
+          \end{multicols}
+        \item \hfill {\huge TODO}
+        \item \hfill {\huge TODO}
+        \end{enumerate}
     \end{solution}
   \end{Ex}
   \begin{Ex}
