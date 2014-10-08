@@ -144,16 +144,29 @@
           \label{eq:2c-sol}
           \begin{aligned}
             P(-2 \le Y \le 1) &= P(Y \le 1) - P(Y \le -2) \\
-            &= P(Z\le \frac{y_0-\mu_y}{\sigma_y}) - P(Z\le
-            \frac{y_1-\mu_y}{\sigma_y}) \\
-            &= P(Z\le \frac{1-1}{2}) - P(Z\le \frac{-2-1}{2}) \\
-            &= P(Z\le 0) - P(Z\le -\frac{3}{2}) \\
-            &= P(Z\le 0) - (1 - P(Z\le \frac{3}{2})) \\
+            &= P\left(Z\le \frac{y_0-\mu_y}{\sigma_y}\right) -
+               P\left(Z\le \frac{y_1-\mu_y}{\sigma_y}\right) \\
+            &= P(Z\le \frac{1-1}{2}) - P\left(Z\le \frac{-2-1}{2}\right) \\
+            &= P(Z\le 0) - P\left(Z\le -\frac{3}{2}\right) \\
+            &= P(Z\le 0) - \left(1 - P\left(Z\le \frac{3}{2}\right)\right) \\
             &= 0.5 - (1 - 0.9332) \\
             \implies P(-2 \le Y \le 1) &= 0.4332 \\
           \end{aligned}
         \end{equation}
-      \item $P(|Y|^2 < 1.5)$ is \hfill {\huge TODO}.
+      \item $P(|Y|^2 < 1.5)$ is captured the same as the above,
+        through normalization
+        \begin{equation}
+          \label{eq:2c-sol}
+          \begin{aligned}
+            P(|Y|^2 \le 1.5) &= P(\sqrt{|Y|^2} \le \sqrt{1.5}) \\
+            &= P(Y \le 1.2247) \\
+            &= P\left(Z\le \frac{y_0-\mu_y}{\sigma_y}\right) \\
+            &= P\left(Z\le \frac{1.2247-1}{2}\right) \\
+            &= P\left(Z\le \frac{1.2247-1}{2}\right) \\
+            &= P(Z\le 0.1123) \\
+            \implies P(|Y|^2 \le 1.5) &= 0.5447 \\
+          \end{aligned}
+        \end{equation}
       \end{enumerate}
     \end{solution}
   \end{Ex}
