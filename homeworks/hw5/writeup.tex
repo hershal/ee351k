@@ -139,12 +139,17 @@
           \end{equation}
         \end{multicols}
         The distribution turns out to be standard normal.
-      \item $P(2 \le Y \le 1)$ is just an integral
+      \item $P(2 \le Y \le 1)$ can be obtained through normalization
         \begin{equation}
           \label{eq:2c-sol}
           \begin{aligned}
-            P(-2 \le Y \le 1) &=
-            \int_{-2}^{1}\frac{1}{2\sqrt{2\pi}}e^{-\frac{(y-1)^2}{8}}\dd{y} \\
+            P(-2 \le Y \le 1) &= P(Y \le 1) - P(Y \le -2) \\
+            &= P(Z\le \frac{y_0-\mu_y}{\sigma_y}) - P(Z\le
+            \frac{y_1-\mu_y}{\sigma_y}) \\
+            &= P(Z\le \frac{1-1}{2}) - P(Z\le \frac{-2-1}{2}) \\
+            &= P(Z\le 0) - P(Z\le -\frac{3}{2}) \\
+            &= P(Z\le 0) - (1 - P(Z\le \frac{3}{2})) \\
+            &= 0.5 - (1 - 0.9332) \\
             \implies P(-2 \le Y \le 1) &= 0.4332 \\
           \end{aligned}
         \end{equation}
