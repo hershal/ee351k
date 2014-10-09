@@ -403,28 +403,11 @@
         \begin{aligned}
           \label{eq:7-sol}
           E[X] &= \int_{0}^{\infty} P(X > x) \dd{x} \\
-          \int_{0}^{\infty} x f_X(x) \dd{x} &=
-          \int_{0}^{\infty} 1 - F_X(x) \dd{x} \\
-        \end{aligned}
-      \end{equation}
-      We can do integration by parts using the following definitions for
-      u-v substitution
-      \begin{equation}
-        \label{eq:7-u-sub}
-        \begin{aligned}
-          u &= x \quad&\quad \dd{v}&=f_X(x)\dd{x} \\
-          \dd{u}&=\dd{x} \quad&\quad v&=F_X(x) \\
-        \end{aligned}
-      \end{equation}
-      Then the LHS becomes
-      \begin{equation}
-        \label{eq:7-sol-continued}
-        \begin{aligned}
-          \int_{0}^{\infty} x f_X(x) \dd{x} &=
-          [x\cdot F_x(x)]_{0}^{\infty} - \int_{0}^{\infty}F_X(x)\dd{x} \\
-          &= \infty\cdot F(\infty)-0\cdot F(0)-\int_{0}^{\infty}F_X(x)\dd{x} \\
-          &= \int_0^{\infty}1\dd{x} - \int_{0}^{\infty}F_X(x)\dd{x} \\
-          \implies E[X] &= \int_{0}^{\infty}1-F_X(x)\dd{x} \\
+          \int_{0}^{\infty} P(X > x) \dd{x} &=
+          \int_0^\infty \int_x^\infty f_X(t) \dd{t} \dd{x} \\
+          &= \int_0^\infty \int_0^t f_X(t) \dd{x}\dd{t} \\
+          &= \int_0^\infty t f_X(t) \dd{t} \\
+          \implies \int_0^\infty P(X>x)&= E[X] \\
         \end{aligned}
       \end{equation}
     \end{solution}
