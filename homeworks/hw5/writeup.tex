@@ -224,14 +224,12 @@
     \end{enumerate}
     \begin{solution} \hfill
       \begin{enumerate}
-      \item We must find $P(X \ge 5.2) + P(X \le 4.8)$.
+      \item We must find $1 - P(X \ge 5.2) + P(X \le 4.8)$.
         \begin{equation}
           \label{eq:4a-sol}
           \begin{aligned}
-            P(X \ge 5.2) + P(X \le 4.8) &= 1-(P(X \le 4.8) - P(X \ge
-            5.2)) \\
-            % &= 1-P(X \le 4.8) + P(X \ge 5.2) \\
-            &= 1-P(X \le 4.8) + (1-P(X \le 4.8)) \\
+            1 - P(X \ge 5.2) + P(X \le 4.8) &= 1-P(X \le 4.8) + (1-P(X
+            \le 4.8)) \\
             &= 2-2P(X \le 4.8) \\
             \implies P(X \ge 5.2) + P(X \le 4.8) &= 0.3714.
           \end{aligned}
