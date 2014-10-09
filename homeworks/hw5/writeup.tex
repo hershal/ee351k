@@ -156,7 +156,7 @@
       \item $P(|Y|^2 < 1.5)$ is captured the same as the above,
         through normalization
         \begin{equation}
-          \label{eq:2c-sol}
+          \label{eq:2d-sol}
           \begin{aligned}
             P(|Y|^2 \le 1.5) &= P(\sqrt{|Y|^2} \le \sqrt{1.5}) \\
             &= P(Y \le 1.2247) \\
@@ -242,8 +242,8 @@
         \begin{equation}
           \label{eq:4b-sol}
           \begin{aligned}
-            P(\text{none defective}) &= {10 \choose
-              10}(0.6826)^{10}(1-0.6826)^0 \\
+            P(\text{none defective}) &= {10 \choose 10}
+            (0.6826)^{10}(1-0.6826)^0 \\
             &= 0.6826^{10} \\
             \implies P(\text{none defective}) &= 0.0219 \\
           \end{aligned}
@@ -313,7 +313,7 @@
             \begin{aligned}
               1 &= \int_0^\infty \int_0^\infty f_{X,Y}(x,y) \dd{y}
               \dd{x} \\
-              &= k \int_0^\infty \int_0^\infty e^{2x+3y} \dd{y}
+              &= k \int_0^\infty \int_0^\infty e^{-(2x+3y)} \dd{y}
               \dd{x} \\
               &= k \int_0^\infty
               \left[-\frac{1}{2}e^{-2x-3y}\right]_0^\infty
