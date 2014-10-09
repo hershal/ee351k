@@ -145,7 +145,7 @@
           \begin{aligned}
             P(-2 \le Y \le 1) &= P(Y \le 1) - P(Y \le -2) \\
             &= P\left(Z\le \frac{y_0-\mu_y}{\sigma_y}\right) -
-               P\left(Z\le \frac{y_1-\mu_y}{\sigma_y}\right) \\
+            P\left(Z\le \frac{y_1-\mu_y}{\sigma_y}\right) \\
             &= P(Z\le \frac{1-1}{2}) - P\left(Z\le \frac{-2-1}{2}\right) \\
             &= P(Z\le 0) - P\left(Z\le -\frac{3}{2}\right) \\
             &= P(Z\le 0) - \left(1 - P\left(Z\le \frac{3}{2}\right)\right) \\
@@ -170,7 +170,7 @@
       \end{enumerate}
     \end{solution}
   \end{Ex}
-\pagebreak[4]
+  \pagebreak[4]
 \item
   \begin{Ex}
     Suppose that the cumulative distribution function of $X$ is given
@@ -255,7 +255,7 @@
   \begin{Ex}
     A random variable $X$ is uniformly distributed between 0 and
     10. Find the probability that $X$ lies between a standard deviation
-   $\sigma_X$ from its mean $\mu_X$.
+    $\sigma_X$ from its mean $\mu_X$.
     \begin{solution} \hfill \vspace{.75em}\\
       The standard deviation and mean of a Uniform distribution is as
       follows
@@ -263,18 +263,18 @@
         \begin{equation}
           \label{eq:5-dev}
           \begin{aligned}
-           \mu_X &= \frac{\theta_2 + \theta_1}{2} \\
-           &= \frac{10}{2} \\
-           \implies \mu_X &= 5 \\
+            \mu_X &= \frac{\theta_2 + \theta_1}{2} \\
+            &= \frac{10}{2} \\
+            \implies \mu_X &= 5 \\
           \end{aligned}
         \end{equation} &
         \begin{equation}
           \label{eq:5-mean}
           \begin{aligned}
-           \sigma_X^2 &= \frac{(\theta_2 - \theta_1)^2}{12} \\
-           &= \frac{100}{12} \\
-           \implies \sigma_X^2 &= 8.3333 \\
-           \implies \sigma_X &= 2.8868 \\
+            \sigma_X^2 &= \frac{(\theta_2 - \theta_1)^2}{12} \\
+            &= \frac{100}{12} \\
+            \implies \sigma_X^2 &= 8.3333 \\
+            \implies \sigma_X &= 2.8868 \\
           \end{aligned}
         \end{equation}
       \end{multicols}
@@ -292,86 +292,85 @@
           & ke^{-(2x+3y)}, && x \ge 0,\; y \ge 0 \\
           & 0, && \text{otherwise}
         \end{aligned} \right.
-      \end{equation}
+    \end{equation}
+    \begin{enumerate}
+    \item Find the value of the constant $k$ that makes $f_{XY}(x,
+      y)$ a true joint PDF.
+    \item Find the marginal PDFs of $X$ and $Y$.
+    \item Find $P(X<Y<2)$
+    \item Without actually performing the integration, obtain the
+      integral that expresses the $P(X \le Y^2)$ (That is, just give
+      the exact limits of the integration.)
+    \item Find $E[X +Y]$.
+    \end{enumerate}
+    \begin{solution} \hfill
       \begin{enumerate}
-      \item Find the value of the constant $k$ that makes $f_{XY}(x,
-        y)$ a true joint PDF.
-      \item Find the marginal PDFs of $X$ and $Y$.
-      \item Find $P(X<Y<2)$
-      \item Without actually performing the integration, obtain the
-        integral that expresses the $P(X \le Y^2)$ (That is, just give
-        the exact limits of the integration.)
-      \item Find $E[X +Y]$.
+      \item A true PDF, in general, has the property that the
+        integral or sum over its entire support is $1$. We must
+        check that propery here.
+        \begin{equation}
+          \label{eq:6a-sol}
+          \begin{aligned}
+            1 &= \int_0^\infty \int_0^\infty f_{X,Y}(x,y) \dd{y}
+            \dd{x} \\
+            &= k \int_0^\infty \int_0^\infty e^{-(2x+3y)} \dd{y}
+            \dd{x} \\
+            &= k \int_0^\infty
+            \left[-\frac{1}{2}e^{-2x-3y}\right]_0^\infty
+            \dd{x} \\
+            &= k \int_0^\infty \frac{1}{2}e^{-3y} \dd{x} \\
+            &= k \left[-\frac{1}{6}e^{-3y}\right]_0^\infty \dd{x} \\
+            1 &= \frac{k}{6} \\
+            \implies k &= 6.
+          \end{aligned}
+        \end{equation}
+      \item The marginals are just the integrals of each individual
+        random variable.
+        \begin{multicols}{2}
+          \begin{equation}
+            \label{eq:5b-marginal-x}
+            \begin{aligned}
+              f_X(x) &= 6\int_0^\infty e^{-(2x+3y)} \dd{y} \\
+              &= 6\left[-\frac{1}{3}e^{-(2x+3y)}\right]_0^\infty \\
+              \implies f_X(x) &= 2e^{-2x} \\
+            \end{aligned}
+          \end{equation} &
+          \begin{equation}
+            \label{eq:5b-marginal-y}
+            \begin{aligned}
+              f_Y(y) &= 6\int_0^\infty e^{-(2x+3y)} \dd{x} \\
+              &= 6\left[-\frac{1}{2}e^{-(2x+3y)}\right]_0^\infty \\
+              \implies f_Y(y) &= 3e^{-3y} \\
+            \end{aligned}
+          \end{equation}
+        \end{multicols}
+      \item $P(X<Y<2)$ can be represented as
+        \begin{equation}
+          \label{eq:6c-sol}
+          \begin{aligned}
+            P(X<Y<2) &= \int_0^2\int_0^yf_X(x)f_Y(y)\dd{x}\dd{y} \\
+            &=\int_0^2\int_0^y6e^{-(2x+3y)}\dd{x}\dd{y} \\
+            &= 3\int_0^2 e^{-3y} - e^{-5y} \dd{y} \\
+            \implies P(X<Y<2) &= 0.3976
+          \end{aligned}
+        \end{equation}
+      \item The equation is as follows
+        \begin{equation}
+          \label{eq:6d-sol}
+          P(X\le Y^2) = \int_0^\infty\int_{0}^{y^2}
+          f_X(x)f_Y(y)\dd{x}\dd{y}
+        \end{equation}
+      \item $E[X +Y]$ can be computed as follows
+        \begin{equation}
+          \label{eq:6e-sol}
+          \begin{aligned}
+            E[X +Y] &= E[X] + E[Y] \\
+            &= \int_0^\infty x \cdot f_X(x) \dd{x} + \int_0^\infty y
+            \cdot f_Y(y) \dd{y} \\
+            \implies E[X +Y] &= \frac{5}{6}
+          \end{aligned}
+        \end{equation}
       \end{enumerate}
-      \begin{solution} \hfill
-        \begin{enumerate}
-        \item A true PDF, in general, has the property that the
-          integral or sum over its entire support is $1$. We must
-          check that propery here.
-          \begin{equation}
-            \label{eq:6a-sol}
-            \begin{aligned}
-              1 &= \int_0^\infty \int_0^\infty f_{X,Y}(x,y) \dd{y}
-              \dd{x} \\
-              &= k \int_0^\infty \int_0^\infty e^{-(2x+3y)} \dd{y}
-              \dd{x} \\
-              &= k \int_0^\infty
-              \left[-\frac{1}{2}e^{-2x-3y}\right]_0^\infty
-              \dd{x} \\
-              &= k \int_0^\infty \frac{1}{2}e^{-3y} \dd{x} \\
-              &= k \left[-\frac{1}{6}e^{-3y}\right]_0^\infty \dd{x} \\
-              1 &= \frac{k}{6} \\
-              \implies k &= 6.
-            \end{aligned}
-          \end{equation}
-        \item The marginals are just the integrals of each individual
-          random variable.
-          \begin{multicols}{2}
-            \begin{equation}
-              \label{eq:5b-marginal-x}
-              \begin{aligned}
-                f_X(x) &= 6\int_0^\infty e^{-(2x+3y)} \dd{y} \\
-                &= 6\left[-\frac{1}{3}e^{-(2x+3y)}\right]_0^\infty \\
-                \implies f_X(x) &= 2e^{-2x} \\
-              \end{aligned}
-            \end{equation} &
-            \begin{equation}
-              \label{eq:5b-marginal-y}
-              \begin{aligned}
-                f_Y(y) &= 6\int_0^\infty e^{-(2x+3y)} \dd{x} \\
-                &= 6\left[-\frac{1}{2}e^{-(2x+3y)}\right]_0^\infty \\
-                \implies f_Y(y) &= 3e^{-3y} \\
-              \end{aligned}
-            \end{equation}
-          \end{multicols}
-        \item $P(X<Y<2)$ can be represented as
-          \begin{equation}
-            \label{eq:6c-sol}
-            \begin{aligned}
-              P(X<Y<2) &= \int_0^2\int_0^yf_X(x)f_Y(y)\dd{x}\dd{y} \\
-              &=\int_0^2\int_0^y6e^{-(2x+3y)}\dd{x}\dd{y} \\
-              &= 3\int_0^2 e^{-3y} - e^{-5y} \dd{y} \\
-              \implies P(X<Y<2) &= 0.3976
-            \end{aligned}
-          \end{equation}
-        \item The equation is as follows
-          \begin{equation}
-            \label{eq:6d-sol}
-              P(X\le Y^2) = \int_0^\infty\int_{0}^{y^2}
-              f_X(x)f_Y(y)\dd{x}\dd{y}
-          \end{equation}
-        \item $E[X +Y]$ can be computed as follows
-          \begin{equation}
-            \label{eq:6e-sol}
-            \begin{aligned}
-              E[X +Y] &= E[X] + E[Y] \\
-              &= \int_0^\infty x \cdot f_X(x) \dd{x} + \int_0^\infty y
-              \cdot f_Y(y) \dd{y} \\
-              &= \frac{1}{2} + \frac{1}{3} \\
-              &= \frac{5}{6}
-            \end{aligned}
-          \end{equation}
-        \end{enumerate}
     \end{solution}
   \end{Ex}
 \item
@@ -379,7 +378,34 @@
     Show that for a positive continuous Random Variable $X$, $E[X] =
     \int P(X > x) \dd{x}$
     \begin{solution} \hfill
-      {\huge TODO}
+      \begin{equation}
+        \begin{aligned}
+          \label{eq:7-sol}
+          E[X] &= \int_{0}^{\infty} P(X > x) \dd{x} \\
+          \int_{0}^{\infty} x f_X(x) \dd{x} &=
+          \int_{0}^{\infty} 1 - F_X(x) \dd{x} \\
+        \end{aligned}
+      \end{equation}
+      We can do integration by parts using the following definitions for
+      u-v substitution
+      \begin{equation}
+        \label{eq:7-u-sub}
+        \begin{aligned}
+          u &= x \quad&\quad \dd{v}&=f_X(x)\dd{x} \\
+          \dd{u}&=\dd{x} \quad&\quad v&=F_X(x) \\
+        \end{aligned}
+      \end{equation}
+      Then the LHS becomes
+      \begin{equation}
+        \label{eq:7-sol-continued}
+        \begin{aligned}
+          \int_{0}^{\infty} x f_X(x) \dd{x} &=
+          [x\cdot F_x(x)]_{0}^{\infty} - \int_{0}^{\infty}F_X(x)\dd{x} \\
+          &= \infty\cdot F(\infty)-0\cdot F(0)-\int_{0}^{\infty}F_X(x)\dd{x} \\
+          &= \int_0^{\infty}1\dd{x} - \int_{0}^{\infty}F_X(x)\dd{x} \\
+          \implies E[X] &= \int_{0}^{\infty}1-F_X(x)\dd{x} \\
+        \end{aligned}
+      \end{equation}
     \end{solution}
   \end{Ex}
 \end{enumerate}
