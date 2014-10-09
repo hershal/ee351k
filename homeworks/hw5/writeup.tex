@@ -146,7 +146,7 @@
             P(-2 \le Y \le 1) &= P(Y \le 1) - P(Y \le -2) \\
             &= P\left(Z\le \frac{y_0-\mu_y}{\sigma_y}\right) -
             P\left(Z\le \frac{y_1-\mu_y}{\sigma_y}\right) \\
-            &= P(Z\le \frac{1-1}{2}) - P\left(Z\le \frac{-2-1}{2}\right) \\
+            &= P\left(Z\le \frac{1-1}{2}\right) - P\left(Z\le \frac{-2-1}{2}\right) \\
             &= P(Z\le 0) - P\left(Z\le -\frac{3}{2}\right) \\
             &= P(Z\le 0) - \left(1 - P\left(Z\le \frac{3}{2}\right)\right) \\
             &= 0.5 - (1 - 0.9332) \\
@@ -224,14 +224,14 @@
     \end{enumerate}
     \begin{solution} \hfill
       \begin{enumerate}
-      \item We must find $1 - P(X \ge 5.2) + P(X \le 4.8)$.
+      \item We must find $P(X \ge 5.2) + P(X \le 4.8)$.
         \begin{equation}
           \label{eq:4a-sol}
           \begin{aligned}
-            1 - P(X \ge 5.2) + P(X \le 4.8) &= 1-P(X \le 4.8) + (1-P(X
+            P(X \ge 5.2) + P(X \le 4.8) &= (1-P(X \le 4.8)) + (1-P(X
             \le 4.8)) \\
             &= 2-2P(X \le 4.8) \\
-            \implies P(X \ge 5.2) + P(X \le 4.8) &= 0.3714.
+            \implies P(X \ge 5.2) + P(X \le 4.8) &= 0.3174.
           \end{aligned}
         \end{equation}
       \item The probability that a bolt is not defective is the
@@ -243,7 +243,7 @@
             P(\text{none defective}) &= {10 \choose 10}
             (0.6826)^{10}(1-0.6826)^0 \\
             &= 0.6826^{10} \\
-            \implies P(\text{none defective}) &= 0.0219 \\
+            \implies P(\text{none defective}) &= 0.02196 \\
           \end{aligned}
         \end{equation}
       \end{enumerate}
