@@ -166,12 +166,13 @@
           \label{eq:2d-sol}
           \begin{aligned}
             P(|Y|^2 \le 1.5) &= P(\sqrt{|Y|^2} \le \sqrt{1.5}) \\
-            &= P(Y \le 1.2247) \\
-            &= P\left(Z\le \frac{y_0-\mu_y}{\sigma_y}\right) \\
-            &= P\left(Z\le \frac{1.2247-1}{2}\right) \\
-            &= P\left(Z\le \frac{1.2247-1}{2}\right) \\
-            &= P(Z\le 0.1123) \\
-            \implies P(|Y|^2 \le 1.5) &= 0.5447 \\
+            &= P(-1.2247 \le Y \le 1.2247) \\
+            &= -1 + 2P\left(Z\le \frac{y_0-\mu_y}{\sigma_y}\right)\\
+            &= -1 + 2P\left(Z\le \frac{1.2247-1}{2}\right) \\
+            &= -1 + 2P\left(Z\le \frac{1.2247-1}{2}\right) \\
+            &= -1 + 2P(Z\le 0.1123) \\
+            P(|Y|^2 \le 1.5) &= -1 + 2(0.5447) \\
+            \implies P(|Y|^2 \le 1.5)  &= 0.0894 \\
           \end{aligned}
         \end{equation}
       \end{enumerate}
@@ -199,9 +200,24 @@
     \end{enumerate}
     \begin{solution} \hfill
       \begin{enumerate}
-      \item CDFs do not have values at any particular point; instead
-        they are calculated as areas from $-\infty$ or a given
-        value. Thus, the value at any specific $X=i$ is infinitesimal.
+      \item
+        \begin{equation}
+          \label{eq:3a-sol}
+          \begin{aligned}
+            P(X=1) &= \lim_{x\rightarrow-\infty}F(1) -
+            \lim_{x\rightarrow\infty}F(1) \\
+            &= \frac{1}{2} - \frac{1}{4} \\
+            \implies P(X=1) &= \frac{1}{4} \\
+            P(X=2) &= \lim_{x\rightarrow-\infty}F(2) -
+            \lim_{x\rightarrow\infty}F(2) \\\
+            &= \frac{11}{12} - \frac{9}{12} \\
+            \implies P(X=2) &= \frac{1}{6} \\
+            P(X=3) &= \lim_{x\rightarrow-\infty}F(3) -
+            \lim_{x\rightarrow\infty}F(3) \\
+            &= 1 - \frac{11}{12} \\
+            \implies P(X=3) &= \frac{1}{12} \\
+          \end{aligned}
+        \end{equation}
       \item Since we already have the CDF, we can simply use
         subtraction to find the the requested probability.
         \begin{equation}
