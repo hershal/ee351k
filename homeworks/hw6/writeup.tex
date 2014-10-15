@@ -133,7 +133,76 @@
     \item What are $f_{Y|A}(y)$ and $f_{X|A}(x)$?
     \item What are $E[Y|A]$ and $E[X|A]$?
     \end{enumerate}
-    \begin{solution} \hfill \\\\ {\huge TODO}
+    \begin{solution} \hfill
+
+      {\color{red}{\huge QUESTION}\\ If $Y$ is limited by $Y\le1/3$,
+        and $Y$ is dependent on $X$, then does $X$ become limited as
+        well?}
+
+      \begin{enumerate}
+      \item The way to obtain the conditional joint density is through
+        the formula
+        \begin{equation}
+          \label{eq:2a-conditional-joint-density}
+          f_{X,Y|A} = \left\{
+            \begin{aligned}
+              & \frac{f_{X,Y}(x,y)}{P(A)} &&\quad(x,y) \in A \\
+              & 0 &&\quad\text{otherwise} \\
+            \end{aligned} \right.
+        \end{equation}
+        In order to use that though, we must obtain the CDF for
+        $P(A)$, where
+        \begin{equation}
+          \label{eq:2a-cdf}
+          P(A) = P(Y \le y) = \int_{-\infty}^{y} f_{Y}(y) \dd{y}
+        \end{equation}
+        Which we must obtain the marginal $f_Y(y)$ in order to use. We
+        will do that now
+        \begin{equation}
+          \label{eq:2a-marginal}
+          \begin{aligned}
+            F_Y(y) &= \int_{-\infty}^{\infty} f_{X,Y}(x,y) \dd{x} \\
+            &= \int_{-1}^1 \frac{5x^2}{2} \dd{x} \\
+            &= \frac{5}{2} \int_{-1}^{1} x^2 \dd{x} \\
+            &= \frac{5}{2} \left[\frac{x^3}{3}\right]_{-1}^1 \\
+            &= \frac{5}{2} \frac{2}{3} \\
+            \implies F_Y(y) &= \frac{5}{3} \\
+          \end{aligned}
+        \end{equation}
+        Now we can plug that into \cref{eq:2a-cdf}:
+        \begin{equation}
+          \label{eq:2a-cdf-plugged}
+          \begin{aligned}
+            P(Y \le y) &= \int_{-\infty}^{y} f_{Y}(y) \dd{y} \\
+            P\left(Y \le \frac{1}{3}\right) &=
+            \int_{0}^{\frac{1}{3}} \frac{5}{3} \dd{y} \\
+            &= \frac{5}{3} \int_{0}^{\frac{1}{3}} 1 \dd{y} \\
+            &= \frac{5}{3} \; [y]_0^{\frac{1}{3}} \\
+            &= \frac{5}{3} \frac{1}{3} \\
+            \implies P\left(Y \le \frac{1}{3}\right) &= \frac{5}{9} \\
+          \end{aligned}
+        \end{equation}
+        So now we can obtain the conditional joint density
+        \begin{equation}
+          \label{eq:2a-conditional-joint-density-plugged}
+          \begin{aligned}
+            f_{X,Y|A}(x,y) &= \frac{f_{X,Y}(x,y)}{P(Y \le 1/3)} \\
+            &= \frac{\frac{5x^2}{2}}{\frac{5}{9}} \\
+            \implies f_{X,Y|A}(x,y) &= \frac{9x^2}{2} \\
+          \end{aligned}
+        \end{equation}
+        Or, more precisely
+        \begin{equation}
+          \label{eq:2a-sol}
+          \implies f_{X,Y|A}(x,y) = \left\{
+            \begin{aligned}
+              & \frac{9x^2}{2} &&\quad (x,y) \in A \\
+              & 0 && \text{otherwise} \\
+            \end{aligned}\right.
+        \end{equation}
+      \item{\color{red}{\huge TODO}}
+      \item{\color{red}{\huge TODO}}
+      \end{enumerate}
     \end{solution}
   \end{Ex}
 \item
