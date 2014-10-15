@@ -224,7 +224,75 @@
     \item Find the marginal PDF of $Y$.
     \item Find $E[Y]$.
     \end{enumerate}
-    \begin{solution} \hfill \\\\ {\huge TODO}
+    \begin{solution} \hfill
+      \begin{enumerate}
+      \item $Y$ is conditional on $X$ where $X$ represents the length
+        of the stick with the PDF described in \cref{eq:3-question},
+        and $Y$ represents the length of the remaining stick after it
+        is randomly broken. We can represent the process of ``randomly
+        breaking'' the stick by a uniform distribution dependent on
+        $X$:
+        \begin{equation}
+          \label{eq:3a-y-given-x-dist}
+          \begin{aligned}
+            f_{Y|X}(y|x) \sim \text{Uniform}[0,x], \text{ given } X = x
+          \end{aligned}
+        \end{equation}
+        Which can then be written as
+        \begin{equation}
+          \label{eq:3a-y-given-x-pdf}
+          \implies f_{Y|X}(y|x) = \left\{
+            \begin{aligned}
+              & \frac{1}{x} &&\quad 0 \le y \le x \\
+              & 0 &&\quad \text{otherwise} \\
+            \end{aligned} \right.
+        \end{equation}
+        We can then write the PDF as the following
+        \begin{equation}
+          \label{eq:3a-presol}
+            f_{X,Y}(x,y) = f_X(x)f_{Y|X}(y|x)
+        \end{equation}
+        Which we can then precisely write as
+        \begin{equation}
+          \label{eq:3a-sol}
+          \implies f_{X,Y}(x,y) = \left\{
+            \begin{aligned}
+              & \frac{1}{2} &&\quad 0 \le x \le 2,
+              \quad 0 \le y \le x \\
+              & 0 &&\quad\text{otherwise} \\
+            \end{aligned} \right.
+        \end{equation}
+      \item The general equation for computing the marginal PDF of $Y$
+        is given as
+        \begin{equation}
+          \label{eq:3b-general-marginal}
+          f_Y(y) = \int_{-\infty}^{\infty} f_{X,Y}(x,y) \dd{x}
+        \end{equation}
+        We will use this to calculate the desired marginal for $Y$.
+        \begin{equation}
+          \label{eq:3b-sol}
+          \begin{aligned}
+            f_Y(y) &= \int_{-\infty}^{\infty} f_{X,Y}(x,y) \dd{x} \\
+            &= \int_{y}^{2} \frac{1}{2} \dd{x} \\
+            &= \left[\frac{x}{2}\right]_y^2 \\
+            \implies f_Y(y) &= 1 - \frac{y}{2} \\
+          \end{aligned}
+        \end{equation}
+      \item Calculating the expected value is done by integrating the
+        marginal $f_Y(y)$ multiplied by $y$.
+        \begin{equation}
+          \label{eq:3c-sol}
+          \begin{aligned}
+            E[Y] &= \int_{-\infty}^{\infty} y f_Y(y) \dd{y} \\
+            &= \int_{0}^{2} y(1-\frac{y}{2}) \dd{y} \\
+            &= \int_{0}^{2} y-\frac{y^2}{2} \dd{y} \\
+            &= \left[\frac{y^2}{2}-\frac{y^3}{6}\right]_{0}^{2}
+            \dd{y} \\
+            &= 2-\frac{4}{3} \\
+            \implies E[Y] &= \frac{2}{3} \\
+          \end{aligned}
+        \end{equation}
+      \end{enumerate}
     \end{solution}
   \end{Ex}
 \item
