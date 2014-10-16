@@ -440,11 +440,21 @@
         each clerk $i$. Using Bayes' Rule, we can obtain the PDF of
         $T$ as follows
         \begin{equation}
-          \label{eq:4a-sol}
+          \label{eq:4a-presol}
           \begin{aligned}
             f_T(t) &= \sum_{i=1}^{n} p_i f_{T|I}(t|i) \\
-            \implies f_T(t) &= \sum_{i=1}^{n} p_i \alpha_i e^{-\alpha_i t}
+            f_T(t) &= \sum_{i=1}^{n} p_i \alpha_i e^{-\alpha_i t}
           \end{aligned}
+        \end{equation}
+        Or, more precisely
+        \begin{equation}
+          \label{eq:4a-sol}
+          f_T(t) = \left\{
+            \begin{aligned}
+              & \sum_{i=1}^{n} p_i \alpha_i e^{-\alpha_i t} &&\quad
+              t\ge0 \\
+              & 0 &&\quad\text{otherwise} \\
+            \end{aligned} \right.
         \end{equation}
       \item The expected value is given by the following
         \begin{equation}
@@ -504,10 +514,14 @@
         following
         \begin{equation}
           \label{eq:4c-bayes-plug}
-          \implies P(I=i|T>5) =
-          \frac{p_i\int_5^{\infty}\alpha_ie^{-\alpha_i t}
-            \dd{t}}{\sum_{j=1}^{n}p_j\int_5^{\infty}\alpha_je^{-\alpha_j
-              t} \dd{t}}
+          \begin{aligned}
+            P(I=i|T>5) &= \frac{p_i\int_5^{\infty}\alpha_ie^{-\alpha_i
+                t}
+              \dd{t}}{\sum_{j=1}^{n}p_j\int_5^{\infty}\alpha_je^{-\alpha_j
+                t} \dd{t}} \\
+            \implies P(I=i|T>5) &= \frac{p_ie^{-5\alpha_i t}
+              \dd{t}}{\sum_{j=1}^{n}p_je^{-5\alpha_j t} \dd{t}} \\
+          \end{aligned}
         \end{equation}
       \end{enumerate}
     \end{solution}
