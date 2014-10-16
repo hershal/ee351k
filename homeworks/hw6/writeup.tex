@@ -515,7 +515,22 @@
     then $X$ is said to have a log normal distrubtion with parameters
     $\mu$, $\sigma^2$, denoted $X \sim
     \text{Lognormal}(\mu,\sigma^2)$. Determine the PDF of $X$.
-    \begin{solution} \hfill \\\\ {\color{red} {\huge TODO}}
+    \begin{solution} \hfill
+      If $X = e^Y$, then we can set $X = e^Y = g(X)$ and $Y=\ln(X)$ so
+      that $Y = \ln(x) = g^{-1}(X)$. Using this we can do a change of
+      variables to obtain the PDF of $X$
+      \begin{equation}
+        \label{eq:5-sol}
+        \begin{aligned}
+          f_{X}(x) &= f_{Y}(g^{-1}(x)) \frac{d g^{-1}(x)}{\dd{x}} \\
+          &=
+          \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(y-\mu)^2}{2\sigma^2}}
+          \left(\frac{1}{x}\right) \\
+          \implies f_{X}(x) &=
+          \frac{1}{\sqrt{2x\pi\sigma^2}}e^{-\frac{(y-\mu)^2}{2\sigma^2}}
+          \\
+        \end{aligned}
+      \end{equation}
     \end{solution}
   \end{Ex}
 \item
