@@ -542,8 +542,8 @@
       \label{eq:6-question}
       Z = \left\{
         \begin{aligned}
-          & X &&\quad \alpha \\
-          & Y &&\quad (1-\alpha) \\
+          & X &&\quad\text{w.p. } \alpha \\
+          & Y &&\quad\text{w.p. } (1-\alpha) \\
         \end{aligned} \right.
       \quad\quad\alpha \in [0,1].
     \end{equation}
@@ -570,7 +570,87 @@
         \label{fig:6-fig}
       \end{figure}
     \end{enumerate}
-    \begin{solution} \hfill \\\\ {\color{red} {\huge TODO}}
+    \pagebreak[4]
+    \begin{solution} \hfill
+      \begin{enumerate}
+      \item The CDF $F_Z(z)$ can be defined as
+        \begin{equation}
+          \label{eq:6-fz}
+          F_Z(z) = pF_X(z) + (1-p)F_Y(y)
+        \end{equation}
+        We can then define the CDF for $F_{X}(x)$ and $F_{Y}(y)$ as
+        follows
+        \begin{multicols}{2}
+          \begin{equation}
+            \label{eq:6a-cdf-fx}
+            F_{X}(x) = \left\{
+              \begin{aligned}
+                & 1 &&\quad x\ge1 \\
+                & p &&\quad 0\le x<1 \\
+                & 0 &&\quad \text{otherwise} \\
+              \end{aligned} \right.
+          \end{equation} &
+          \begin{equation}
+            \label{eq:6a-cdf-fy}
+            F_{Y}(Y) = \left\{
+              \begin{aligned}
+                & 1-e^{-\lambda y} &&\quad y\ge0 \\
+                & 0 && \text {otherwise} \\
+              \end{aligned} \right.
+          \end{equation}
+        \end{multicols}
+        The CDF of $Z$ with $\alpha = \frac{1}{2}$ can be described as
+        \begin{equation}
+          \label{eq:6a-cdf-fz-def}
+          F_{Z}(z) = \frac{1}{2}F_{X}(x) + \frac{1}{2}F_{Y}(y)
+        \end{equation}
+        This turns into a piecewise CDF
+        \begin{equation}
+          \label{eq:6a-cdf-fz-sol}
+          F_{Z}(z) = \left\{
+            \begin{aligned}
+              & \frac{1}{2}(p+1-e^{-\lambda y}) &&\quad 0 \le z \le 1 \\
+              & 1- \frac{1}{2}e^{-\lambda y} &&\quad z\ge1 \\
+              & 0 &&\quad\text{otherwise} \\
+            \end{aligned} \right.
+        \end{equation}
+      \item Using the definition in \cref{eq:6-fz}, the CDF of
+        $\alpha F_X(z)$ is, by inspection,
+        \begin{equation}
+          \label{eq:fx-def}
+          \alpha F_X(z) = \frac{1}{2}
+        \end{equation}
+        By property of all CDFs, the CDF at its upper limit must be
+        equal to 1. Thus we can obtain
+        \begin{equation}
+          \label{eq:fx}
+          \begin{aligned}
+            \alpha F_X(z) &= \frac{1}{2} \\
+            \implies \alpha &= \frac{1}{2} \\
+          \end{aligned}
+        \end{equation}
+        Which makes $F_X(z)$
+        \begin{equation}
+          \label{eq:fx-sol}
+          \implies F_X(x) = \left\{
+            \begin{aligned}
+              & \frac{1}{2} &&\quad 0\le x < 1 \\
+              & \frac{3}{4} &&\quad 1\le x < 3 \\
+              & 1 &&\quad x\ge 3 \\
+              & 0 &&\quad\text{otherwise} \\
+            \end{aligned} \right.
+        \end{equation}
+        And $F_Y(z)$
+        \begin{equation}
+          \label{eq:fy-sol}
+          \implies F_Y(y) = \left\{
+            \begin{aligned}
+              & \frac{y}{2} &&\quad 0\le y < 2 \\
+              & 1 &&\quad y\ge 2 \\
+              & 0 &&\quad\text{otherwise} \\
+            \end{aligned} \right.
+        \end{equation}
+      \end{enumerate}
     \end{solution}
   \end{Ex}
 \item
