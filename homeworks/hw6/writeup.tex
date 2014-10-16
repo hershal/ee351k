@@ -579,8 +579,37 @@
     to find 0 or 1 customers ahead of her. The service time of the
     customer ahead, if present, is exponentially distributed with
     parameter $\lambda$ What is the CDF of Jane's waiting time?
-    \begin{solution} \hfill \\\\ {\color{red} {\huge TODO}}
-    \end{solution}
-  \end{Ex}
-\end{enumerate}
+    \begin{solution} \hfill \vspace{.75em} \\
+      We will define $X$ as the waiting time and $Y$ be the number of
+      customers found. For $x>0$, we have $F_{X}(x)=0 \quad\forall
+      x\ge0$.
+      \begin{equation}
+        \label{eq:7-cdf}
+        F_{X}(x) = P(X\le x) = \frac{1}{2}P(X\le x | Y=0) +
+        \frac{1}{2}P(X\le x | Y=1).
+      \end{equation}
+      Since
+      \begin{equation}
+        \label{eq:7-p-y-0}
+        P(X\le x|Y=0) = 1
+      \end{equation}
+      and
+      \begin{equation}
+        \label{eq:7-p-y-1}
+        P(X\le x|Y=1) = 1-e^{-\lambda x}
+      \end{equation}
+      Then we obtain
+      \begin{equation}
+        \label{eq:7-sol}
+        \implies F_X{x} = \left\{
+          \begin{aligned}
+            & \frac{1}{2}(2-e^{-\lambda x}) &&\quad x\ge 0
+            & 0 &&\quad\text{otherwise}
+          \end{aligned}
+        \end{equation}
+        Where $X$ is neither discrete nor continuous due to a
+        discontinuity at $x=0$.
+      \end{solution}
+    \end{Ex}
+  \end{enumerate}
 \end{document}
