@@ -423,9 +423,84 @@
       in terms of $p_i$ and $\alpha_i$, where $i = 1,\ldots,n$
     \item Suppose $T > 5$. Find an expression for the probability that
       clerk $i$ served the customer. Hint: You will need to use a
-      version of Bayes Rule.
+      version of Bayes' Rule.
     \end{enumerate}
-    \begin{solution} \hfill \\\\ {\color{red} {\huge TODO}}
+    \begin{solution} \hfill
+      \begin{enumerate}
+      \item The PDF of $T$ uses a discrete random variable to describe
+        each clerk $i$. Using Bayes' Rule, we can obtain the PDF of
+        $T$ as follows
+        \begin{equation}
+          \label{eq:4a-sol}
+          \begin{aligned}
+            f_T(t) &= \sum_{i=1}^{n} p_i f_{T|I}(t|i) \\
+            \implies f_T(t) &= \sum_{i=1}^{n} p_i a_i e^{-a_i t}
+          \end{aligned}
+        \end{equation}
+      \item The expected value is given by the following
+        \begin{equation}
+          \label{eq:4b-presol}
+          \begin{aligned}
+            E[T] &= \sum_{i=1}^n P(I_i)E[T|I] \\
+            &= \sum_{i=1}^n p_i E[T|I] \\
+          \end{aligned}
+        \end{equation}
+        The expected value $E[T|I]$ of the PDF $f_{T|I}(t|i)=p_i a_i
+        e^{-a_i t}$ is obtained by
+        \begin{equation}
+          \label{eq:4b-expected}
+          \begin{aligned}
+            E[T|I] &= \int_0^{n} t a_i e^{-a_i t} \dd{t} \\
+            &= \frac{1}{a_i} \\
+          \end{aligned}
+        \end{equation}
+        We can insert this result into \cref{eq:4b-presol} to obtain
+        \begin{equation}
+          \label{eq:4b-sol}
+          \implies E[T] = \sum_{i=1}^n \frac{p_i}{a_i}
+        \end{equation}
+        The general equation for the variance for a random variable
+        $X$ is given by
+        \begin{equation}
+          \label{eq:4b-var-def}
+          \text{Var}(X) = E[X^2] - E[X]^2
+        \end{equation}
+        Using the general definition in \cref{eq:4b-var-def}, we can
+        obtain the variance $\text{Var}(T)$.
+        \begin{equation}
+          \label{eq:4b-var-inner}
+          \begin{aligned}
+            E[T^2] &= \int_0^{n} t^2 a_i e^{-a_i t} \dd{t} \\
+            &= \frac{2 p_i}{a_i^2} \\
+          \end{aligned}
+        \end{equation}
+        So then the variance turns out to be
+        \begin{equation}
+          \label{eq:4b-sol}
+          \begin{aligned}
+            \text{Var}(T) &= E[T^2] - E[T]^2 \\
+            \implies \text{Var}(T) &=
+            \sum_{i=1}^{n} \frac{2 p_i}{a_i^2}
+            - \left(\sum_{i=1}^{n} \frac{p_i}{a_i}\right)^2
+          \end{aligned}
+        \end{equation}
+      \item Bayes' Rule, for reference, is as follows
+        \begin{equation}
+          \label{eq:4c-bayes-rule}
+          P(A_i|B) = \frac{P(A_i)P(B|A_i)}{P(A_1)P(B|A_1) + \cdots +
+            P(A_n)P(B|A_n)}
+        \end{equation}
+        Using this definition, we can define the probability that
+        clerk $i$ served the customer given that $T>5$ as the
+        following
+        \begin{equation}
+          \label{eq:4c-bayes-plug}
+          \implies P(I=i|T>5) =
+          \frac{p_i\int_5^{\infty}\alpha_ie^{-\alpha_i t}
+            \dd{t}}{\sum_{j=1}^{n}p_j\int_5^{\infty}\alpha_je^{-\alpha_j
+              t} \dd{t}}
+        \end{equation}
+      \end{enumerate}
     \end{solution}
   \end{Ex}
 \item
@@ -492,6 +567,5 @@
     \begin{solution} \hfill \\\\ {\color{red} {\huge TODO}}
     \end{solution}
   \end{Ex}
-
 \end{enumerate}
 \end{document}
