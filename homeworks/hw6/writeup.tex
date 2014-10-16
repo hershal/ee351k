@@ -416,11 +416,11 @@
     A customer entering a store is served by clerk $i$ with
     probability $p_i$, where $i = 1,\ldots,n$. The time taken by clerk
     $i$ to serve a customer is an exponentially distributed random
-    variable with parameter $\alpha_i$.
+    variable with parameter $\alph\alpha_i$.
     \begin{enumerate}
     \item Find the PDF of $T$, the time taken to service a customer.
     \item Find $E[T]$ and $\text{Var}(T)$. You should find expressions
-      in terms of $p_i$ and $\alpha_i$, where $i = 1,\ldots,n$
+      in terms of $p_i$ and $\alph\alpha_i$, where $i = 1,\ldots,n$
     \item Suppose $T > 5$. Find an expression for the probability that
       clerk $i$ served the customer. Hint: You will need to use a
       version of Bayes' Rule.
@@ -434,7 +434,7 @@
           \label{eq:4a-sol}
           \begin{aligned}
             f_T(t) &= \sum_{i=1}^{n} p_i f_{T|I}(t|i) \\
-            \implies f_T(t) &= \sum_{i=1}^{n} p_i a_i e^{-a_i t}
+            \implies f_T(t) &= \sum_{i=1}^{n} p_i \alpha_i e^{-\alpha_i t}
           \end{aligned}
         \end{equation}
       \item The expected value is given by the following
@@ -445,19 +445,19 @@
             &= \sum_{i=1}^n p_i E[T|I] \\
           \end{aligned}
         \end{equation}
-        The expected value $E[T|I]$ of the PDF $f_{T|I}(t|i)=p_i a_i
-        e^{-a_i t}$ is obtained by
+        The expected value $E[T|I]$ of the PDF $f_{T|I}(t|i)=p_i \alpha_i
+        e^{-\alpha_i t}$ is obtained by
         \begin{equation}
           \label{eq:4b-expected-conditional}
           \begin{aligned}
-            E[T|I] &= \int_0^{n} t a_i e^{-a_i t} \dd{t} \\
-            &= \frac{1}{a_i} \\
+            E[T|I] &= \int_0^{n} t \alpha_i e^{-\alpha_i t} \dd{t} \\
+            &= \frac{1}{\alpha_i} \\
           \end{aligned}
         \end{equation}
         We can insert this result into \cref{eq:4b-expected} to obtain
         \begin{equation}
           \label{eq:4b-presol}
-          \implies E[T] = \sum_{i=1}^n \frac{p_i}{a_i}
+          \implies E[T] = \sum_{i=1}^n \frac{p_i}{\alpha_i}
         \end{equation}
         The general equation for the variance for a random variable
         $X$ is given by
@@ -470,8 +470,8 @@
         \begin{equation}
           \label{eq:4b-var-inner}
           \begin{aligned}
-            E[T^2] &= \int_0^{n} t^2 a_i e^{-a_i t} \dd{t} \\
-            &= \frac{2 p_i}{a_i^2} \\
+            E[T^2] &= \int_0^{n} t^2 \alpha_i e^{-\alpha_i t} \dd{t} \\
+            &= \frac{2 p_i}{\alpha_i^2} \\
           \end{aligned}
         \end{equation}
         So then the variance turns out to be
@@ -480,15 +480,15 @@
           \begin{aligned}
             \text{Var}(T) &= E[T^2] - E[T]^2 \\
             \implies \text{Var}(T) &=
-            \sum_{i=1}^{n} \frac{2 p_i}{a_i^2}
-            - \left(\sum_{i=1}^{n} \frac{p_i}{a_i}\right)^2
+            \sum_{i=1}^{n} \frac{2 p_i}{\alpha_i^2}
+            - \left(\sum_{i=1}^{n} \frac{p_i}{\alpha_i}\right)^2
           \end{aligned}
         \end{equation}
       \item Bayes' Rule, for reference, is as follows
         \begin{equation}
           \label{eq:4c-bayes-rule}
-          P(A_i|B) = \frac{P(A_i)P(B|A_i)}{P(A_1)P(B|A_1) + \cdots +
-            P(A_n)P(B|A_n)}
+          P(\ALPHA_i|B) = \frac{P(\ALPHA_i)P(B|\ALPHA_i)}{P(\ALPHA_1)P(B|\ALPHA_1) + \cdots +
+            P(\ALPHA_n)P(B|\ALPHA_n)}
         \end{equation}
         Using this definition, we can define the probability that
         clerk $i$ served the customer given that $T>5$ as the
