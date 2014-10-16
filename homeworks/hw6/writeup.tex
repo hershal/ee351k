@@ -385,13 +385,22 @@
         \end{equation}
         We will use this to calculate the desired marginal for $Y$.
         \begin{equation}
-          \label{eq:3b-sol}
+          \label{eq:3b-presol}
           \begin{aligned}
             f_Y(y) &= \int_{-\infty}^{\infty} f_{X,Y}(x,y) \dd{x} \\
             &= \int_{y}^{2} \frac{1}{2} \dd{x} \\
             &= \left[\frac{x}{2}\right]_y^2 \\
-            \implies f_Y(y) &= 1 - \frac{y}{2} \\
+            f_Y(y) &= 1 - \frac{y}{2} \\
           \end{aligned}
+        \end{equation}
+        Which can be more precisely written as
+        \begin{equation}
+          \label{eq:3b-sol}
+          \implies f_Y(y) = \left\{
+            \begin{aligned}
+              & 1 - \frac{y}{2} &&\quad 0 \le y \le 2 \\
+              & 0 &&\quad\text{otherwise} \\
+            \end{aligned} \right.
         \end{equation}
       \item Calculating the expected value is done by integrating the
         marginal $f_Y(y)$ multiplied by $y$.
