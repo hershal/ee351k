@@ -34,10 +34,23 @@
   \begin{Ex}
     $X$ and $Y$ are two independent exponential random variables with
     parameters $\lambda_1$ and $\lambda_2$ respectively. Let $Z$ be a
-    random variable defined as $Z = \text{max}[X,Y]$ then find the
+    random variable defined as $Z = \text{max}[X,Y]$; find the
     distribution of $Z$.
     \begin{solution} \hfill \vspace{.75em} \\
-      {\color{red} \huge TODO}
+      \begin{equation}
+        \label{eq:1-sol}
+        \begin{aligned}
+          F_Z(z) &= P(\text{max}[X,Y] \le z) \\
+          &= {\color{red} P(X \le z, Y \le z)} \\
+          &= P(X\le z)P(Y\le z) \\
+          &= (1-e^{-\lambda_1 z})(1-e^{-\lambda_2 z}) \\
+          \implies Z &= \text{exp}(\lambda_1) + \text{exp}(\lambda_2)
+          + \text{exp}(\lambda_1 + \lambda_2) \\
+          \text{Or }\implies Z &=
+          \text{exp}(\lambda_1)\text{exp}(\lambda_2) \\
+        \end{aligned}
+      \end{equation}
+      {\color{red} \huge EXPLAIN}
     \end{solution}
   \end{Ex}
 \item
