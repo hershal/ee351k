@@ -1,7 +1,7 @@
 \documentclass[12pt]{article}
 \title{EE351K Homework 7}
 \author{Hershal Bhave (hb6279)}
-\date{Due October 24, 2014}
+\date{Due October 23, 2014}
 
 \usepackage{multicol}
 \usepackage[in]{fullpage}
@@ -82,6 +82,13 @@
     be a continuous random variable, independent from $X$, with PDF
     $f_Y$. Derive a formula for the PDF of the random variable $X+Y$.
     \begin{solution} \hfill \vspace{.75em} \\
+      \begin{equation}
+        \label{eq:3-sol}
+        \begin{aligned}
+          F_Z(z) &= P(z \le Z) = P(X+Y \le Z) \\
+          &= \int \int_{\{(x,y) | x+y<z\}} f_{X,Y}(x,y)\dd{x}\dd{y} \\
+        \end{aligned}
+      \end{equation}
       {\color{red} \huge TODO}
     \end{solution}
   \end{Ex}
@@ -89,7 +96,7 @@
   \begin{Ex}
     A random variable $X$ has mean 0 and variance 1. A random variable
     $Y$ has mean 1 and variance 2, and $X$ and $Y$ are
-    independent. Suppose randomvariables $U$ and $V$ are given by
+    independent. Suppose random variables $U$ and $V$ are given by
     $U=X+2Y$, $V = X−Y$. What is the covariance $\text{Cov}(U,V)$?
     What is the correlation coefficient $\rho_{U,V}$? Can $U$ and $V$
     be independent?
@@ -101,19 +108,19 @@
   \begin{Ex}
     Consider $n$ independent tosses of a $k$-sided fair die. Let $X_i$
     be the number of tosses that result in outcome $i$. Find
-    $\text{Cov}(X1 , X2)$ of $X_1$ and $X_2$.
+    $\text{Cov}(X_1 , X_2)$ of $X_1$ and $X_2$.
     \begin{solution} \hfill \vspace{.75em} \\
       {\color{red} \huge TODO}
     \end{solution}
   \end{Ex}
 \item
   \begin{Ex}
-    Understanding variance and risk. Let c be an integer where $c >
-    1$. We are given $c$ independent random variables, denoted $X_1,
-    \ldots ,X_c$ and $c$ positively correlated random variables,
-    denoted by $Y_1, \ldots, Y_c$ such that correlation between any
-    two random variables $Y_i$ and $Y_j$ is a constant value $\rho <
-    1$. All the given random variables have same mean and variance.
+    Let c be an integer where $c > 1$. We are given $c$ independent
+    random variables, denoted $X_1, \ldots ,X_c$ and $c$ positively
+    correlated random variables, denoted by $Y_1, \ldots, Y_c$ such
+    that correlation between any two random variables $Y_i$ and $Y_j$
+    is a constant value $\rho < 1$. All the given random variables
+    have same mean and variance.
     \begin{enumerate}
     \item Which of the following has a lower variance?
       \begin{itemize}
