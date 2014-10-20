@@ -89,7 +89,7 @@
           &= \int \int_{\{(x,y) | x+y<z\}} f_{X,Y}(x,y)\dd{x}\dd{y} \\
         \end{aligned}
       \end{equation}
-      {\color{red} \huge TODO}
+      {\color{red} \huge CHECK}
     \end{solution}
   \end{Ex}
 \item
@@ -101,7 +101,62 @@
     What is the correlation coefficient $\rho_{U,V}$? Can $U$ and $V$
     be independent?
     \begin{solution} \hfill \vspace{.75em} \\
-      {\color{red} \huge TODO}
+      The covariance formula is
+      \begin{equation}
+        \label{eq:4-cov}
+        \text{Cov}(U,V) = E[UV] - E[U]E[V]
+      \end{equation}
+      We must first obtain each component of the covariance formula:
+      \begin{equation}
+        \label{eq:4-e-u}
+        \begin{aligned}
+          E[U] &= E[X+2Y] \\
+          &= E[X] + 2E[Y] \\
+          \implies E[U] &= 2 \\
+        \end{aligned}
+      \end{equation}
+      and
+      \begin{equation}
+        \label{eq:4-e-v}
+        \begin{aligned}
+          E[V] &= E[X]E[Y] \\
+          &= (0)(1) \\
+          \implies E[V] &= 0 \\
+        \end{aligned}
+      \end{equation}
+      and
+      \begin{equation}
+        \label{eq:4-e-uv}
+        \begin{aligned}
+          E[UV] &= (X+2Y)(XY) \\
+          &= X^2+Y + 2XY^2 \\
+          \implies E[UV] &= 0 \\
+        \end{aligned}
+      \end{equation}
+      Using the individual components found in
+      \cref{eq:4-e-u,eq:4-e-v,eq:4-e-uv}, we can find the covariance
+      using \cref{eq:4-cov}
+      \begin{equation}
+        \label{eq:4-cov-plugged}
+        \begin{aligned}
+          \text{Cov}(U,V) &= E[UV] - E[U]E[V] \\
+          &= 0 - (2)(0) \\
+          \implies \text{Cov}(U,V) &= 0 \\
+        \end{aligned}
+      \end{equation}
+      The correlation coefficient is 
+      \begin{equation}
+        \label{eq:4-c-coef}
+        \rho(X,Y) \frac{\text{Cov}(X,Y)}{\sqrt{\text{Var}(X)\text{Var}(Y)}}
+      \end{equation}
+      Since $\text{Cov}(U,V)$ is zero,
+      \begin{equation}
+        \label{eq:4-coef-sol}
+        \implies \rho(U,V) = 0
+      \end{equation}
+      This does not guarantee that $U$ and $V$ are independent, though
+      they can be. \\\\
+      {\color{red} \huge CHECK}
     \end{solution}
   \end{Ex}
 \item
