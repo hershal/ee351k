@@ -41,16 +41,21 @@
         \label{eq:1-sol}
         \begin{aligned}
           F_Z(z) &= P(\text{max}[X,Y] \le z) \\
-          &= {\color{red} P(X \le z, Y \le z)} \\
+          &= P(X \le z, Y \le z} \\
           &= P(X\le z)P(Y\le z) \\
           &= (1-e^{-\lambda_1 z})(1-e^{-\lambda_2 z}) \\
-          \implies Z &= \text{exp}(\lambda_1) + \text{exp}(\lambda_2)
-          + \text{exp}(\lambda_1 + \lambda_2) \\
-          \text{Or }\implies Z &=
+          &= 1-e^{-\lambda_1 z} - e^{-\lambda_2 z} + e^{-(\lambda_1 +
+            \lambda_2) z} \\
+          &= (1 - e^{-\lambda_1 z}) + (1 - e^{-\lambda_2 z})+ (-1 +
+          e^{-(\lambda_1 + \lambda_2) z}) \\
+          &= (1-e^{-\lambda_1 z}) + (1-e^{-\lambda_2 z}) -
+          (1-e^{-(\lambda_1 + \lambda_2) z}) \\
+          \implies Z &\sim \text{exp}(\lambda_1) + \text{exp}(\lambda_2)
+          - \text{exp}(\lambda_1 + \lambda_2) \\
+          \text{Or }\implies Z &\sim
           \text{exp}(\lambda_1)\text{exp}(\lambda_2) \\
         \end{aligned}
       \end{equation}
-      {\color{red} \huge EXPLAIN}
     \end{solution}
   \end{Ex}
 \item
