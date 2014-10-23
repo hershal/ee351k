@@ -249,26 +249,28 @@
       given stock. Consider the following cases, investing $c$ times
       in a single stock, investing in $c$ independent stocks and
       investing in $c$ positively correlated stocks. Which investement
-      is invovled with less risk? Explain your answer using the result
+      is involved with less risk? Explain your answer using the result
       to the previous question.
     \end{enumerate}
-    \begin{solution} \hfill \vspace{.75em} \\
-      In general,
-      \begin{equation}
-        \label{eq:6-variance-sum}
-        \text{Var}\left(\sum_{i=1}^{n}X_i\right) =
-        \left(\sum_{i=1}^{n}\text{Var}(X_i)\right) +
-        \left(\sum_{\{(i,j)|i\not= j\}}^{n}\text{Cov}(X_i, X_j)\right)
-      \end{equation}
-      So then since $X_1, \ldots, X_c$ are all independent, their
-      covariance is zero, thus eliminating the $\text{Cov}(X_i,
-      X_{i+1})$ element from the variance. If $E[X_1] < 1$, then
-      \cref{eq:6-question-eq-2} is the smallest value, followed by
-      \cref{eq:6-question-eq-0}, followed by
-      \cref{eq:6-question-eq-1}. Otherwise \cref{eq:6-question-eq-0}
-      is the smallest, followed by \cref{eq:6-question-eq-1}, followed
-      by \cref{eq:6-question-eq-2}.
-      \\\\ {\color{red} \huge CHECK}
+    \begin{solution} \hfill
+      \begin{enumerate}
+      \item
+        In general,
+        \begin{equation}
+          \label{eq:6-variance-sum}
+          \text{Var}\left(\sum_{i=1}^{n}X_i\right) =
+          \left(\sum_{i=1}^{n}\text{Var}(X_i)\right) +
+          \left(\sum_{\{(i,j)|i\not= j\}}^{n}\text{Cov}(X_i, X_j)\right)
+        \end{equation}
+        So then since $X_1, \ldots, X_c$ are all independent, their
+        covariance is zero, thus eliminating the $\text{Cov}(X_i,
+        X_{i+1})$ element from the variance in
+        \cref{eq:6-question-eq-0}.
+        The smallest variance is shared with
+        \hfill\\\\ {\color{red} \huge ASK}
+      \item
+        \hfill\\\\ {\color{red} \huge WHAT}
+      \end{enumerate}
     \end{solution}
   \end{Ex}
 \item
