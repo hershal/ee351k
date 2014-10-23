@@ -89,13 +89,25 @@
     $f_Y$. Derive a formula for the PDF of the random variable $X+Y$.
     \begin{solution} \hfill \vspace{.75em} \\
       \begin{equation}
-        \label{eq:3-sol}
+        \label{eq:3-presol}
         \begin{aligned}
-          F_Z(z) &= P(z \le Z) = P(X+Y \le Z) \\
-          &= \int \int_{\{(x,y) | x+y<z\}} f_{X,Y}(x,y)\dd{x}\dd{y} \\
+          F_Z(z) &= P(Z \le z) = P(X+Y \le z) \\
+          &= \sum_x P(X+Y\le z | X=x)p_X(x) \\
+          &= \sum_x P(Y \le z-x | X=x)p_X(x) \\
+          &= \sum_x P(Y \le z-x)p_X(x) \\
+          &= \sum_x F_Y(z-x)p_X(x) \\
         \end{aligned}
       \end{equation}
-      {\color{red} \huge CHECK}
+      Then the distribution of $Z$ is the derivative of its CDF
+      \begin{equation}
+        \label{eq:3-sol}
+        \begin{aligned}
+          f_Z(z) &= \frac{d}{\dd{z}}F_Z(z) \\
+          &= \frac{d}{\dd{z}}\sum_{x}F_Y(z-x)p_X(x) \\
+          &= \sum_{x}\frac{d}{\dd{z}}F_Y(z-x)p_X(x) \\
+          \implies f_Z(z) &= \sum_{x}f_Y(z-x)p_X(x) \\
+        \end{aligned}
+      \end{equation}
     \end{solution}
   \end{Ex}
 \item
