@@ -187,13 +187,38 @@
     if and only if the $t$th toss resulted in 1. Note that $X_1 =
     A_1+A_2+\ldots+A_n$.
     \begin{solution} \hfill \vspace{.75em} \\
-      Intuitively, the $\text{Cov}(X_1 , X_2)$ would be 0 since the
-      random variables $X_1$ and $X_2$ are independent because each
-      toss is independent of the other and each outcome has an equally
-      likely, equally independent outcome. Since the covariance
-      between independent variables is 0, then we can assume that
-      $\text{Cov}(X_1 , X_2) = 0$.
-      \\\\ {\color{red} \huge CHECK}
+      Let's start by defining a few variables:
+      \begin{equation}
+        \label{eq:5-decl}
+        \begin{align}
+          X_1 &= A_1+A_2+\ldots+A_n \\
+          X_2 &= B_1+B_2+\ldots+B_n \\
+        \end{align}
+      \end{equation}
+      Where $A_t$ and $B_t$ are Bernoilli randomm variables which are
+      1 when only if the $t$th toss is equal to $i$ for a random
+      variable $X_i$. Now
+      \begin{equation}
+        \label{eq:5-e}
+        E[X_1X_2] &= E[(A_1 + /ldots + A_n)(B_1 + /ldots + B_n)] \\
+      \end{equation}
+      By the binomial theorem,
+      \begin{equation}
+        \label{eq:5-e}
+        \begin{align}
+          E[X_1X_2] & = E[(A_1 + /ldots + A_n)(B_1 + /ldots + B_n)] \\
+          &= \frac{n(n-1)}{k^2} \\
+        \end{align}
+      \end{equation}
+      The covarance can be found by
+      \begin{equation}
+        \label{eq:5-sol}
+        \begin{align}
+          \text{Cov}(X_1, X_2) &= E[X_1X_2] - E[X_1]E[X_2] \\
+          &= \frac{n(n-1)}{k^2} - \frac{n^2}{k^2} \\
+          \implies \text{Cov}(X_1, X_2) &= -\frac{n}{k^2}
+        \end{align}
+      \end{equation}
     \end{solution}
   \end{Ex}
 \item
