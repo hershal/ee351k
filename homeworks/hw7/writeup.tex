@@ -146,11 +146,39 @@
       \begin{equation}
         \label{eq:4-e-uv}
         \begin{aligned}
-          E[UV] &= (X+2Y)(X-Y) \\
-          &= X^2 - XY + 2XY - 2Y^2 \\
-          &= X^2 + XY - 2Y^2 \\
-          &= 0 + 0 - 2 \\
-          \implies E[UV] &= -2 \\
+          E[UV] &= E[(X+2Y)(X-Y)] \\
+          &= E[X^2] - E[XY] + E[2XY] - E[2Y^2] \\
+          &= E[X^2] + E[XY] - 2E[Y^2] \\
+        \end{aligned}
+      \end{equation}
+      Where $E[X^2]$ and $E[Y^2]$ can be found by
+      \begin{multicols}{2}
+        \begin{equation}
+          \label{eq:4-x-2}
+          \begin{aligned}
+            \text{Var}(X) &= E[X^2] - E[X]^2 \\
+            E[X^2] &= \text{Var}(X) + E[X]^2 \\
+            &= 1 + 0^2 \\
+            \implies E[X^2] &= 1 \\
+          \end{aligned}
+        \end{equation} &
+        \begin{equation}
+          \label{eq:4-y-2}
+          \begin{aligned}
+            \teyt{Var}(Y) &= E[Y^2] - E[Y]^2 \\
+            E[Y^2] &= \teyt{Var}(Y) + E[Y]^2 \\
+            &= 2 + 1^2 \\
+            \implies E[Y^2] &= 3 \\
+          \end{aligned}
+        \end{equation}
+      \end{multicols}
+      Continuing \cref{eq:4-e-uv}
+      \begin{equation}
+        \label{eq:4-e-uv-cont}
+        \begin{aligned}
+          E[UV] &= E[X^2] + E[XY] - 2E[Y^2] \\
+          &= 1 + 0 - 6 \\
+          \implies E[UV] &= -5 \\
         \end{aligned}
       \end{equation}
       Using the individual components found in
@@ -160,22 +188,43 @@
         \label{eq:4-cov-plugged}
         \begin{aligned}
           \text{Cov}(U,V) &= E[UV] - E[U]E[V] \\
-          &= -2 - (2)(-1) \\
-          \implies \text{Cov}(U,V) &= 0 \\
+          &= -5 - (2)(-1) \\
+          \implies \text{Cov}(U,V) &= -3 \\
         \end{aligned}
       \end{equation}
       The correlation coefficient is
       \begin{equation}
         \label{eq:4-c-coef}
-        \rho(X,Y) =
-        \frac{\text{Cov}(X,Y)}{\sqrt{\text{Var}(X)\text{Var}(Y)}}
+        \rho(U,V) =
+        \frac{\text{Cov}(U,V)}{\sqrt{\text{Var}(U)\text{Var}(V)}}
       \end{equation}
-      Since $\text{Cov}(U,V)$ is zero,
+      Where the variances for $U$ and $V$ are found by
+      \begin{multicols}{2}
+        \begin{equation}
+          \label{eq:4-var-u}
+          \begin{aligned}
+            \text{Var}(U) &= \text{Var}(X) + 4\text{Var}(Y) \\
+            \implies \text{Var}(U) &= 9 \\
+          \end{aligned}
+        \end{equation} &
+        \begin{equation}
+          \label{eq:4-var-v}
+          \begin{aligned}
+            \text{Var}(V) &= \text{Var}(X) + \text{Var}(Y) \\
+            \implies \text{Var}(V) &= 3 \\
+          \end{aligned}
+        \end{equation}
+      \end{multicols}
+      Plugging these values in \cref{eq:4-c-coef}, we obtain
       \begin{equation}
-        \label{eq:4-coef-sol}
-        \implies \rho(U,V) = 0
+        \label{eq:4-c-coef-plugged}
+        \begin{aligned}
+          \rho(U,V) &= \frac{-3}{\sqrt{(3)(9)}} \\
+          \implies \rho(U,V) &= \frac{1}{\sqrt{3}} \\
+        \end{aligned}
       \end{equation}
-      This does not guarantee that $U$ and $V$ are independent, however.
+      Since $\text{Cov}(U,V)$ is not zero, $U$ and $V$ are definitely
+      not independent.
     \end{solution}
   \end{Ex}
 \item
