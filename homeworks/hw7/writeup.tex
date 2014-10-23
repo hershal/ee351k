@@ -61,10 +61,10 @@
 \pagebreak[4]
 \item
   \begin{Ex}
-    Let $X$ be a continuous random variable with CDF $F_X(x)$ and $Y$
-    be a derived random variable defined as $Y = F_X(X)$. Find the
-    distribution of $Y$.  Note that CDF of any given random variable
-    is just another function.
+    Let $X$ be a continuous random variable with CDF $F_X(x)$ which is
+    strictly increasing and $Y$ be a derived random variable defined
+    as $Y = F_X(X)$. Find the distribution of $Y$.  Note that CDF of
+    any given random variable is just another function.
     \begin{solution} \hfill \vspace{.75em} \\
       \begin{equation}
         \label{eq:2-presol}
@@ -76,10 +76,10 @@
       The distribution is then the derivative of the CDF of $Y$.
       \begin{equation}
         \label{eq:2-sol}
-        \implies f_Y(y) = \frac{d}{\dd{y}}\int_{\{x|F_X(X) \le
-          y\}}f_X(x) \dd{x}
+        % \implies f_Y(y) = \frac{d}{\dd{y}}\int_{\{x|F_X(X) \le
+        %   y\}}f_X(x) \dd{x}
+        \implies f_Y(y) = f_X(h(y)) \left|\frac{\dd{h}}{\dd{y}}(y)\right|
       \end{equation}
-      {\color{red} \huge CHECK}
     \end{solution}
   \end{Ex}
 \item
