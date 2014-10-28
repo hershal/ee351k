@@ -89,12 +89,40 @@
 \item
   \begin{Ex}
     Let $X$, $Y$, and $Z$ be jointly discrete random variables. Show
-    that $E[Z] = E[E[Z|X,Y]]$.
-    Recall that $$E[Z|X=x,Y=y] = \sum_z zP_{Z|X,Y}(z|x,y)$$
-    Let $$\gamma(x,y)=E[Z|X=x,Y=y]$$
-    Then $$E[Z|X,Y] = \gamma(X,Y)$$
+    that
+    \begin{equation}
+      \label{eq:2-question}
+      E[Z] = E[E[Z|X,Y]]
+    \end{equation}
+    Recall that
+    \begin{equation}
+      \label{eq:2-recall}
+      E[Z|X=x,Y=y] = \sum_z zP_{Z|X,Y}(z|x,y)
+    \end{equation}
+    Let
+    \begin{equation}
+      \label{eq:2-let}
+      \gamma(x,y)=E[Z|X=x,Y=y]
+    \end{equation}
+    Then
+    \begin{equation}
+      \label{eq:2-then}
+      E[Z|X,Y] = \gamma(X,Y)
+    \end{equation}
     \begin{solution} \hfill
-      \\\\ {\color{red} \huge WRITE UP}
+      \begin{equation}
+        \label{eq:2-first-sum}
+        \begin{aligned}
+          E[E[Z|X,Y]] &= E[\gamma(X,Y)] \\
+          &= \sum_{x,y} \gamma(X,Y)p_{X,Y}(x,y) \\
+          &= \sum_{x,y} E[Z|X,Y] p_{X,Y}(x,y) \\
+          &= \sum_{x,y} p_{X,Y}(x,y) \sum_{z} z p_{Z|X,Y}(z|x,y) \\
+          &= \sum_{z} z \sum_{x,y} p_{X,Y}(x,y) p_{Z|X,Y}(z|x,y) \\
+          &= \sum_{z} z \sum_{x,y} p_{X,Y,Z}(x,y,z) \\
+          &= \sum_{z} z p_Z(z) \\
+          \implies E[E[Z|X,Y]] &= E[Z] \\
+        \end{aligned}
+      \end{equation}
     \end{solution}
   \end{Ex}
 \item
