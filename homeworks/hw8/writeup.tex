@@ -6,6 +6,7 @@
 \usepackage{multicol}
 \usepackage[in]{fullpage}
 \usepackage{xcolor}
+\usepackage{tabularx}
 \usepackage{rotating}
 \usepackage{mathtools}
 \usepackage{amssymb}
@@ -128,10 +129,43 @@
 \item
   \begin{Ex}
     You roll a fair six-sided die, and then you flip a fair coin the
-    number of times shown by the die. Find the expected value and the
-    variance of the number of heads obtained.
-    \begin{solution} \hfill
-      \\\\ {\color{red} \huge TODO}
+    number of times shown by the die. Find the mean and the variance
+    of the number of heads obtained.
+    \begin{solution} \hfill \vspace{.75em} \\
+      First, let's define a few variables:
+      \begin{equation}
+        \label{eq:3-decls}
+        \begin{aligned}
+          D &= \text{ the dice roll outcome, i.e. the number of rolls} \\
+          H &= \text{ number of coin flips resulting in heads} \\
+        \end{aligned}
+      \end{equation}
+      The number of heads obtained is the conditional expected value
+      $E[H|D]$. When $D=d$, then the distribution of $H$ is binomial
+      with $p=0.5$ such that $E[H|D]=0.5D$ and $\text{Var}(H|D) =
+      0.25D$. We want to obtain the mean and variance of these
+      distributions, respectively
+      \\
+      \begin{tabularx}{.95\textwidth}{XX}
+        \begin{equation}
+          \label{eq:3-e}
+          \begin{aligned}
+            E[E[H|D]] &= E[H] \\
+            &= 0.5E[D] \\
+            &= 0.5(3.5) \\
+            \implies E[E[H|D]] &= 1.75 \\
+          \end{aligned}
+        \end{equation} &
+        \begin{equation}
+          \label{eq:3-var}
+          \begin{aligned}
+            \text{Var}(H|D) &= \text{Var}(H) \\
+            &= 0.25(E[D^2] - E[D]^2) \\
+            &= 0.25(91/6 - 3.5^2) \\
+            \text{Var}(H) &= 0.7292 \\
+          \end{aligned}
+        \end{equation}
+      \end{tabularx}
     \end{solution}
   \end{Ex}
 \item
