@@ -32,7 +32,59 @@
 \begin{enumerate}
 \item
   \begin{Ex}
-    
+    Suppose the joint probability density function of two random
+    variables $X$ and $Y$ is given by
+    \begin{equation}
+      \label{eq:1-question}
+      f_{X,Y}(x,y) = \left\{
+        \begin{aligned}
+          & 2 &&\quad 0\le y \le x \le 1 \\
+          & 0 &&\quad \text{otherwise} \\
+        \end{aligned} \right.
+    \end{equation}
+    Find $E[X|Y]$ and $\text{Var}[X|Y]$. Recall that $E[X|Y]$ is a
+    random variable, which is a fuction of $Y$.
+    \begin{solution}
+      First we must find the conditional PDF
+      \begin{equation}
+        \label{eq:1-conditional-pdf-def}
+          f_{X|Y}(x|y) = \frac{f_{X,Y}(x,y)}{f_Y(y)}
+      \end{equation}
+      Where the marginal $f_Y(y)$ is
+      \begin{equation}
+        \label{eq:1-y-pdf}
+        \begin{aligned}
+          f_Y(y) &= \int_y^1 2\dd{x} \\
+          &= [2x]_y^1 \\
+          \implies f_Y(y) &= 2(1-y) \\
+        \end{aligned}
+      \end{equation}
+      We can use the marginal obtained from \cref{eq:1-y-pdf} and insert
+      it into the conditional pdf described into
+      \cref{eq:1-conditional-pdf-def}
+      \begin{equation}
+        \label{eq:1-pdf-plugged}
+        \begin{aligned}
+          f_{X|Y}(x|y) &= \frac{f_{X,Y}(x,y)}{f_Y(y)} \\
+          &= \frac{2}{2(1-y)} \\
+          \implies f_{X|Y}(x|y) &= \frac{1}{1-y} \\
+        \end{aligned}
+      \end{equation}
+      Now computing the conditional expectation:
+      \begin{equation}
+        \label{eq:1-conditional-expectation}
+        \begin{aligned}
+          E[X|Y] &= \int_y^1 x f_{X|Y}(x|y) \dd{x} \\
+          &= \frac{1}{1-y} \int_y^1 x \dd{x} \\
+          &= \frac{1}{1-y} \left[\frac{x^2}{2}\right]_y^1 \\
+          &= \frac{1}{2(1-y)} (1-y^2) \\
+          &= \frac{1}{2(1-y)} (1-y)(1+y) \\
+          &= \frac{1+y}{2} \\
+          \implies E[X|Y] &= \frac{1+Y}{2} \\
+        \end{aligned}
+      \end{equation}
+      {\color{red} \huge FIND CONDITIONAL VARIANCE}
+    \end{solution}
   \end{Ex}
 
 \end{enumerate}
