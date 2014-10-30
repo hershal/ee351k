@@ -49,7 +49,7 @@
       First we must find the conditional PDF
       \begin{equation}
         \label{eq:1-conditional-pdf-def}
-          f_{X|Y}(x|y) = \frac{f_{X,Y}(x,y)}{f_Y(y)}
+        f_{X|Y}(x|y) = \frac{f_{X,Y}(x,y)}{f_Y(y)}
       \end{equation}
       Where the marginal $f_Y(y)$ is
       \begin{equation}
@@ -168,11 +168,11 @@
       \end{tabularx}
     \end{solution}
   \end{Ex}
-\pagebreak[3]
+  \pagebreak[3]
 \item
   \begin{Ex}
-    A certain Sport club has N members, where N is a random variable
-    with PMF
+    A certain Sport club has $N$ members, where $N$ is a random
+    variable with PMF
     \begin{equation}
       \label{eq:4-question-0}
       p_N(n) = p^{n-1}(1-p) \quad n=1,2,\ldots
@@ -186,8 +186,8 @@
       \label{eq:4-question-1}
       f_{M_{i}}(m) = \lambda e^{-\lambda m}\quad m\ge0
     \end{equation}
-%    $N$, $M_i$, and whether each member attends are all
-%    independent.
+    % $N$, $M_i$, and whether each member attends are all
+    % independent.
     Determine:
     \begin{enumerate}
     \item The expectation and variance of the number of members
@@ -197,8 +197,46 @@
     \end{enumerate}
     \begin{solution} \hfill
       \begin{enumerate}
-      \item {\color{red} \huge TODO}
-      \item {\color{red} \huge TODO}
+      \item The expected value of the number of members showing up to
+        the meeting can be modeled by
+        \begin{equation}
+          \label{eq:4a-expectation-p}
+          E[qN] = q E[N]
+        \end{equation}
+        Where $E[N]$ can be modeled by a geometric distribution where
+        $z=(1-p)$ such that
+        \begin{equation}
+          \label{eq:4a-pmf-z}
+          p_N(n) = (1-z)^{n-1}(z)
+        \end{equation}
+        The expected value of a geometric distribution is known as
+        \begin{equation}
+          \label{eq:4a-expectation-z}
+          \begin{aligned}
+            E[qN] &= \frac{q}{z} \\
+            \implies E[qN] &= \frac{q}{1-p} \\
+          \end{aligned}
+        \end{equation}
+        The variance can be modeled by
+        \begin{equation}
+          \label{eq:4-variance}
+          \begin{aligned}
+            \text{Var}(qN) &= q^2\text{Var}(N) \\
+            &= q^2\frac{1-z}{z^2} \\
+            &= q^2\frac{1-(1-p)}{(1-p)^2} \\
+            \implies \text{Var}(qN) &= \frac{q^2p}{(1-p)^2} \\
+          \end{aligned}
+        \end{equation}
+      \item The expectation of the total money broght can be modeled
+        by
+        \begin{equation}
+          \label{eq:4b-expectation}
+          \begin{aligned}
+            E[qN M] &= q E[N] E[M] \\
+            \implies E[qN M] &= \frac{q}{(1-p)\lambda} \\
+          \end{aligned}
+        \end{equation}
+        {\color{red} \huge TODO VARIANCE}
       \end{enumerate}
     \end{solution}
   \end{Ex}
@@ -216,10 +254,137 @@
     \end{enumerate}
     \begin{solution} \hfill
       \begin{enumerate}
-      \item {\color{red} \huge TODO}
-      \item {\color{red} \huge TODO}
-      \item {\color{red} \huge TODO}
+      \item The joint distribution of $U$, $V$ in terms of $\alpha$ is
+        a Bivariate Normal Distribution which looks like
+        \begin{equation}
+          \label{eq:5a-biv-decl}
+          (U,V) \sim N(\mu_U, \mu_V, \sigma_U^2, \sigma_V^2, \rho_{U,V})
+        \end{equation}
+        where
+        \begin{equation}
+          \label{eq:5a-rho-decl}
+          \rho_{U,V} = \frac{\text{Cov}(U,V)}{\sigma_U \sigma_V}
+        \end{equation}
+        and
+        \begin{equation}
+          \label{eq:5a-cov-decl}
+          \text{Cov}(U,V) = E[UV]-\mu_U \mu_V
+        \end{equation}
+        We must first obtain the expected values for both $U$ and
+        $V$. \\
+        \begin{tabularx}{.95\textwidth}{XX}
+          \begin{equation}
+            \label{eq:5a-e-u}
+            \begin{aligned}
+              E[U] &= E[X+Y] \\
+              &= E[X] + E[Y] \\
+              \implies E[U] &= 1 \\
+            \end{aligned}
+          \end{equation} &
+          \begin{equation}
+            \label{eq:5a-e-v}
+            \begin{aligned}
+              E[V] &= E[X + \alpha Y] \\
+              &= E[X] + \alpha E[Y] \\
+              \implies E[V] &= \alpha \\
+            \end{aligned}
+          \end{equation}
+        \end{tabularx}
+        And the variances for both $U$ and $V$.
+        \begin{equation}
+          \label{eq:5a-var-u}
+          \begin{aligned}
+            \text{Var}(U) &= \text{Var}(X+Y) \\
+            &= \text{Var}(X) + \text{Var}(Y) + 2 \text{Cov}(X,Y) \\
+            \implies \text{Var}(U) &= 3 \\
+          \end{aligned}
+        \end{equation}
+        \begin{equation}
+          \label{eq:5a-var-v}
+          \begin{aligned}
+            \text{Var}(V) &= \text{Var}(X + \alpha Y) \\
+            &= \text{Var}(X) + \alpha^2 \text{Var}(Y) + 2
+            \text{Cov}(X,\alpha Y) \\
+            \implies \text{Var}(V) &= 1+2\alpha^2 \\
+          \end{aligned}
+        \end{equation}
+        We must use the equation in \cref{eq:5a-cov-decl} in order to
+        obtain the coveriance of $U$ and $V$ for \cref{eq:5a-rho-decl}.
+        \begin{equation}
+          \label{eq:5a-cov-aligned}
+          \begin{aligned}
+            \text{Cov}(U,V) &= E[UV] - \mu_U \mu_V \\
+            &= E[(X+Y)(X+\alpha Y)] - \alpha \\
+            &= E[X^2 + (1+\alpha)XY + \alpha Y^2] - \alpha \\
+            &= E[X^2] + (1+\alpha)E[XY] + \alpha E[Y^2] - \alpha \\
+            &= \text{Var}(X) + \alpha(E[Y]^2 + \text{Var}(Y)) -
+            \alpha \\
+            \implies \text{Cov}(U,V) &= 1 + 2\alpha \\
+          \end{aligned}
+        \end{equation}
+        Plugging this into \cref{eq:5a-rho-decl}
+        \begin{equation}
+          \label{eq:5a-rho}
+          \begin{aligned}
+            \rho_{U,V} &= \frac{\text{Cov}(U,V)}{\sigma_U \sigma_V}
+            \\
+            &= \frac{1 + 2\alpha}{\sqrt{3+6\alpha^2}} \\
+          \end{aligned}
+        \end{equation}
+        So finally the joint distribution of $U$, $V$ in terms of
+        $\alpha$ is
+        \begin{equation}
+          \label{eq:5a-sol}
+          \implies f_{U,V} = N(1, \alpha, 3, 1+2\alpha^2, \frac{1 +
+            2\alpha}{\sqrt{3+6\alpha^2}})
+        \end{equation}
+      \item For a jointly Gaussian distribution (Bivariate normal),
+        $\rho_{X,Y} = 0$ implies $X$ and $Y$ are independent in
+        general. Thus for our problem, making sure that $U$ and $V$
+        are independent means we must make $\rho_{U,V} = 0$. Setting
+        \cref{eq:5a-rho-decl} equal to zero implies that
+        \cref{eq:5a-cov-decl} is equal to zero.
+        \begin{equation}
+          \label{eq:5b-cov}
+          \begin{aligned}
+            0 &= \text{Cov}(U,V) \\
+            &= 1 + 2 \alpha \\
+            \implies \alpha &= -\frac{1}{2} \\
+          \end{aligned}
+        \end{equation}
+      \item We are tasked with finding $f_{U|V}(u|V=5)$, which is
+        described as the following.
+        \begin{equation}
+          \label{eq:5c-presol}
+          f_{U|V}(u|V=5) \sim N(\mu_{U|V}(v), \sigma_{U|V}(v))
+        \end{equation}
+        First we must find $\mu_{U|V}$
+        \begin{equation}
+          \label{eq:5c-mu-v}
+          \begin{aligned}
+            \mu_{U|V}(v) &= \mu_V + \rho_{U,V}
+            \frac{\sigma_U}{\sigma_V}(v-mu_v) \\
+            &= 1 + \frac{1+2\alpha}{\sqrt{3+6\alpha^2}}
+            \frac{\sqrt{3}}{\sqrt{1+2\alpha^2}}(5-\alpha)\\
+            \implies \mu_{U|V}(v) &= 1 + \frac{1 + 2\alpha}{1 +
+              2\alpha^2}(5-\alpha) \\
+          \end{aligned}
+        \end{equation}
       \end{enumerate}
+      And the variance $\sigma_{U|V}^2$
+      \begin{equation}
+        \label{eq:5c-sigma}
+        \begin{aligned}
+          \sigma_{U|V}^2 &= \sigma_U^2(1-\rho_{U,V}^2) \\
+          &= 3\left(1 -
+            \left(\frac{1+2\alpha}{\sqrt{3+6\alpha^2}}\right)\right) \\
+          &= 3\left(1- \frac{(1+2\alpha)^2}{3+6\alpha}\right) \\
+          \implies \sigma_{U|V}^2 &= 3 - \frac{(1+2\alpha^2)}{1 +
+            2\alpha^2} \\
+        \end{aligned}
+      \end{equation}
+      Putting this all into \cref{eq:5c-presol} obtains
+      \\\\ {\color{red} \huge FINISH THIS}
     \end{solution}
   \end{Ex}
 \item
