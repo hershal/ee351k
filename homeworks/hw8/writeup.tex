@@ -227,16 +227,32 @@
             \implies \text{Var}(qN) &= \frac{q^2p}{(1-p)^2} \\
           \end{aligned}
         \end{equation}
-      \item The expectation of the total money broght can be modeled
-        by
+      \item Given that $Y=M_1 + \cdots + M_N$, and $N$ is the number
+        of members show show up to the meeting, the expectation of the
+        total money broght can be modeled by
         \begin{equation}
           \label{eq:4b-expectation}
           \begin{aligned}
-            E[qN M] &= q E[N] E[M] \\
-            \implies E[qN M] &= \frac{q}{(1-p)\lambda} \\
+            E[Y|N=n] &= E[M_1 + \cdots + M_N | N=n] \\
+            &= E[M_1 + \cdots + M_n | N=n] \\
+            &= E[M_1 + \cdots + M_n] \\
+            &= n E[M] \\
+            &= \left(\frac{q}{1-p}\right)E[M] \\
+            \implies \E[Y|N=n] &= \frac{q}{(1-p)\lambda} \\
           \end{aligned}
         \end{equation}
-        {\color{red} \huge TODO VARIANCE}
+        The variance can be computed similarly
+        \begin{equation}
+          \label{eq:4b-variance}
+          \begin{aligned}
+            \text{Var}(Y|N=n) &= \text{Var}(M_1 + \cdots + M_N|N=n) \\
+            &= \text{Var}(M_1 + \cdots + M_n) \\
+            &= n\text{Var}(M) \\
+            &= \left(\frac{q}{1-p}\right)
+            \left(\frac{1}{\lambda^2}\right) \\
+            \implies \text{Var}(Y|N=n) &= \frac{q}{(1-p)\labda^2} \\
+          \end{aligned}
+        \end{equation}
       \end{enumerate}
     \end{solution}
   \end{Ex}
