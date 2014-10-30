@@ -445,7 +445,49 @@
     bound of the probability that at least 8000 light bulbs are still
     on at the end of the 60th day after we turn them on.
     \begin{solution} \hfill
-      \\\\ {\color{red} \huge TODO}
+      In our case we can obtain the PDF of the distribution by
+      obtaining $\lambda$. Since we already have the mean we can
+      determine $\lambda$ by using the $E[X]$ equation for an
+      exponential RV
+      \begin{equation}
+        \label{eq:7-lambda}
+        \begin{aligned}
+          E[X] &= 50 \\
+          \frac{1}{\lambda} &= 50 \\
+          \implies \lambda &= \frac{1}{50} \\
+        \end{aligned}
+      \end{equation}
+      So the probability of any individual bulb lasting more than 60
+      days can be calculated by the following
+      \begin{equation}
+        \label{eq:7-p-60}
+        \begin{aligned}
+          P(X \ge 60) &= 1 - P(X \le 60) \\
+          &= 1 - F_X(60) \\
+          &= 1 - (1 - e^{-60\lambda}) \\
+          \implies P(X \ge 60) &= e^{-\frac{60}{50}} \\
+        \end{aligned}
+      \end{equation}
+      Now we can apply Markov's Inequality
+      \begin{equation}
+        \label{eq:7-markov-presol}
+        P(X>8000) = \frac{E[X]}{8000}
+      \end{equation}
+      Where $E[X]$ is the expected number of bulbs out of the 10000
+      bulbs which will survive past 60 days. Since the bulbs'
+      expectancies are independent,
+      \begin{equation}
+        \label{eq:7-markov-e}
+        E[X] = np = 10000 e^{-\frac{60}{50}})
+      \end{equation}
+      So that
+      \begin{equation}
+        \label{eq:7-markov-sol}
+        \begin{aligned}
+          P(X>8000) &= \frac{10000 e^{-\frac{60}{50}}}{8000} \\
+          \implies P(X>8000) &= 0.3764927649 \\
+        \end{aligned}
+      \end{equation}
     \end{solution}
   \end{Ex}
 
