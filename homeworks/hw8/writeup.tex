@@ -399,17 +399,40 @@
             2\alpha^2} \\
         \end{aligned}
       \end{equation}
-      Putting this all into \cref{eq:5c-presol} obtains
-      \\\\ {\color{red} \huge FINISH THIS}
+      The final solution can be obtained by putting
+      \cref{eq:5c-mu-v,eq:5c-sigma} into \cref{eq:5c-presol}.
+      \begin{equation}
+        \label{eq:5c-sol}
+        f_{U|V}(u|V=5) \sim N\left(1 + \frac{1 + 2\alpha}{1 +
+            2\alpha^2}(5-\alpha), \;3 - \frac{(1+2\alpha^2)}{1 +
+            2\alpha^2}\right)
+      \end{equation}
     \end{solution}
   \end{Ex}
 \item
   \begin{Ex}
     Suppose $X$ is a Poisson variable with mean 10. Use Chebyshev's
     Inequality to give a lower bound of $P(5 < X < 15)$.
-    \begin{solution} \hfill
-      \\\\ {\color{red} \huge TODO}
+    \begin{solution} \hfill \vspace{.75em} \\
+      Chebyshev's Inequality states that
+      \begin{equation}
+        \label{eq:6-chebyshev-decl}
+        P(|X-\mu_X| > d) \le \frac{\sigma_X^2}{d^2}
+      \end{equation}
     \end{solution}
+    Since the lower and upper bounds of the requested probability is
+    centered equally about the mean, this is a perfect candidate for
+    Chebyshev's inequality.
+    \begin{equation}
+      \label{eq:6-chebyshev}
+      \begin{aligned}
+        P(5<X<15) &= P(|X-10| < 5) \\
+        &= 1 - P(|X-10|\ge 5) \\
+        &\ge 1 - \frac{\sigma_X^2}{d^2} \\
+        &\ge 1 - \frac{10}{25} \\
+        \implies P(5<X<15) &\ge 0.6 \\
+      \end{aligned}
+    \end{equation}
   \end{Ex}
 \item
   \begin{Ex}
