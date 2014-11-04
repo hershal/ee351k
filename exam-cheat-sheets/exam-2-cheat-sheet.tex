@@ -127,6 +127,12 @@
     \end{equation*}
     $\mathbf{E}[X]=\mu_X,\quad\text{Var}(X)=\sigma_X^2$
   \end{description}
+\item[Marginal PDFs] Suppose $f_{XY}(x,y)$, then
+  $$f_X(x) = \int_{-\infty}^{\infty}f_{XY}(x,y)\dd{y} \quad\quad
+  f_Y(y) = \int_{-\infty}^{\infty}f_{XY}(x,y)\dd{x}$$ When computing
+  marginals, make sure that all inequalities hold so that the correct
+  bounds can be computed for integration. Otherwise incorrect answers
+  will result!
 \item[Covariance] $X$ and $Y$ are uncorrelated if 0. Independent
   variables are uncorrelated.
   $$\text{Cov}(X,Y)=E[XY]-E[X]E[Y]$$
