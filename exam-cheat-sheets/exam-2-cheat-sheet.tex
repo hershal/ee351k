@@ -156,7 +156,8 @@
   \begin{equation*}
     \begin{aligned}
       f_{X,Y}(x|y) &= f_{X|Y}(x|y)f_Y(y) \\
-      &= f_{Y|X}(y|x)f_X(x) \\
+      &= \frac{f_{X,Y}(x,y)}{f_Y(y)} \\
+      f_{X,Y|A}(x,y) &= \frac{f_{X,y}(x,y)}{P(A)}\quad (x,y)\in A \\
     \end{aligned}
   \end{equation*}
 \item[Conditional Variance]
