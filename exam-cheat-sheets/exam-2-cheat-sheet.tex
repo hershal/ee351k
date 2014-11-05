@@ -123,7 +123,6 @@
           F_X(x) &= \frac{1}{\sqrt{2\pi\sigma_X^2}} \int_{-\infty}^{x}
           e^{(-(u-\mu)^2)/(2\sigma_X^2)} \dd{u}
         \end{aligned}
-      \right.
     \end{equation*}
     $\mathbf{E}[X]=\mu_X,\quad\text{Var}(X)=\sigma_X^2$
   \end{description}
@@ -149,25 +148,30 @@
       i\not= j\}}^{n}\text{Cov}(X_i, X_j)\right)$$
   $$\text{Var}(X_1 + X_2) = \text{Var}(X_1) + \text{Var}(X_2) +
   2\text{Cov}(X_1,X_2)$$
+  $$\text{Var}(X^2) = \sigma_X^2 + \mu_X^2$$
   % \item[Law of Total Variances]
   %   $$\text{Var}(Y) = E[N]\text{Var}(X) + (E[X]^2\text{Var}(N))$$
 \item[Conditional Expectation as a Random Variable]
   \begin{equation*}
     \begin{aligned}
       \Psi(y) = E[g(X,Y)|Y=y] &= \int g(x,y) f_{X|Y}(x|y) \dd{x} \\
-      &= \sum_{x_i} g(x_i,y) P_{X|Y}(x_i|y)
+      &= \sum_{x_i} g(x_i,y) P_{X|Y}(x_i|y) \\
+      E[g(X)|A] &= \int_{-\infty}^{\infty} g(x) f_{X|A}(x) \dd{x} \\
     \end{aligned}
   \end{equation*}
 \item[Conditional PDFs]
   \begin{equation*}
     \begin{aligned}
       f_{X,Y}(x|y) &= f_{X|Y}(x|y)f_Y(y) \\
-      &= \frac{f_{X,Y}(x,y)}{f_Y(y)} \\
-      f_{X,Y|A}(x,y) &= \frac{f_{X,y}(x,y)}{P(A)}\quad (x,y)\in A \\
+      f_{X|Y}(x|y) &= \frac{f_{X,Y}(x,y)}{f_Y(y)} \\
+      f_{X,Y|A}(x,y) &= \frac{f_{X,Y}(x,y)}{P(A)}\quad (x,y)\in A \\
     \end{aligned}
   \end{equation*}
 \item[Conditional Variance]
   $$ \text{Var}(X|Y) = E[(X-E[X|Y])^2|Y] $$
+\item[Conditional Probability]
+  $$P(X\le x | X > t) = \frac{P({X\le x}\cap {X > t})}{P(X>t)} =
+  \frac{P(t<X\le x)}{P(X>t)}$$
 \end{description}
 \end{multicols}
 \end{document}
