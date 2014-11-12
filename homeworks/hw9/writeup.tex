@@ -33,8 +33,146 @@
 \begin{enumerate}
 \item
   \begin{Ex}
-    \begin{solution}
+    A modem transmits one million bits. Each bit is 0 or 1
+    independently with equal probability. Estimate the probability
+    that at least 502,000 ones have transmitted.
+    \begin{solution} \hfill
+      {\color{red} \huge TODO}
     \end{solution}
   \end{Ex}
+
+\item
+  \begin{Ex}
+    On any given flight, an airline’s goal is to have the plane be as
+    full as possible. For this reason, they sometimes choose to
+    overbook.
+    \begin{enumerate}
+    \item If on average 10\% of customers cancel their tickets, and
+      they do so independently of each other, what is the probability
+      that a particular flight will be overbooked if the airline sells
+      320 tickets for a plane that has a maximum capacity of 300
+      people.
+    \item What is the probability that a plane with maximum capacity
+      of 150 people will be overbooked if the airline sells 160
+      tickets.
+    \item Given your answers on the previous questions, offer a
+      comment on the relationship between the ability to overbook and
+      the capacity of the airplane.
+    \end{enumerate}
+    \begin{solution} \hfill
+      {\color{red} \huge TODO}
+    \end{solution}
+  \end{Ex}
+
+\item
+  \begin{Ex}
+    A certain town has a Saturday night movie audience of 600 who must
+    choose between two comparable movie theaters. Assume that the
+    movie-going public is composed of 300 couples, and each couple
+    independently flips a fair coin to decide which theatre to
+    patronize.
+    \begin{enumerate}
+    \item Using the central limit theorem approximation, determine the
+      minimum number of seats each theater must have so that the
+      proability of exactly one theater running out of seats is less
+      than 0.1.
+    \item Repeat, assuming that each of the 600 customers makes an
+      independent decision (instead of acting in pairs).
+    \end{enumerate}
+    \begin{solution} \hfill
+      {\color{red} \huge TODO}
+    \end{solution}
+  \end{Ex}
+
+\item
+  \begin{Ex}
+    To maintain a speed of v miles/hour in the presence of a headwind
+    of speed $w$ mi/hr, a cyclist must generate a power output $y = 50
+    + (v + w - 15)^3$ Watts. During each mile of road, the wind speed
+    $W$ is a continuous uniform $(0,10)$ random variable that is
+    independent of the wind speed in any other mile.
+    \begin{enumerate}
+    \item Lance the cyclist rides at constant velocity $v = 15$ mi/hr
+      mile after mile. Let $Y$ denote Lance’s power output over a
+      randomly chosen mile. What is Lance’s average power output
+      $E[Y]$?
+    \item What is the PDF $f_Y (y)$?
+    \item Mile after mile, another cyclist Ashwin rides at a constant
+      power $\hat{y}$ Watts in the presence of the same variable
+      headwinds. Let $\hat{V}$ denote Ashwin’s velocity over a
+      randomly chosen mile. Ashwin chooses $\hat{y}$ so that
+      $E[\hat{V}] = 16 \text{mi/hr}$. What is $\hat{y}$?
+    \item Ashwin and Lance race across America (a 3000 mile race). Use
+      the central limit theorem to estimate the probability $P[A]$
+      that Ashwin wins.
+    \end{enumerate}
+    \begin{solution} \hfill
+      {\color{red} \huge TODO}
+    \end{solution}
+  \end{Ex}
+
+\item
+  \begin{Ex}
+    In a market survey, a company wishes to estimate the fraction of
+    respondents who favor its product A. The poll is to be conducted
+    with confidence level of 0.95, and the margin of error of 4
+    percent. Assuming that surveying a respondent costs \$0.5, how
+    large should the company’s budget be in order for the survey to
+    meet the above criterion?
+
+    Hint: Consider
+    \begin{equation}
+      \label{eq:5-hint}
+      P(|M_n-a|<e)>c
+    \end{equation}
+    Where $e$ is the margin of error and $c$ is the confidence level.
+    \begin{solution} \hfill
+      {\color{red} \huge TODO}
+    \end{solution}
+  \end{Ex}
+
+\item
+  \begin{Ex}
+    An airline burns $X$ gallons of jet fuel for each mile it travels. $X$
+    is random, as it depends on atmospheric conditions, flight
+    altitude, and wind in the upper atmosphere. We would like to
+    define the efficiency of the plane in terms miles per gallon
+    (MPG). Since the plane travels 1 mile using $X$ gallons of fuel, we
+    can measures MPG as
+    \begin{equation}
+      \label{eq:6-mpg}
+      \begin{aligned}
+        \eta &= E\left[\frac{1}{X}\right] \text{ or } \\
+        \eta^\prime &= \frac{1}{E[X]} \\
+      \end{aligned}
+    \end{equation}
+    Since both $\eta$ and $\eta^\prime$ have the units of miles per gallon,
+    which is the better measure of efficiency? Hint: Suppose
+    $X_1,\ldots,X_m$ are IID where $X_i$ is the fuel consumed for mile
+    $i$ of an $m$ mile trip. What is your trip MPG? What does the law
+    of large numbers say?
+    \begin{solution} \hfill
+      {\color{red} \huge TODO}
+    \end{solution}
+  \end{Ex}
+
+\item
+  \begin{Ex}
+    We have two boxes, each containing three balls: one black and two
+    white in box 1; two black and one white in box 2. We choose one of
+    the boxes at random, where the probability of choosing box 1 is
+    equal to some given $p$, and then draw a ball.
+    \begin{enumerate}
+    \item Describe the MAP rule for deciding the identity of the box
+      based on whether the drawn ball is black or white.
+    \item Assuming that $p = 1$ , find the probability of an incorrect
+      decision and compare it with the probability of error if no ball
+      had 2 been drawn.
+    \end{enumerate}
+    \begin{solution} \hfill
+      {\color{red} \huge TODO}
+    \end{solution}
+  \end{Ex}
+
 \end{enumerate}
 \end{document}
