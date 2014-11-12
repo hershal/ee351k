@@ -41,20 +41,22 @@
     independently with equal probability. Estimate the probability
     that at least 502,000 ones have transmitted.
     \begin{solution} \hfill \vspace{.75em} \\
-      Chebyshev's inequality states that the probability that a random
-      variable takes a value far from its mean is small.
+      We can use the Central Limit Theorem to calculate this
+      probability.
       \begin{mdframed}[backgroundcolor=silver]
         \begin{description}
-        \item[Chebyshev's Inequality] \hfill \vspace{.75em} \\
-          $X$ is a RV with mean $\mu$ and variance $\sigma^2$
-          \vspace{-1.0em}
-          $$P(|Y-\mu_y| > d) \le \frac{\sigma^2}{d^2},
-          \quad\forall\; d>0$$
+        \item[Central Limit Theorem] \hfill \vspace{.75em} \\
+          $X_1, X_2,\ldots$ is a sequence of IID RVs with common $\mu$
+          and $\sigma^2$. We define
+          $$Z_n=\frac{\sum_{i=1}^n X_i -n\mu}{\sigma\sqrt{n}}$$
+          So that
+          $$\lim_{n\rightarrow\infty}\mathbf{P}(Z_n\le z) = \Phi(z)
+          \quad\forall\; z$$
         \end{description}
       \end{mdframed}
       In our case, let $Y$ be the number of ones transmitted,
       i.e. $Y\sim\text{Binomial}(n,p)$, where $n=1000000$ and
-      $p=0.5$. Then 
+      $p=0.5$. Then
 
       % Why put a table here and then a tabularx?
       % TODO: Investigate why this is
@@ -78,13 +80,18 @@
           \end{equation}
         \end{tabularx}
       \end{table}
-      Using Chebyshev's Inequality,
+      Using the Central Limit Theorem,
       \begin{equation}
         \label{eq:1-sol}
         \begin{aligned}
-          P(|Y-\mu_Y|>d)&\le\frac{\sigma_Y^2}{d^2} \\
-          &\le \frac{250000}{(2000)^2} \\
-          \implies P(|Y-\mu_Y|>d) &\le 0.0625
+          P(\text{number of ones } \ge 502000)
+          &= P\left(\sum X_i \ge 502000\right) \\
+          &= P\left(\frac{\sum X_i - n\mu}{\sigma\sqrt{n}} \ge
+            \frac{502000-n\mu}{\sigma\sqrt{n}}\right) \\
+          &= P\left(Z_n\ge\frac{502000-n\mu}{\sigma\sqrt{n}}\right) \\
+          &= 1 - P\left(Z_n\le \frac{502000-1000000 0.5}
+            {\sqrt{0.25}\sqrt{1000000}}\right) \\
+          \implies P(\text{number of ones } \ge 502000) &= 0.0000316712
         \end{aligned}
       \end{equation}
     \end{solution}
