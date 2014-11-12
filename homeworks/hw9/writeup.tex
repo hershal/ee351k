@@ -159,7 +159,7 @@
       randomly chosen mile. Ashwin chooses $\hat{y}$ so that
       $E[\hat{V}] = 16 \text{mi/hr}$. What is $\hat{y}$?
     \item Ashwin and Lance race across America (a 3000 mile race). Use
-      the central limit theorem to estimate the probability $P[A]$
+      the central limit theorem to estimate the probability $P(A)$
       that Ashwin wins.
     \end{enumerate}
     \begin{solution} \hfill
@@ -275,7 +275,22 @@
               & 0 &&\quad\text{otherwise} \\
             \end{aligned} \right.
         \end{equation}
-      \item {\color{red} \huge TODO}
+      \item It was given that $\hat{y}$ is constant and
+        $E[\hat{V}]=16$. and we are tasked to find $\hat{y}$.
+        \begin{equation}
+          \label{eq:4c-sol}
+          \begin{aligned}
+            \hat{y} &= 50 + (\hat{v} + w - 15)^3 \\
+            \hat{y} - 50 &= (\hat{v} + w - 15)^3 \\
+            (\hat{y} - 50)^{1/3} &= \hat{v} + w - 15 \\
+            &= E[\hat{V} + W - 15] \\
+            &= E[\hat{V}] + E[W] - 15 \\
+            &= 16+5-16 \\
+            &= 6 \\
+            \hat{y} - 50 &= 216 \\
+          \implies \hat{y} &= 266 \\
+          \end{aligned}
+        \end{equation}
       \item {\color{red} \huge TODO}
       \end{enumerate}
     \end{solution}
