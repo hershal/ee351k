@@ -4,8 +4,10 @@
 \date{Due November 13, 2014}
 
 \usepackage{multicol}
+\usepackage{float}
 \usepackage[in]{fullpage}
 \usepackage{xcolor}
+\usepackage{mdframed}
 \usepackage{tabularx}
 \usepackage{rotating}
 \usepackage{mathtools}
@@ -28,6 +30,8 @@
 \newcommand{\ddt}[1]{\frac{\dd{}}{\dd{#1}}}
 \newcommand{\dddt}[1]{\frac{\dd{}^2}{\dd{#1}^2}}
 
+\definecolor{silver}{rgb}{0.95,0.95,0.95}
+
 \begin{document}
 \maketitle
 \begin{enumerate}
@@ -36,8 +40,53 @@
     A modem transmits one million bits. Each bit is 0 or 1
     independently with equal probability. Estimate the probability
     that at least 502,000 ones have transmitted.
-    \begin{solution} \hfill
-      {\color{red} \huge TODO}
+    \begin{solution} \hfill \vspace{.75em} \\
+      Chebyshev's inequality states that the probability that a random
+      variable takes a value far from its mean is small.
+      \begin{mdframed}[backgroundcolor=silver]
+        \begin{description}
+        \item[Chebyshev's Inequality] \hfill \vspace{.75em} \\
+          $X$ is a RV with mean $\mu$ and variance $\sigma^2$
+          \vspace{-1.0em}
+          $$P(|Y-\mu_y| > d) \le \frac{\sigma^2}{d^2},
+          \quad\forall\; d>0$$
+        \end{description}
+      \end{mdframed}
+      In our case, let $Y$ be the number of ones transmitted,
+      i.e. $Y\sim\text{Binomial}(n,p)$, where $n=1000000$ and
+      $p=0.5$. Then 
+
+      % Why put a table here and then a tabularx?
+      % TODO: Investigate why this is
+      \begin{table}[h]
+        \centering
+        \begin{tabularx}{\linewidth}{XX}
+          \begin{equation}
+            \label{eq:1-y-mean}
+            \begin{aligned}
+              E[Y] &= np \\
+              \implies \mu_Y &= 500000 \\
+            \end{aligned}
+          \end{equation}
+          &
+          \begin{equation}
+            \label{eq:1-y-var}
+            \begin{aligned}
+              \text{Var}(Y) &= np(1-p) \\
+              \implies \sigma_Y^2 &= 250000 \\
+            \end{aligned}
+          \end{equation}
+        \end{tabularx}
+      \end{table}
+      Using Chebyshev's Inequality,
+      \begin{equation}
+        \label{eq:1-sol}
+        \begin{aligned}
+          P(|Y-\mu_Y|>d)&\le\frac{\sigma_Y^2}{d^2} \\
+          &\le \frac{250000}{(2000)^2} \\
+          \implies P(|Y-\mu_Y|>d) &\le 0.0625
+        \end{aligned}
+      \end{equation}
     \end{solution}
   \end{Ex}
 
