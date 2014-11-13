@@ -56,14 +56,14 @@
           number of IID RVs is approximately normal.
         \end{description}
       \end{mdframed}
-      In our case, let $Y$ be the number of ones transmitted,
-      i.e. $Y\sim\text{Binomial}(n,p)$, where $n=1000000$ and
-      $p=0.5$. Then
-
+      In our case, let $Y$ be the number of ones transmitted.
       % Why put a table here and then a tabularx?
       % TODO: Investigate why this is
       \begin{table}[H]
         \centering
+        $Y\sim\text{Binomial}(n,p)$
+
+        $n=1000000;\;p=0.5$
         \begin{tabularx}{\linewidth}{XX}
           \begin{equation}
             \label{eq:1-y-mean}
@@ -565,8 +565,8 @@
     \end{equation}
     \begin{enumerate}
     \item Since both $\eta$ and $\eta^\prime$ have the units of miles
-      per gallon, which is the better measure of efficiency? 
-      
+      per gallon, which is the better measure of efficiency?
+
       Hint: Suppose $X_1,\ldots,X_m$ are IID where $X_i$ is the fuel
       consumed for mile $i$ of an $m$ mile trip.
     \item What is your trip MPG?
@@ -577,12 +577,13 @@
       \item $\eta$ is a better estimate because it preserves
         the original individual distributions instead of squashing the
         distributions into an average.
-      \item The trip MPG is $\eta &= E\left[\frac{1}{X}\right]$
+      \item The trip MPG is $\eta = E\left[\frac{1}{X}\right]$
       \item As $n\rightarrow\infty$, $\eta = \eta^\prime$
       \end{enumerate}
     \end{solution}
   \end{Ex}
 
+\pagebreak[4]
 \item
   \begin{Ex}
     We have two boxes, each containing three balls: one black and two
@@ -594,10 +595,58 @@
       based on whether the drawn ball is black or white.
     \item Assuming that $p = 1$, find the probability of an incorrect
       decision and compare it with the probability of error if no ball
-      had 2 been drawn.
+      had been drawn.
     \end{enumerate}
     \begin{solution} \hfill
-      {\color{red} \huge TODO}
+      \begin{enumerate}
+      \item
+        $\Theta = \text{ box number}(1,2)$; $X = \text{ ball color}$.
+        We can describe the MAP rule as follows
+        \begin{equation}
+          \label{eq:7a}
+          P_{\Theta|X}(\theta|x) = \frac{p_\Theta(\theta)P_{X|\Theta}(x|\theta)}{P_X(x)}
+        \end{equation}
+        or alternatively
+        \begin{equation}
+          \label{eq:7a-alt}
+          P_{\Theta|X}(\theta|x) =
+          \frac{p_\Theta(\theta)p_{X|\Theta}(x|\theta)}
+          {\sum_{\theta^{\prime}}p_\Theta(\theta^\prime)
+            P_{X|\Theta}(x|\theta^\prime)}
+        \end{equation}
+        Where
+        \begin{table}[H]
+          \centering
+          \begin{tabularx}{\linewidth}{XX}
+            \begin{equation}
+              \label{eq:7a-val-1}
+              p_{X|\Theta}(x|1) = \left\{
+                \begin{aligned}
+                  &1/3 &&\quad x=\text{black} \\
+                  &2/3 &&\quad x=\text{white} \\
+                \end{aligned}\right.
+            \end{equation}
+            &
+            \begin{equation}
+              \label{eq:7a-val-2}
+              p_{X|\Theta}(x|1) = \left\{
+                \begin{aligned}
+                  &2/3 &&\quad x=\text{black} \\
+                  &1/3 &&\quad x=\text{white} \\
+                \end{aligned}\right.
+            \end{equation}
+          \end{tabularx}
+        \end{table}
+      \item The probability of an incorrect decision can be modeled by
+        the equation
+        \begin{equation}
+          \label{eq:7b-map}
+          p_{X|\Theta}(x|1)P_\Theta(1) > p_{X|\Theta}(x|2)p_\Theta(2)
+        \end{equation}
+        The probability of an incorrect decision if no ball had been
+        drawn is exactly .5 since there are an equal number of balls
+        in total.
+      \end{enumerate}
     \end{solution}
   \end{Ex}
 
