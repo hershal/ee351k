@@ -547,6 +547,7 @@
     \end{solution}
   \end{Ex}
 
+\pagebreak[4]
 \item
   \begin{Ex}
     An airline burns $X$ gallons of jet fuel for each mile it travels. $X$
@@ -562,13 +563,23 @@
         \eta^\prime &= \frac{1}{E[X]} \\
       \end{aligned}
     \end{equation}
-    Since both $\eta$ and $\eta^\prime$ have the units of miles per gallon,
-    which is the better measure of efficiency? Hint: Suppose
-    $X_1,\ldots,X_m$ are IID where $X_i$ is the fuel consumed for mile
-    $i$ of an $m$ mile trip. What is your trip MPG? What does the law
-    of large numbers say?
+    \begin{enumerate}
+    \item Since both $\eta$ and $\eta^\prime$ have the units of miles
+      per gallon, which is the better measure of efficiency? 
+      
+      Hint: Suppose $X_1,\ldots,X_m$ are IID where $X_i$ is the fuel
+      consumed for mile $i$ of an $m$ mile trip.
+    \item What is your trip MPG?
+    \item What does the law of large numbers say?
+    \end{enumerate}
     \begin{solution} \hfill
-      {\color{red} \huge TODO}
+      \begin{enumerate}
+      \item $\eta$ is a better estimate because it preserves
+        the original individual distributions instead of squashing the
+        distributions into an average.
+      \item The trip MPG is $\eta &= E\left[\frac{1}{X}\right]$
+      \item As $n\rightarrow\infty$, $\eta = \eta^\prime$
+      \end{enumerate}
     \end{solution}
   \end{Ex}
 
