@@ -265,7 +265,7 @@
         bound on the number of people which can be seated with
         confidence 0.9 is
         \begin{equation}
-          \label{eq:3a-presol}
+          \label{eq:3a-sol}
           \implies (\mu+\delta)n = 315.696
         \end{equation}
       \end{enumerate}
@@ -512,7 +512,38 @@
     \end{equation}
     Where $e$ is the margin of error and $c$ is the confidence level.
     \begin{solution} \hfill
-      {\color{red} \huge TODO}
+      First we must estimate the sample size. Modeling each $X_i$ as a
+      Bernoulli distribution, we can assume that $\text{Var}(X_i) =
+      \sigma^2 = 0.25$ as the highest possible value for the variance.
+      \begin{equation}
+        \label{eq:5-sol}
+        \begin{aligned}
+          &P(|M_n - \mu| < 0.04) > 0.95 \\
+          &P\left(\left|\frac{\sum_{i=1}^n X_i - n\mu}{\sigma\sqrt{n}}\right| < \frac{(0.04)\sqrt{n}}{\sigma}\right) > 0.95 \\
+          &\Phi\left(\frac{0.04\sqrt{n}}{\sigma}\right) > 0.95 \\
+          &\frac{0.04\sqrt{n}}{\sigma} > \gamma \quad\text{Where } \gamma = 1.64485 \\
+          &n = \left(\frac{\gamma\sigma}{0.04}\right)^2 \\
+          \implies &n = 422.739 \\
+        \end{aligned}
+      \end{equation}
+      Since it costs \$0.50 per person, we can expect it to cost
+      around \$211.37.
+
+      \subsubsection*{Alternate Solution}
+      Using Chebyshev's formula, we can set the RHS
+      equal to $\frac{\sigma_{M_n}^2}{d^2}$ where $d$ is the deviation from
+      the mean (0.04).
+      \begin{equation}
+        \label{eq:5-alt-sol}
+        \begin{aligned}
+          \frac{\sigma_{M_n}^2}{d^2} &= \frac{\sigma^2}{4 n d^2} \\
+          1-0.95 &= \frac{\sigma^2}{n d^2} \\
+          n &= \frac{20\sigma^2}{d^2} \\
+          \implies n &= 3125
+        \end{aligned}
+      \end{equation}
+      So a conservative estimation of the cost using Chebyshev's rule
+      \$1562.5.
     \end{solution}
   \end{Ex}
 
