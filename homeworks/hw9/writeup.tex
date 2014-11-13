@@ -109,16 +109,75 @@
       they do so independently of each other, what is the probability
       that a particular flight will be overbooked if the airline sells
       320 tickets for a plane that has a maximum capacity of 300
-      people.
+      people?
     \item What is the probability that a plane with maximum capacity
       of 150 people will be overbooked if the airline sells 160
-      tickets.
+      tickets?
     \item Given your answers on the previous questions, offer a
       comment on the relationship between the ability to overbook and
       the capacity of the airplane.
     \end{enumerate}
     \begin{solution} \hfill
-      {\color{red} \huge TODO}
+      \begin{enumerate}
+      \item
+        We can model the probability that a single customer will show
+        up to their booking by a Bernoulli RV.
+        \begin{table}[H]
+          \begin{equation}
+            \label{eq:2a-rv}
+            X_i\sim\text{Bernoulli}(0.9)
+          \end{equation}
+          \begin{tabularx}{\linewidth}{XX}
+            \begin{equation}
+              \label{eq:2a-mean}
+              \begin{aligned}
+                E[X_i] &= 0.9 \\
+                \implies \mu_{X_i} &= 0.9 \\
+              \end{aligned}
+            \end{equation}
+            &
+            \begin{equation}
+              \label{eq:2a-var}
+              \begin{aligned}
+                \text{Var}(X_i) &= (0.9)(1-0.9) \\
+                \implies \sigma_{X_i}^2 &= 0.09 \\
+              \end{aligned}
+            \end{equation}
+          \end{tabularx}
+        \end{table}
+        Using the Central Limit Theorem, we can find the probability
+        that the flight will be overbooked, given the number of
+        tickets sold ($n=320$) and the plane's capacity ($c=300$).
+        \begin{equation}
+          \label{eq:2a-sol}
+          \begin{aligned}
+            P(\text{passengers} > \text{capacity}) &=
+            P\left(\sum_{i=1}^{n}X_i > c\right) \\
+            &= P\left(\frac{\sum_{i=1}^{n}X_i - n\mu}{\sigma\sqrt{n}} >
+              \frac{c-n\mu}{\sigma\sqrt{n}}\right) \\
+            &= 1 - \Phi\left(\frac{c-n\mu}{\sigma\sqrt{n}}\right) \\
+            &= 1 - \Phi\left(\frac{300-(320)(0.9)}
+              {(\sqrt{0.09})(\sqrt{320})}\right) \\
+            &= 1-\Phi(2.23607) \\
+            \implies P(\text{passengers} > \text{capacity}) &= 0.0126737 \\
+          \end{aligned}
+        \end{equation}
+      \item We can use \cref{eq:2a-sol} as inspiration, where $n=160$
+        and $c=150$.
+        \begin{equation}
+          \label{eq:2b-sol}
+          \begin{aligned}
+            P(\text{passengers} > \text{capacity})
+            &= 1 - \Phi\left(\frac{c-n\mu}{\sigma\sqrt{n}}\right) \\
+            &= 1 - \Phi\left(\frac{150-(160)(0.9)}
+              {(\sqrt{0.09})(\sqrt{160})}\right) \\
+            &= 1 - \Phi(1.58114) \\
+            \implies P(\text{passengers} > \text{capacity}) &=
+            0.0569231 \\
+          \end{aligned}
+        \end{equation}
+      \item It's harder to overbook a bigger plane.
+      \end{enumerate}
     \end{solution}
   \end{Ex}
 
