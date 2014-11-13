@@ -197,7 +197,78 @@
       independent decision (instead of acting in pairs).
     \end{enumerate}
     \begin{solution} \hfill
-      {\color{red} \huge TODO}
+      \begin{enumerate}
+      \item There are 600 people, but 300 couples are making
+        decisions, where each couple can be modeled by a Bernoulli RV.
+        \begin{table}[H]
+          \begin{equation}
+            \label{eq:3a-rv}
+            X_i\sim\text{Bernoulli}(0.5)
+          \end{equation}
+          \begin{tabularx}{\linewidth}{XX}
+            \begin{equation}
+              \label{eq:3a-mean}
+              \begin{aligned}
+                E[X_i] &= 0.5 \\
+                \implies \mu &= 0.5 \\
+              \end{aligned}
+            \end{equation}
+            &
+            \begin{equation}
+              \label{eq:3a-var}
+              \begin{aligned}
+                \text{Var}(X_i) &= (0.5)(1-0.5) \\
+                \implies \sigma^2 &= 0.25 \\
+              \end{aligned}
+            \end{equation}
+          \end{tabularx}
+        \end{table}
+        We are tasked to find the probability that the deviation from
+        the mean number of seats (i.e. probability that the mean
+        amount of seats is not enough) is less than 0.1.
+        \begin{equation}
+          \label{eq:3a-prepresol}
+          \begin{aligned}
+            P(|M_n-\mu| > \delta) &< 0.1 \\
+            P\left(\left|\frac{1}{n}\sum_{i=1}^nX_i-\mu\right|
+              > \delta\right) &< 0.1 \\
+            P\left(\left|\sum_{i=1}^nX_i-n\mu\right|>n\delta\right)&<0.1\\
+            P\left(\left|\frac{\sum_{i=1}^nX_i-n\mu}{\sigma\sqrt{n}}\right|
+              > \frac{n\delta}{\sigma\sqrt{n}}\right) &<0.1 \\
+            P\left(Z_n>\frac{n\delta}{\sigma\sqrt{n}}\right)&<0.1\\
+            1-P\left(Z_n\le\frac{n\delta}{\sigma\sqrt{n}}\right)&<0.1\\
+            P\left(Z_n \le \frac{n\delta}{\sigma\sqrt{n}}\right) &< 0.9 \\
+            \Phi\left(\frac{n\delta}{\sigma\sqrt{n}}\right) &< 0.9 \\
+            \frac{n\delta}{\sigma\sqrt{n}} &= 1.28155 \\
+            \delta &= \frac{1.28155\sigma}{\sqrt{n}} \\
+            \implies\delta &= 0.0369952 \\
+          \end{aligned}
+        \end{equation}
+        Where $\delta$ is the deviation from the mean. So the upper
+        bound on the number of couples which can be seated with
+        confidence 0.9 is
+        \begin{equation}
+          \label{eq:3a-presol}
+          \implies (\mu+\delta)n = 161.099
+        \end{equation}
+        So the number of people that can be seated with confidence 0.9
+        is 322.197.
+      \item Taking inspiration from \cref{eq:3a-presol}
+        \begin{equation}
+          \label{eq:3b-presol}
+          \begin{aligned}
+            \delta &= \frac{1.28155\sigma}{\sqrt{n}} \\
+            \implies\delta &= 0.0261596 \\
+          \end{aligned}
+        \end{equation}
+        Where $\delta$ is the deviation from the mean. So the upper
+        bound on the number of people which can be seated with
+        confidence 0.9 is
+        \begin{equation}
+          \label{eq:3a-presol}
+          \implies (\mu+\delta)n = 315.696
+        \end{equation}
+      \end{enumerate}
     \end{solution}
   \end{Ex}
 
