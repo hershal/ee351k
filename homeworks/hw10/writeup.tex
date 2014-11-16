@@ -1,0 +1,144 @@
+\documentclass[12pt]{article}
+\title{EE351K Homework 10}
+\author{Hershal Bhave (hb6279)}
+\date{Due November 20, 2014}
+
+\usepackage{multicol}
+\usepackage{float}
+\usepackage[in]{fullpage}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage{tabularx}
+\usepackage{rotating}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{cleveref}
+\usepackage{graphics}
+\usepackage{caption}
+\usepackage{wrapfig}
+\usepackage{subcaption}
+\usepackage[nosolutionfiles]{answers}
+\usepackage[acronym]{glossaries}
+
+\newenvironment{Ex}{\textbf{Problem}\vspace{.75em}\\}{}
+\Newassociation{solution}{Soln}{Answers}
+\pagebreak[3]
+\newcommand{\Opentesthook}[2]{\Writetofile{#1}{\protect\section{#1: #2}}}
+\renewcommand{\Solnlabel}[1]{\textbf{Solution}\quad}
+
+\newcommand{\dd}[1]{\:\mathrm{d}{#1}}
+\newcommand{\ddt}[1]{\frac{\dd{}}{\dd{#1}}}
+\newcommand{\dddt}[1]{\frac{\dd{}^2}{\dd{#1}^2}}
+
+\definecolor{silver}{rgb}{0.95,0.95,0.95}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item
+  \begin{Ex}
+    At a computer disk drive factory, inspectors randomly pick a
+    product from production lines to detect a failure. If the
+    production lines are normal, this failure rate $q_0 =
+    10^{-4}$. However occasionally some problems occur in the lines,
+    in which case the rate goes up to $q_1 = 10^{-1}$. Let $H_i$
+    denote the hypothesis that the failure rate is $q_i$.
+    
+    Every morning, an inspector chooses drives at random from the
+    previous day’s production and tests them. If a failure occurs too
+    soon, the company stops production and checks the critical part of
+    the process. Production line problems occur at random once every
+    10 days, so that $P(H_1) = 0.1 = 1 - P(H_0)$.  
+
+    \begin{enumerate}
+    \item Based on $N$, the number of drives tested up to and
+      including the first failure, design a MAP test.
+    \item Calculate the probability of ``false alarm'' and the
+      probability of ``missed detection''.
+    \item Based on this, calculate the probability of detection error
+      $P_e$.
+    \end{enumerate}
+    \begin{solution} \hfill
+      {\huge \color{red} TODO}
+    \end{solution}
+  \end{Ex}
+\item 
+  \begin{Ex}
+    Suppose that $X_1,\ldots,X_n$ form a random sample from a uniform
+    distribution on the interval $(0,\theta)$, where of the parameter
+    $\theta > 0$ but is unknown. Please find MLE of $\theta$.
+    \begin{solution} \hfill
+      {\huge \color{red} TODO}
+    \end{solution}
+  \end{Ex}
+\item 
+  \begin{Ex}
+    Let $X$ be a random variable uniform over the interval $[2,
+    12]$. Suppose we observe $X$ with some random error $N$ which is
+    uniformly distributed over interval $[0,1]$. i.e., $Y =X+N$
+    \begin{enumerate}
+    \item Find the Least mean square estimate of X based on the
+      observation $Y = y$.
+    \item Find the mean square error.
+    \end{enumerate}
+    \begin{solution} \hfill
+      {\huge \color{red} TODO}
+    \end{solution}
+  \end{Ex}
+\item 
+  \begin{Ex}
+    Romeo and Juliet start dating, but Juliet will be late on any date
+    by a random amount X, uniformly distributed over the interval $[0,
+    \theta]$. The parameter $\theta$ is unknown and is modeled as the
+    value of a random variable $\theta$, uniformly distributed between
+    zero and one hour.
+    \begin{enumerate}
+    \item Assuming that Juliet was late by an amount $x$ on their
+      first date, how should Romeo use this information to update the
+      distribution of $\theta$?
+    \item Find the MAP estimate of $\theta$ based on the observation
+      $X = x$.
+    \item Find the Least Mean Square estimate of $\theta$ based on the
+      observation $X = x$.
+    \item Derive the Linear Least Mean Square estimator of $\theta$
+      based on $X$.
+    \end{enumerate}
+    \begin{solution} \hfill
+      {\huge \color{red} TODO}
+    \end{solution}
+  \end{Ex}
+\item 
+  \begin{Ex}
+    Of 500 voters asked whether they are going to vote republican, 260
+    said yes.
+    \begin{enumerate}
+    \item Find a 95\% confidence interval of the probability $p$ that
+      the vote for a certain office will be for the republican
+      candidate.
+    \item Suppose that 475 of 500 voters said they will vote
+      Democrat. Repeat part (a).
+    \end{enumerate}
+    \begin{solution} \hfill
+      {\huge \color{red} TODO}
+    \end{solution}
+  \end{Ex}
+\item 
+  \begin{Ex}
+    Professor Hoogle always wonders what would be a fair grade for
+    students that take his course. Even if you are an outstanding
+    student, you usually don’t do well on every assignment. With many
+    years of teaching experience, he concludes that the
+    ``fluctuations'' of a student’s performance over the assignments,
+    i.e., the standard deviation of points a student gets on
+    assignments, is fixed to 5 points. This semester he decides to
+    give grades according to the mean points of assignments. However
+    this would be a sample mean and he wants to have a confidence
+    interval less than 6 points with probability 0.95 for the true
+    performance of a student, i.e., the true mean of assignment
+    points. What is the minimum number of assignments he should give?
+    \begin{solution} \hfill
+      {\huge \color{red} TODO}
+    \end{solution}
+  \end{Ex}
+\end{enumerate}
+\end{document}
