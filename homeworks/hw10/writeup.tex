@@ -30,6 +30,8 @@
 \newcommand{\ddt}[1]{\frac{\dd{}}{\dd{#1}}}
 \newcommand{\dddt}[1]{\frac{\dd{}^2}{\dd{#1}^2}}
 
+\DeclareMathOperator*{\argmax}{arg\,max}
+
 \definecolor{silver}{rgb}{0.95,0.95,0.95}
 
 \begin{document}
@@ -104,7 +106,125 @@
       based on $X$.
     \end{enumerate}
     \begin{solution} \hfill
-      {\huge \color{red} TODO}
+      \begin{enumerate}
+      \item We were given that $X\sim\text{Uniform}(0,\theta)$ and
+        $\Theta\sim\text{Uniform}(0,1)$.
+
+        Since $\Theta$ is uniform, we can define the PDF of $\Theta$
+        \begin{equation}
+          \label{eq:4a-pdf-theta}
+          f_\Theta(\theta)=\left\{
+            \begin{aligned}
+              & 1 &&\quad 0\le\theta\le1 \\
+              & 0 &&\quad \text{otherwise} \\
+            \end{aligned}\right.
+        \end{equation}
+        and the conditional PDF of $X$ given $\Theta$
+        \begin{equation}
+          \label{eq:4a-pdf-x-given-theta}
+          f_\Theta(\theta)=\left\{
+            \begin{aligned}
+              & \frac{1}{\theta} &&\quad 0\le x \le\theta \\
+              & 0 &&\quad \text{otherwise} \\
+            \end{aligned}\right.
+        \end{equation}
+
+        So now we must obtain the posterior PDF. We can use Bayes'
+        Rule.
+
+        \begin{mdframed}[backgroundcolor=silver]
+          \begin{description}
+          \item[Bayes' Rule] \hfill \\
+            $$f_{\Theta|X}(\theta|x) =
+            \frac{f_{\Theta}(\theta)f_{X|\Theta}(x|\theta)} {\int
+              f_{\Theta}(\theta^{\prime})f_{X|\Theta}(x|\theta^{\prime})
+              \dd{\theta^{\prime}}}$$
+            Where $f_{\Theta}$ is the prior distribution and
+            $f_{X|\Theta}$ is the model of the observation vector
+            $X$. After observing the value $x$ of $X$, we form the
+            posterior distribution of $\Theta$, using Bayes' Rule.
+          \end{description}
+        \end{mdframed}
+
+        \begin{equation}
+          \label{eq:4a-presol}
+          \begin{aligned}
+            f_{X|\Theta} &=
+            \frac{f_{\Theta}(\theta)f_{X|\Theta}(x|\theta)} {\int
+              f_{\Theta}(\theta^{\prime})f_{X|\Theta}(x|\theta^{\prime})
+              \dd{\theta^{\prime}}} \\
+            &= \frac{(1)(\frac{1}{\theta})}{\int_x^1
+                (1)(\frac{1}{\theta}) \dd{\theta^{\prime}}} \\
+            &= \frac{1}{\theta}[\ln(\theta^{\prime})]_x^1 \\
+            &= \frac{1}{\theta}(\ln(1) - \ln(x)) \\
+            &= \frac{1}{\theta}(-\ln(x)) \\
+            \implies f_{X|\Theta}&= \frac{1}{\theta\ln(x)} \\
+          \end{aligned}
+        \end{equation}
+        For precision,
+        \begin{equation}
+          \label{eq:4a-sol}
+            \implies f_{X|\Theta} = \left\{
+              \begin{aligned}
+                & \frac{1}{\theta|\ln(x)|}
+                &&\quad 0\le x\le\theta\le 1 \\
+                & 0 &&\quad\text{otherwise} \\
+              \end{aligned} \right.
+        \end{equation}
+      \item We must use the MAP estimator.
+        \begin{mdframed}[backgroundcolor=silver]
+          \begin{description}
+          \item[MAP Estimator] \hfill \\
+            $$\hat{\theta} = \argmax_{\theta}
+            f_{\Theta|X}(\theta|x)$$
+
+            We select a value of $theta$, denoted $\hat{\theta}$,
+            which maximizes the posterior distribution
+            $f_{\Theta|X}(\theta|x)$.
+          \end{description}
+        \end{mdframed}
+        In our case, maximizing $f_{\Theta|X}(\theta|x)$ requires us
+        to select the lowest value possible for $\hat{\theta}$ since a
+        lower value in the denominator of a fraction promotes larger
+        values when written in decimal. The lowest possible value we
+        may choose for $\hat{\theta}$ in order to maximize
+        $f_{\Theta|X}(\theta|x)$ is $\hat{\theta}=x$.
+      \item We must use the LMS estimator.
+        \begin{mdframed}[backgroundcolor=silver]
+          \begin{description}
+          \item[LMS Estimator] \hfill \\
+            $$\hat{\theta} = E[\Theta|X=x]$$
+          \end{description}
+        \end{mdframed}
+        Utilizing the LMS estimator simply requires some calculation.
+        \begin{equation}
+          \label{eq:4c-sol}
+          \begin{aligned}
+            \hat{\theta} &= E[\Theta|X=x] \\
+            &= \int_x^1 \theta \frac{1}{\theta|\ln x|} \dd{\theta} \\
+            &= \int_x^1 \frac{1}{|\ln x|} \dd{\theta} \\
+            &= \frac{1}{|\ln x|} [\theta]_x^1 \\
+            &= \frac{1}{|\ln x|} (1-x) \\
+            \implies \hat{\theta} &= \frac{1-x}{|\ln x|} \\
+          \end{aligned}
+        \end{equation}
+      \item  We must use the LLMS estimator.
+        \begin{mdframed}[backgroundcolor=silver]
+          \begin{description}
+          \item[LLMS Estimator] \hfill \\
+            $$\hat{\theta} = E[\Theta]+
+            \frac{\text{Cov}(\Theta,X)}{\text{Var}(X)}
+            (X-E[X])$$
+            or alternatively
+            $$\hat{\theta} = E[\Theta]+
+            \rho\frac{\sigma_{\Theta}}{\sigma_{X}}(X-E[X])$$
+            where
+            $$\rho =
+            \frac{\text{Cov}(\Theta,X)}{\sigma_{\Theta}\sigma_{X}}$$
+          \end{description}
+        \end{mdframed}
+
+      \end{enumerate}
     \end{solution}
   \end{Ex}
 \item
