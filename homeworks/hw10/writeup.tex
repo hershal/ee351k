@@ -142,7 +142,7 @@
             \implies n^* &= 45.7512 \\
           \end{aligned}
         \end{equation}
-        
+
         This means that after 46 drives are tested, we can make a
         decision about which state of production quality the factory
         is in. If a failure occurs before $n=46$, then we can assume
@@ -163,7 +163,7 @@
             \implies P(N\le 46|H_0) &= 0.00449011 \\
           \end{aligned}
         \end{equation}
-        The probability of a ``false alarm'' is less than 0.5\%. 
+        The probability of a ``false alarm'' is less than 0.5\%.
 
         The probability of a ``missed detection'' is the probability
         that the factory the number of drives untail a failure is
@@ -293,7 +293,48 @@
               & \frac{11+y}{2} &&\quad 11 < x < 12 \\
             \end{aligned} \right.
         \end{equation}
-      \item {\huge \color{red} TODO}
+      \item \hfill \\
+        \begin{mdframed}[backgroundcolor=silver]
+          \begin{description}
+          \item[Mean Square Error] \hfill \\
+            $$E[(\Theta-E[\Theta|X])^2|X=x]$$
+          \end{description}
+        \end{mdframed}
+        Finding the Mean Square Error for this problem now just
+        requires integration
+        \begin{equation}
+          \label{eq:3b-mse-def}
+          E[(X-E[X|Y=y])^2|Y=y] = \int (X-E[X|Y=y])f_{X|Y}(x|y) \dd{x}
+        \end{equation}
+        Which we can obtain by integrating the expected values
+        piecewise
+        \begin{equation}
+          \label{eq:3b-mse-piecewise}
+          E[(X-E[X|Y])^2|Y] = \left\{
+            \begin{aligned}
+              & \int_{2}^{y}
+              (x-\frac{y+2}{2})^2\left(\frac{1}{y-2}\right) \dd{x}
+              &&\quad 2 \le x \le 3 \\
+              & \int_{y-1}^{y} \left(x-y+\frac{1}{2}\right)^2(1) \dd{x}
+              &&\quad 3 < x < 11 \\
+              & \int_{y-1}^{12}
+              \left(x-\frac{y+11}{2}\right)^2\left(\frac{1}{13-y}\right) \dd{x} 
+              &&\quad 11 \le x \le 12 \\
+            \end{aligned} \right.
+        \end{equation}
+        Which turns out to be 
+        \begin{equation}
+          \label{eq:3b-mse-piecewise-sol}
+          \implies E[(X-E[X|Y])^2|Y] = \left\{
+            \begin{aligned}
+              & \frac{(y-2)^2}{12}
+              &&\quad 2 \le x \le 3 \\
+              & \frac{1}{12}
+              &&\quad 3 < x < 11 \\
+              & \frac{(y-13)^2}{12}
+              &&\quad 11 \le x \le 12 \\
+            \end{aligned} \right.
+        \end{equation}
       \end{enumerate}
     \end{solution}
   \end{Ex}
