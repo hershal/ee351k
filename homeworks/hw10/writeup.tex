@@ -605,8 +605,24 @@
     interval less than 6 points with probability 0.95 for the true
     performance of a student, i.e., the true mean of assignment
     points. What is the minimum number of assignments he should give?
-    \begin{solution} \hfill
-      {\huge \color{red} TODO}
+    \begin{solution} \hfill \vspace{.75em} \\
+      We are given that the standard deviation is 5, i.e.
+      $\sigma^2 = 25$. We would like a confidence interval of <6
+      points with probability 0.95 of the true performance of the
+      student. That is, we would like to find $n$ such that
+      \begin{equation}
+        \label{eq:6-equation}
+        \begin{aligned}
+          6 &= n\mu + 1.96\sqrt{\frac{\sigma^2}{n}} - (n\mu -
+          1.96\sqrt{{\frac{\sigma^2}{n}}}) \\
+          & = 3.92\sqrt{\frac{\sigma^2}{n}}
+          \sqrt{\frac{\sigma^2}{n}} &= \frac{6}{3.92} \\
+          \frac{\sigma^2}{n} &= \left(\frac{6}{3.92}\right)^2 \\
+          n &= \frac{\sigma^2}{\left(\frac{6}{3.92}\right)^2} \\
+          \implies n &= 10.67 \\
+          \implies n &= 11\;\text{assignments} \\
+        \end{aligned}
+      \end{equation}
     \end{solution}
   \end{Ex}
 \end{enumerate}
