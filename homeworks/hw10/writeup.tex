@@ -61,16 +61,152 @@
       $P_e$.
     \end{enumerate}
     \begin{solution} \hfill
-      {\huge \color{red} TODO}
+      \begin{enumerate}
+      \item First we will set up the problem. $P(H_0)=p=0.9$ and
+        $P(H_1)=1-p=0.1$ so that
+        \begin{equation}
+          \label{eq:1a-n-dist}
+          N\sim\left\{
+            \begin{aligned}
+              & \text{Geometric}(q_0) && \quad\text{w.p. } p \\
+              & \text{Geometric}(q_1) && \quad\text{w.p. } 1-p \\
+            \end{aligned} \right.
+        \end{equation}
+        We will define 0 and 1 to map to $H_0$ and $H_1$
+        respectively so that
+        \begin{equation}
+          \label{eq:1a-h-mapping}
+          \begin{aligned}
+            P_\Theta(0) = 0.9 \\
+            P_\Theta(1) = 0.1 \\
+          \end{aligned}
+        \end{equation}
+        For this problem, we would like to find $\hat{\theta}$ which
+        maximizes $P_{\Theta|N}(\theta|n)$.
+        \begin{equation}
+          \label{eq:1a-theta-hat}
+          \hat{\theta}_{\text{MAP}}(n) = \argmax_{\theta \in \{0,1\}}
+          P_{\Theta|N}(\theta|n)
+        \end{equation}
+        Which becomes
+        \begin{equation}
+          \label{eq:1a-theta-hat-expanded}
+          \hat{\theta}_{\text{MAP}} = \left\{
+            \begin{aligned}
+              & 0 &&\quad n>n^* \\
+              & 1 &&\quad n\le n^* \\
+            \end{aligned} \right.
+        \end{equation}
+        So that $H_0$ is chosen if $n>n^*$ and $H_1$ is chosen if
+        $n\le n^*$.
+
+        \begin{mdframed}[backgroundcolor=silver]
+          \begin{description}
+          \item[MAP Rule] \hfill \\
+            $$\hat{\theta}_{\text{MAP}}(n) = \argmax_{\theta}
+            P_{\Theta|N}(\theta|n)$$
+            Equivalently, it selects $\hat{\theta}$ that maximizes
+            over $\theta$
+            $$f_{\Theta}(\theta)f_{X|\Theta}(x|\theta)$$
+            So that if $\theta\in\{0,1\}$, then the corresponding MAP
+            test to decide in favor of $\theta=1$ looks like
+            $$f_{\Theta}(0)f_{X|\Theta}(x|0) >
+            f_{\Theta}(1)f_{X|\Theta}(x|1)$$
+          \end{description}
+        \end{mdframed}
+
+        The corresponding MAP test is in the form
+        \begin{equation}
+          \label{eq:1a-map-test}
+          \begin{aligned}
+            p_{\Theta}(q_0)p_{N|\Theta}(n|q_0)
+            &> p_{\Theta}(q_1)p_{N|\Theta}(n|q_1) \\
+            P(H_0)p_{N|\Theta}(n|q_0)
+            &> P(H_1)p_{N|\Theta}(n|q_1) \\
+            \frac{P(H_0)}{P(H_1)}
+            &> \frac{p_{N|\Theta}(n|q_1)}{p_{N|\Theta}(n|q_0)} \\
+            \frac{P(H_0)}{P(H_1)}
+            &> \frac{(1-q_1)^{n-1}(q_1)}{(1-q_0)^{n-1}(q_0)} \\
+            \frac{P(H_0)(q_0)}{P(H_1)(q_1)}
+            &> \frac{(1-q_1)^{n-1}}{(1-q_0)^{n-1}} \\
+            \log\left(\frac{P(H_0)(q_0)}{P(H_1)(q_1)}\right)
+            &> \log[(1-q_1)^{n-1}] - \log[(1-q_0)^{n-1}] \\
+            \log\left(\frac{P(H_0)(q_0)}{P(H_1)(q_1)}\right)
+            &> (n-1)\left(\frac{\log(1-q_1)}{\log(1-q_0)}\right) \\
+            n-1 &<
+            \frac{\log\left(\frac{P(H_0)(q_0)}{P(H_1)(q_1)}\right)}
+            {\left(\frac{\log(1-q_1)}{\log(1-q_0)}\right)} \\
+            \implies n^* &= 1 +
+            \frac{\log\left(\frac{P(H_0)(q_0)}{P(H_1)(q_1)}\right)}
+            {\left(\frac{\log(1-q_1)}{\log(1-q_0)}\right)} \\
+            \implies n^* &= 45.7512 \\
+          \end{aligned}
+        \end{equation}
+        
+        This means that after 46 drives are tested, we can make a
+        decision about which state of production quality the factory
+        is in. If a failure occurs before $n=46$, then we can assume
+        that $H_1$ is true and the failure rate of the factory is is
+        $q_1$. If the worker tests 46 drives and no failures occur,
+        then we can assume that the $H_0$ is true and the failure rate
+        of the factory is $q_0$.
+      \item The probability of ``false alarm'' is the probability that
+        the number of drives until a failure is less than 46 given
+        that the factory's production is normal (i.e. $H_0$ is
+        true). The probability of ``false alarm'' can be found by the
+        following
+        \begin{equation}
+          \label{eq:1b-false-alarm}
+          \begin{aligned}
+            P(N\le n^*|H_0) &= \int_1^{n^*} (1-q_0)^{n^*-1}(q_0)\dd{n^*} \\
+            P(N\le 46|H_0) &=\int_1^{46} (1-q_0)^{n^*}(q_0)\dd{n^*} \\
+            \implies P(N\le 46|H_0) &= 0.00449011 \\
+          \end{aligned}
+        \end{equation}
+        The probability of a ``false alarm'' is less than 0.5\%. 
+
+        The probability of a ``missed detection'' is the probability
+        that the factory the number of drives untail a failure is
+        greater than 46 given that the factory's production is
+        abnormal. The probability of a ``missed detection'' can be
+        found by the following
+
+        \begin{equation}
+          \label{eq:1b-missed-detection}
+          \begin{aligned}
+            P(N\ge n^*|H_1) &= \int_{n^*}^{\infty}
+            (1-q_1)^{n^*-1}(q_1)\dd{n^*} \\
+            P(N\ge 46|H_1) &= \int_{46}^{\infty}
+            (1-q_1)^{n^*-1}(q_1)\dd{n^*} \\
+            \implies P(N\ge 46|H_1) &= 0.00872796 \\
+          \end{aligned}
+        \end{equation}
+        The probability of a ``missed detection'' is less than 0.9\%.
+      \item The probabilty of a ``detection error'' is the probability
+        that the factory is in the $H_0$ state and there is a false
+        alarm or the factory is in the $H_1$ state and there is a
+        missed detection.
+
+        % (format "%f" (+ (* 0.9 0.00449011) (* 0.1 0.00872796)))
+        \begin{equation}
+          \label{eq:1c-detection-error}
+          \begin{aligned}
+            P_e &= P(H_0)P(N\le n^*|H_0) +  P(H_1)P(N\le n^*|H_1) \\
+            &= (0.9)(0.00458967) + (0.1)(0.00872796) \\
+            \implies P_e &= 0.0049139 \\
+          \end{aligned}
+        \end{equation}
+      \end{enumerate}
     \end{solution}
   \end{Ex}
+\pagebreak[4]
 \item
   \begin{Ex}
     Suppose that $X_1,\ldots,X_n$ form a random sample from a uniform
     distribution on the interval $(0,\theta)$, where of the parameter
     $\theta > 0$ but is unknown. Please find MLE of $\theta$.
     \begin{solution} \hfill
-      {\huge \color{red} TODO}
+      \\ {\huge \color{red} MLE==Maximum Likelihood Estimation?}
     \end{solution}
   \end{Ex}
 \item
@@ -149,7 +285,7 @@
         \begin{equation}
           \label{eq:4a-presol}
           \begin{aligned}
-            f_{X|\Theta} &=
+            f_{\Theta|X} &=
             \frac{f_{\Theta}(\theta)f_{X|\Theta}(x|\theta)} {\int
               f_{\Theta}(\theta^{\prime})f_{X|\Theta}(x|\theta^{\prime})
               \dd{\theta^{\prime}}} \\
@@ -158,13 +294,13 @@
             &= \frac{1}{\theta}[\ln(\theta^{\prime})]_x^1 \\
             &= \frac{1}{\theta}(\ln(1) - \ln(x)) \\
             &= \frac{1}{\theta}(-\ln(x)) \\
-            \implies f_{X|\Theta}&= \frac{1}{\theta\ln(x)} \\
+            \implies f_{\Theta|X}&= \frac{1}{\theta\ln(x)} \\
           \end{aligned}
         \end{equation}
         For precision,
         \begin{equation}
           \label{eq:4a-sol}
-            \implies f_{X|\Theta} = \left\{
+            \implies f_{\Theta|X} = \left\{
               \begin{aligned}
                 & \frac{1}{\theta|\ln(x)|}
                 &&\quad 0\le x\le\theta\le 1 \\
@@ -178,7 +314,7 @@
             $$\hat{\theta} = \argmax_{\theta}
             f_{\Theta|X}(\theta|x)$$
 
-            We select a value of $theta$, denoted $\hat{\theta}$,
+            We select a value of $\theta$, denoted $\hat{\theta}$,
             which maximizes the posterior distribution
             $f_{\Theta|X}(\theta|x)$.
           \end{description}
@@ -239,7 +375,13 @@
       Democrat. Repeat part (a).
     \end{enumerate}
     \begin{solution} \hfill
-      {\huge \color{red} TODO}
+      \begin{enumerate}
+      \item In our case, $\alpha = 0.05$. The confidence interval is
+        between $[\hat{\Theta}_n^{-}, \hat{\Theta}_n^{+}]$ for
+        $1-\alpha$ so that $p_{\Theta}(\hat{\Theta}_n^{-} \le \theta
+        \le \hat{\Theta}_n^{+}) \ge 1-\alpha$.
+      \item {\huge \color{red} TODO}
+      \end{enumerate}
     \end{solution}
   \end{Ex}
 \item
