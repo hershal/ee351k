@@ -213,14 +213,88 @@
   \begin{Ex}
     Let $X$ be a random variable uniform over the interval $[2,
     12]$. Suppose we observe $X$ with some random error $N$ which is
-    uniformly distributed over interval $[0,1]$. i.e., $Y =X+N$
+    uniformly distributed over interval $[0,1]$. i.e., $Y=X+N$
     \begin{enumerate}
     \item Find the Least mean square estimate of X based on the
       observation $Y = y$.
     \item Find the mean square error.
     \end{enumerate}
     \begin{solution} \hfill
-      {\huge \color{red} TODO}
+      \begin{enumerate}
+      \item Before we attempt this problem we must analyze the data we
+        are given. We know:
+        \begin{equation}
+          \label{eq:3a-defs}
+          \begin{aligned}
+            X&\sim\text{Uniform}(2,12) \\
+            N&\sim\text{Uniform}(0,1) \\
+            Y&=X+N \\
+          \end{aligned}
+        \end{equation}
+        To understand this problem we must analyze the support of the
+        joint PDF of $X$ and $Y$. The joint PDF can be obtained by
+        \begin{equation}
+          \label{eq:3a-joint-pdf}
+          f_{X,Y}(x,y) = f_{X}(x)f_{Y|X}(y|x) = \frac{1}{10}(1) \\
+        \end{equation}
+        Where $f_{Y|X}(y|x)=x+N$ so that
+        \begin{equation}
+          \label{eq:3a-y-given-x-def}
+          Y|X\sim\text{Uniform}(x,x+1)
+        \end{equation}
+        This generates a parallelogram as the support of the joint
+        PDF. We can now attempt to obtain $f_{X|Y}(x|y)$.
+        \begin{equation}
+          \label{eq:3a-x-given-y-attempt}
+          \begin{aligned}
+            f_{X|Y}(x|y) &= \frac{f_X(x)f_{Y|X}(y|x)}
+            {\int f_X(x)f_{Y|X}(y|x)\dd{x}} \\
+            &= \frac{\frac{1}{10} (1)}{\int \frac{1}{10}(1)\dd{x}} \\
+            \implies f_{X|Y}(x|y) &= \frac{1}{\int \dd{x}} \\
+          \end{aligned}
+        \end{equation}
+        The conditional PDF becomes piecewise based on the segment of
+        the parallelogram that we're currently on
+        \begin{equation}
+          \label{eq:3a-x-given-y-piecewise}
+          f_{X|Y}(x|y) = \left\{
+            \begin{aligned}
+              & \frac{1}{\int_2^y\dd{x}} &&\quad 2 \le x \le 3 \\
+              & \frac{1}{\int_{y-1}^{y}\dd{x}} &&\quad 3 < x < 11 \\
+              & \frac{1}{\int_{y-1}^{12}\dd{x}} &&\quad 11 < x < 12 \\
+            \end{aligned} \right.
+        \end{equation}
+        \begin{equation}
+          \label{eq:3a-x-given-y-piecewise}
+          f_{X|Y}(x|y) = \left\{
+            \begin{aligned}
+              & \frac{1}{y-2} &&\quad 2 \le x \le 3 \\
+              & 1 &&\quad 3 < x < 11 \\
+              & \frac{1}{13-y} &&\quad 11 < x < 12 \\
+            \end{aligned} \right.
+        \end{equation}
+        So that now the expectation is easy to find
+        \begin{equation}
+          \label{eq:3a-expectation-piecewise}
+          E[X|Y=y] = \left\{
+            \begin{aligned}
+              & \int_{2}^{y} \frac{1}{y-2}\dd{x} &&\quad 2 \le x \le 3 \\
+              & \int_{y-1}^{y}\dd{x} &&\quad 3 < x < 11 \\
+              & \int_{y-1}^{12}\frac{1}{13-y}\dd{x} &&\quad 11 < x < 12 \\
+            \end{aligned} \right.
+        \end{equation}
+        Which turns out to be
+        \begin{equation}
+          \label{eq:3a-expectation-piecewise-sol}
+          \implies E[X|Y=y] = \left\{
+            \begin{aligned}
+              & \frac{y+2}{2} &&\quad 2 \le x \le 3 \\
+              & y-\frac{1}{2} &&\quad 3 < x < 11 \\
+              & \frac{11+y}{2} &&\quad 11 < x < 12 \\
+            \end{aligned} \right.
+        \end{equation}
+      \item {\huge \color{red} TODO}
+      \end{enumerate}
     \end{solution}
   \end{Ex}
 \item
