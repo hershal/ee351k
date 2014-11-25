@@ -508,7 +508,7 @@
     said yes.
     \begin{enumerate}
     \item Find a 95\% confidence interval of the probability $p$ that
-      the vote for a certain office will be for the republican
+      the vote for a certain office will be for the Republican
       candidate.
     \item Suppose that 475 of 500 voters said they will vote
       Democrat. Repeat part (a).
@@ -519,7 +519,71 @@
         between $[\hat{\Theta}_n^{-}, \hat{\Theta}_n^{+}]$ for
         $1-\alpha$ so that $p_{\Theta}(\hat{\Theta}_n^{-} \le \theta
         \le \hat{\Theta}_n^{+}) \ge 1-\alpha$.
-      \item {\huge \color{red} TODO}
+
+        We can treat each sample as a Bernoulli RV
+        \begin{table}[H]
+          \begin{equation}
+            \label{eq:5a-rv}
+            X_i\sim\text{Bernoulli}(0.52)
+          \end{equation}
+          \begin{tabularx}{\linewidth}{XX}
+            \begin{equation}
+              \label{eq:5a-mean}
+              \begin{aligned}
+                E[X_i] &= 0.52 \\
+                \implies \mu_{X_i} &= 0.52 \\
+              \end{aligned}
+            \end{equation}
+            &
+            \begin{equation}
+              \label{eq:5a-var}
+              \begin{aligned}
+                \text{Var}(X_i) &= (0.52)(1-0.52) \\
+                \implies \sigma_{X_i}^2 &= 0.2496 \\
+              \end{aligned}
+            \end{equation}
+          \end{tabularx}
+        \end{table}
+        So that when we would like to reference the entire
+        distribution $X=\sum X_i = n X_1$
+        \begin{table}[H]
+          \begin{tabularx}{\linewidth}{XX}
+            \begin{equation}
+              \label{eq:5a-mean-x}
+              \begin{aligned}
+                E[X] &= E[n X_i] \\
+                \implies \mu_{X} &= 260 \\
+              \end{aligned}
+            \end{equation}
+            &
+            \begin{equation}
+              \label{eq:5a-var-x}
+              \begin{aligned}
+                \text{Var}(X) &= \text{Var}(n X_1) \\
+                \implies \sigma_{X_i}^2 &= 62400 \\
+              \end{aligned}
+            \end{equation}
+          \end{tabularx}
+        \end{table}
+
+        The confidence interval then becomes
+        \begin{equation}
+          \label{eq:5a-sol}
+          \begin{aligned}
+            \left[260 - 1.96\sqrt{\frac{\sigma_X^2}{n}}&, 260 +
+            1.96\sqrt{\frac{\sigma_X^2}{n}}\right] \\
+            \implies [238.104&, 281.896] \\
+          \end{aligned}
+        \end{equation}
+      \item Repeating the above with the altered probabilities yeilds
+        \begin{equation}
+          \label{eq:5b-sol}
+          \begin{aligned}
+            \left[25 - 1.96\sqrt{\frac{\sigma_X^2}{n}}&, 25 +
+            1.96\sqrt{\frac{\sigma_X^2}{n}}\right] \\
+            \implies [15.4481&, 35.5519] \\
+          \end{aligned}
+        \end{equation}
       \end{enumerate}
     \end{solution}
   \end{Ex}
