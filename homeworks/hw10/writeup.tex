@@ -318,11 +318,11 @@
               & \int_{y-1}^{y} \left(x-y+\frac{1}{2}\right)^2(1) \dd{x}
               &&\quad 3 < x < 11 \\
               & \int_{y-1}^{12}
-              \left(x-\frac{y+11}{2}\right)^2\left(\frac{1}{13-y}\right) \dd{x} 
+              \left(x-\frac{y+11}{2}\right)^2\left(\frac{1}{13-y}\right) \dd{x}
               &&\quad 11 \le x \le 12 \\
             \end{aligned} \right.
         \end{equation}
-        Which turns out to be 
+        Which turns out to be
         \begin{equation}
           \label{eq:3b-mse-piecewise-sol}
           \implies E[(X-E[X|Y])^2|Y] = \left\{
@@ -451,30 +451,54 @@
         \begin{equation}
           \label{eq:4c-sol}
           \begin{aligned}
-            \hat{\theta} &= E[\Theta|X=x] \\
+            \hat{\Theta} &= E[\Theta|X=x] \\
             &= \int_x^1 \theta \frac{1}{\theta|\ln x|} \dd{\theta} \\
             &= \int_x^1 \frac{1}{|\ln x|} \dd{\theta} \\
             &= \frac{1}{|\ln x|} [\theta]_x^1 \\
             &= \frac{1}{|\ln x|} (1-x) \\
-            \implies \hat{\theta} &= \frac{1-x}{|\ln x|} \\
+            \implies \hat{\Theta} &= \frac{1-x}{|\ln x|} \\
           \end{aligned}
         \end{equation}
       \item  We must use the LLMS estimator.
         \begin{mdframed}[backgroundcolor=silver]
           \begin{description}
           \item[LLMS Estimator] \hfill \\
-            $$\hat{\theta} = E[\Theta]+
+            $$\hat{\Theta} = E[\Theta]+
             \frac{\text{Cov}(\Theta,X)}{\text{Var}(X)}
             (X-E[X])$$
             or alternatively
-            $$\hat{\theta} = E[\Theta]+
+            $$\hat{\Theta} = E[\Theta]+
             \rho\frac{\sigma_{\Theta}}{\sigma_{X}}(X-E[X])$$
             where
             $$\rho =
             \frac{\text{Cov}(\Theta,X)}{\sigma_{\Theta}\sigma_{X}}$$
           \end{description}
         \end{mdframed}
-
+        \begin{equation}
+          \label{eq:3c-llms-estimator-sol}
+          \begin{aligned}
+            \hat{\Theta} &= E[\Theta]+
+            \frac{\text{Cov}(\Theta,X)}{\text{Var}(X)} (X-E[X]) \\
+            &= \frac{1}{2} + \frac{E[\Theta X] -
+              E[\Theta]E[X]}{\frac{\theta^2}{12}}
+            \left(X-\frac{\theta}{2}\right) \\
+            &= \frac{1}{2} + \frac{E[\Theta X] -
+              \frac{\theta}{4}}{\frac{\theta^2}{12}}
+            \left(X-\frac{\theta}{2}\right) \\
+            &= \frac{1}{2} + \frac{E[E[\Theta X|\Theta]] -
+              \frac{\theta}{4}}{\frac{\theta^2}{12}}
+            \left(X-\frac{\theta}{2}\right) \\
+            &= \frac{1}{2} + \frac{E\left[\Theta
+                \frac{1}{\theta}\right] -
+              \frac{\theta}{4}}{\frac{\theta^2}{12}}
+            \left(X-\frac{\theta}{2}\right) \\
+            \implies \hat{\Theta} &= \frac{1}{2} + \frac{1 -
+              \frac{\theta}{4}}{\frac{\theta^2}{12}}
+            \left(X-\frac{\theta}{2}\right) \\
+            \implies \hat{\Theta} &= \frac{2 \theta^2-3 \theta
+              (X+2)+12 X}{\theta^2} \\
+          \end{aligned}
+        \end{equation}
       \end{enumerate}
     \end{solution}
   \end{Ex}
